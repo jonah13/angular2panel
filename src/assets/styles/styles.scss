@@ -1,0 +1,365 @@
+/* You can add global styles to this file, and also import other style files */
+@import './reset.scss';
+@import './fonts.scss';
+/*button*/
+
+.form-group .btn-primary {
+  box-shadow: 0 0 0 0 #000;
+  color: #3A4657;
+  background-color: #D3DDEB;
+  border-color: #b9c1ce;
+  padding: 0.55rem 2rem;
+ }
+
+
+/*color scheme*/
+
+.vlt-blue {
+  color: #E6EBF2;
+}
+
+.dk-blue {
+  color: #3A4657;
+}
+
+.lt-blue {
+  color: #BBC8DC;
+}
+
+.md-blue {
+  color: #758296;
+}
+
+.in_page h5 {
+  color: #758296 !important;
+}
+
+.in_page h6 {
+  color: #758296 !important;
+}
+
+.in_page p {
+  color: #BBC8DC;
+  font-size: 0.9em;
+}
+
+
+/*text*/
+
+.text-ul {
+  text-decoration: underline;
+}
+
+
+/*fixed page*/
+html {
+  height: 100%;
+}
+body {
+  font-family: 'source_sans_proregular';
+  height: 100%;
+}
+
+.in_page {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.fixed_page {
+  background-color: #3A4657;
+  padding-bottom: 120px;
+  min-height: 100%;
+}
+
+.fixed_page .nav-link {
+  padding: 1.5em 1em 0.5em;
+  margin: 0 1.2em;
+}
+
+.fixed_page .bg-inverse {
+  background-color: transparent !important;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+  color: #E6EBF2;
+  font-family: 'source_sans_prosemibold';
+  font-size: 0.9em;
+}
+
+.navbar-brand {
+  font-family: 'source_sans_prosemibold';
+}
+
+.margin-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signin {
+  margin-top: 80px;
+  width: 30%;
+  min-width: 400px;
+  background-color: #E6EBF2;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-msg {
+  margin-top: 80px;
+  width: 30%;
+  min-width: 400px;
+}
+
+.contact-msg textarea {
+  height: 150px;
+}
+
+.contact-msg label {
+  font-size: 0.9em;
+}
+
+.signin h2 {
+  background-color: #D3DDEB;
+  color: #3A4657;
+  font-size: 1em;
+  padding: 0.7em 1em;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.form-signin {
+  padding: 1em 3em;
+}
+
+.form-signin p {
+  font-size: 0.9em;
+}
+
+.form-signin figure img {
+  width: 100%;
+}
+
+.form-signin .form-group {
+  margin-bottom: 0.5rem !important;
+}
+
+.form-signin .form-group>label {
+  font-family: 'source_sans_prosemibold';
+  font-size: 0.9em;
+  color: #3A4657;
+}
+
+.form-signin .form-group>a {
+  color: #3A4657;
+  font-size: 0.75em;
+}
+
+.form-signin .form-group span {
+  position: relative;
+  display: block;
+}
+
+.form-signin .form-group span i {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  margin-top: 0;
+}
+
+
+/*form valid*/
+
+.fm-valid {
+  background-image: url(../images/valid-ok.png);
+  width: 18px;
+  height: 19px;
+  background-repeat: no-repeat;
+}
+
+.fm-invalid {
+  background-image: url(../images/valid-fail.png);
+  width: 18px;
+  height: 19px;
+  background-repeat: no-repeat;
+}
+
+textarea {
+  resize: none;
+}
+
+.navbar-inverse .navbar-nav .nav-link.active {
+  border-bottom: 3px solid #758296;
+}
+
+
+/*browse*/
+
+.file-5 {
+  display: block;
+}
+
+.fupld {
+  opacity: 0;
+  display: none;
+}
+
+.fupld+label {
+  color: #d3394c;
+  display: block;
+}
+
+.fupld:focus+label,
+.fupld.has-focus+label,
+.fupld+label:hover {
+  color: #FFF;
+}
+
+.fupld+label figure {
+  width: 100%;
+  height: 115px;
+  background-color: #FFF;
+  display: block;
+  position: relative;
+  padding: 30px;
+  margin: 0 auto 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.40rem;
+}
+
+.fupld:focus+label figure,
+.fupld.has-focus+label figure,
+.fupld+label:hover figure {
+  background-color: #FFF;
+}
+
+.fupld+label svg {
+  width: 100%;
+  height: 80%;
+  fill: #758296;
+}
+
+.fupld+label span {
+  color: #758296;
+}
+
+a.btn {
+  font-size: 0.85rem !important;
+}
+
+a.btn-primary:hover,
+a.btn-primary:focus {
+  color: #fff;
+}
+
+.error {
+  color: red !important;
+}
+.success {
+  color: green !important;
+}
+
+.working {
+  display: inline-block;
+  width: 20px;
+  img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+/*footer*/
+
+footer p {
+  font-size: 0.8rem;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  background: #3A4657;
+  padding: 16px 0;
+  p {
+    margin: 0;
+  }
+  /*position: absolute;
+  bottom: 0;
+  width: 100%;*/
+  /* Set the fixed height of the footer here
+  height: 60px;*/
+  /*line-height: 60px;  Vertically center the text there
+  background-color: #f5f5f5;*/
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.fixed_page > .container {
+  padding: 60px 15px 0px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+@media (max-width:566px)
+{
+  html { position: relative; height: 100%; }
+  body { /* Margin bottom by footer height */ margin-bottom: 0px; }
+  .footer { position: relative; }
+}
+
+
+/*media*/
+
+@media (max-width:768px) {
+  .signin {
+    width: 90%;
+  }
+  .form-signin {
+    padding: 0.5em 0.5em;
+  }
+  .fixed_page .bg-inverse {
+    background-color: #3A4657 !important;
+  }
+}
+
+@media (max-width:678px) {
+  .navbar-nav {
+    background-color: #3A4657;
+  }
+  ul.navbar-nav li {
+    border-top: 1px solid #E6EBF2;
+  }
+  ul.navbar-nav li:first-child {
+    border-top: 0px;
+  }
+  .signin {
+    width: 90%;
+    position: relative;
+    top: auto;
+    left: auto;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .form-signin {
+    padding: 0.5em 0.5em;
+  }
+  .footer {
+    margin-top: 10px;
+  }
+}

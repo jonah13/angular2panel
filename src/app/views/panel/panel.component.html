@@ -1,0 +1,398 @@
+<div id="panel-page">
+
+  <div class="panel-left">
+    <app-panel-sidebar [user]="user" (editProfileClicked)="editProfileModal.trigger()" (logoutClicked)="logout()"></app-panel-sidebar>
+  </div>
+
+  <div class="panel-right">
+
+    <div class="panel-header">
+
+      <div class="top-header-section">
+        <div class="panel-breadcrumb">
+          <h2>Portfolio</h2> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
+          <h3>Company</h3> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
+          <h4>Program</h4> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
+          <h5>Strategy</h5> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
+          <h6>Initiative</h6>
+        </div>
+        <ul class="panel-header-icons">
+          <li class="header-item notifications-popover">
+            <a href [popover]="notificationsTemplate" (click)="onClick()" placement="bottom">
+              <img src="/assets/images/svg/mail.svg" alt="Mail"><span class="notif_count">3</span>
+            </a>
+            <template #notificationsTemplate><app-notifications-popover></app-notifications-popover></template>
+          </li>
+          <li class="header-item revisions-popover">
+            <a href [popover]="revisionsTemplate" (click)="onClick()" placement="bottom">
+              <img src="/assets/images/svg/time.svg" alt="Time">
+            </a>
+            <template #revisionsTemplate><app-revisions-popover></app-revisions-popover></template>
+          </li>
+          <li class="header-item"><a href="#"><img src="/assets/images/svg/info.svg" alt="Info"></a></li>
+          <li class="header-item">
+            <div dropdown class="dropdown">
+              <a href id="settings-dropdown" dropdownToggle><img src="/assets/images/svg/settings.svg" alt="Settings"></a>
+              <div class="settings-popover" dropdownMenu aria-labelledby="settings-dropdown">
+                <app-settings-popover></app-settings-popover>
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-header-section">
+        <div class="content-desc">
+          <p class="content-date">As of Friday, December 16, 2016</p>
+          <p class="content-title"><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i> Intiative Name</p>
+        </div>
+        <div class="body-controls">
+          <ul class="state-btns">
+            <li>
+              <a href="#" class="state-btn" [ngClass]="{active: table_only}" (click)="onUpdateDisplayOptions('table')">
+                <img src="/assets/images/svg/calender.svg" alt="table">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="state-btn" [ngClass]="{active: graph_only}" (click)="onUpdateDisplayOptions('graph')">
+                <img src="/assets/images/svg/statistics.svg" alt="graph">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="state-btn" [ngClass]="{active: target}" (click)="onUpdateStateBtns('target')">
+                <img src="/assets/images/svg/target.svg" alt="target"> Target
+              </a>
+            </li>
+            <li>
+              <a href="#" class="state-btn" [ngClass]="{active: track}" (click)="onUpdateStateBtns('track')">
+                <img src="/assets/images/svg/track.svg" alt="track"> Track
+              </a>
+            </li>
+            <li>
+              <a href="#" class="state-btn" [ngClass]="{active: triage}" (click)="onUpdateStateBtns('triage')">
+                <img src="/assets/images/svg/triage.svg" alt="triage"> Triage
+              </a>
+            </li>
+          </ul>
+          <ul class="action-icons">
+            <li><a href="#"><img src="/assets/images/svg/copy-paste.svg" alt="Text"></a></li>
+            <li><a href="#"><img src="/assets/images/svg/menu.svg" alt="Menu"></a></li>
+            <li><a href="#"><img src="/assets/images/svg/edit.svg" alt="Edit"></a></li>
+            <li class="delete-popover">
+              <a href [popover]="buttonsTemplate" (click)="onClick()" placement="bottom" triggers="focus">
+                <img src="/assets/images/svg/delete.svg" alt="Delete" >
+              </a>
+              <template #buttonsTemplate><app-buttons-popover></app-buttons-popover></template>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel-body clear">
+      <div class="body-content clear">
+
+        <app-collapsible-section [title]="'Description'" [graph_only]="graph_only" [table_only]="table_only">
+          <div class="table-box">
+            <h5>Title of table</h5>
+            <table>
+              <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="3">Total</td>
+                <td colspan="4"></td>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="graph-cards">
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </app-collapsible-section>
+
+        <app-collapsible-section [title]="'Summary Status'" [graph_only]="graph_only" [table_only]="table_only">
+          <div class="table-box">
+            <h5>Title of table</h5>
+            <table>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>Name of Entry</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>Name of Entry</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>Name of Entry</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="graph-cards">
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </app-collapsible-section>
+
+        <app-collapsible-section [title]="'Timing'" [graph_only]="graph_only" [table_only]="table_only">
+          <div class="table-box">
+            <h5>Title of table</h5>
+            <table>
+              <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="3">Total</td>
+                <td colspan="4"></td>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="graph-cards">
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </app-collapsible-section>
+
+        <app-collapsible-section [title]="'EBITDA'" [graph_only]="graph_only" [table_only]="table_only">
+          <div class="table-box">
+            <h5>Title of table</h5>
+            <table>
+              <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+                <th>Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <td colspan="3">Total</td>
+                <td colspan="4"></td>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="graph-cards">
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+            <div class="graph-card">
+              <h5>Title of Infographic</h5>
+              <div class="graph-body">
+                <div class="graph">
+                  <img src="/assets/images/svg/statistics.svg" alt="graph">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </app-collapsible-section>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user"
+                        (formSubmitted)="onSubmit($event)"></app-edit-profile-modal>

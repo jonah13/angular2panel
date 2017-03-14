@@ -1,0 +1,37 @@
+<div class="fixed_page">
+  <app-header></app-header>
+  <section class="">
+    <div class="signin margin-center">
+      <h2 class="form-signin-heading">Beckway Group Login:</h2>
+      <form class="form-signin form-horizontal" id="login_form">
+        <figure class="text-center">
+          <img src="/assets/images/beckway_logo.png" alt="Beckway" title="Beckway" />
+        </figure>
+        <p>Beckway group is proud to serve you, welcome <br />to our VectorMarks dashboard!</p>
+        <div class="form-group">
+          <label for="emailaddress">Email address</label>
+          <span><input name="email" type="email" class="form-control" id="emailaddress"
+                       [(ngModel)]="email" (keyup.enter)="onSubmit()"></span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="password"
+                 [(ngModel)]="password" (keyup.enter)="onSubmit()">
+        </div>
+        <div class="form-group error" *ngIf="error">
+          <p>{{error}}</p>
+        </div>
+        <div class="form-group fpl text-right">
+          <a href="#" routerLink="/request-password-reset" class="sspb text-ul small">Help, I forgot my password!</a>
+          <a class="btn btn-md btn-primary ml-4 sspb" href="#" (click)="onSubmit()" *ngIf="!working">
+            LOGIN <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-md btn-primary ml-4 sspb" href="#" (click)="onSubmit()" *ngIf="working">
+            <span class="working"><img src="/assets/images/loading.png" alt="working..."/></span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>
