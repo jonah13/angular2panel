@@ -6,7 +6,7 @@ import {Component, ViewEncapsulation, Output, EventEmitter, Input, OnInit} from 
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['../../../../../assets/styles/components/panel/sidebar.component.scss']
 })
-export class PanelSidebarComponent implements OnInit{
+export class PanelSidebarComponent implements OnInit {
   @Input('user') user:any[] = [];
   @Output() editProfileClicked = new EventEmitter<void>();
   @Output() logoutClicked = new EventEmitter<void>();
@@ -14,8 +14,10 @@ export class PanelSidebarComponent implements OnInit{
   public rate:number = 3;
   public prio_type:string = 'graphical';
   public currentComment:string = '';
+  public hierarchy_menu:string[];
+  public lead_menu:string[];
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.elements = [
       {
         name: 'Portfolio',
@@ -181,9 +183,11 @@ export class PanelSidebarComponent implements OnInit{
         level: 5
       }
     ];
+    this.hierarchy_menu = ['nested order (standard)', 'alphabetical order', 'sort by category'];
+    this.lead_menu = ['Sort', 'Filter', 'Select'];
   }
 
-  onExpandCollapseClick(i:number) :void {
+  onExpandCollapseClick(i:number):void {
     if (this.elements[i].state === 'expanded') {
       this.elements[i].state = 'collapsed';
     } else {
@@ -196,15 +200,16 @@ export class PanelSidebarComponent implements OnInit{
     }
   }
 
-  onClick(): boolean {
+  onClick():boolean {
     return false;
   }
 
-  onClickEditProfile(): boolean {
+  onClickEditProfile():boolean {
     this.editProfileClicked.emit();
     return false;
   }
-  onClickLogout(): boolean {
+
+  onClickLogout():boolean {
     console.log('logout clicked');
     this.logoutClicked.emit();
     return false;

@@ -49,6 +49,9 @@ import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/
 import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-popover.component';
 import {SelectUserPopoverComponent} from './views/panel/popovers/select-user-popover/select-user-popover.component';
 import {CommentPopoverComponent} from './views/panel/popovers/comment-popover/comment-popover.component';
+import {ListPopoverComponent} from "./views/panel/popovers/list-popover/list-popover.component";
+import {PanelHeaderComponent} from "./views/panel/wrapper/header/panel-header.component";
+import {OrganizationsHeaderComponent} from "./views/panel/wrapper/header/organizations-header.component";
 
 @NgModule({
   declarations: [
@@ -73,9 +76,12 @@ import {CommentPopoverComponent} from './views/panel/popovers/comment-popover/co
     SelectUserPopoverComponent,
     CommentPopoverComponent,
     PrioPopoverComponent,
+    ListPopoverComponent,
     GroupListComponent,
     InviteUsersModalComponent,
-    AddOrganizationModalModalComponent
+    AddOrganizationModalModalComponent,
+    PanelHeaderComponent,
+    OrganizationsHeaderComponent
   ],
   imports: [
     routing,
