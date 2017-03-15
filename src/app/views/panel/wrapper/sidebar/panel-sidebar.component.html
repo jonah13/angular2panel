@@ -136,8 +136,8 @@
                 <a href="#">Hierarchy</a>
               </th>
               <th class="list-popover-container">
-                <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom">PRIO</a>
-                <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event"></app-prio-popover></template>
+                <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom" #prioPop="bs-popover">PRIO</a>
+                <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event; prioPop.hide()"></app-prio-popover></template>
               </th>
               <th><a href="#">LEAD</a></th>
               <th><a href="#">STAT</a></th>

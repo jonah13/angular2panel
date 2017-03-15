@@ -85,7 +85,7 @@
             <li><a href="#"><img src="/assets/images/svg/menu.svg" alt="Menu"></a></li>
             <li><a href="#"><img src="/assets/images/svg/edit.svg" alt="Edit"></a></li>
             <li class="delete-popover">
-              <a href [popover]="buttonsTemplate" (click)="onClick()" placement="bottom" triggers="focus">
+              <a href [popover]="buttonsTemplate" (click)="onClick()" placement="bottom">
                 <img src="/assets/images/svg/delete.svg" alt="Delete" >
               </a>
               <template #buttonsTemplate><app-buttons-popover></app-buttons-popover></template>

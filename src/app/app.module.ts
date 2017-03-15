@@ -10,7 +10,6 @@ import { ModalModule } from 'ng2-bootstrap/modal';
 import { PopoverModule } from 'ng2-bootstrap/popover';
 import { RatingModule } from 'ng2-bootstrap/rating';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
-import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
 
 //services
 import {TitleService} from './services/helpers/title.service';
@@ -82,8 +81,7 @@ import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-pop
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
     RatingModule.forRoot(),
-    DatepickerModule.forRoot(),
-    SplitPaneModule
+    DatepickerModule.forRoot()
   ],
   providers: [
     appRoutingProviders,
