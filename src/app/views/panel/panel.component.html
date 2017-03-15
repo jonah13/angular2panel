@@ -38,7 +38,7 @@
             <div dropdown class="dropdown">
               <a href id="settings-dropdown" dropdownToggle><img src="/assets/images/svg/settings.svg" alt="Settings"></a>
               <div class="settings-popover" dropdownMenu aria-labelledby="settings-dropdown">
-                <app-settings-popover></app-settings-popover>
+                <app-settings-popover (addOrganizationClicked)="addOrganizationModal.trigger()"></app-settings-popover>
               </div>
             </div>
 
@@ -400,3 +400,5 @@
 
 <app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user"
                         (formSubmitted)="onSubmit($event)"></app-edit-profile-modal>
+
+<app-add-organization-modal #addOrganizationModal></app-add-organization-modal>

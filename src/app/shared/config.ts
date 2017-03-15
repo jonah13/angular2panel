@@ -4,8 +4,8 @@
  */
 const URI = {
   //NEW: 'http://beckwayapi.projectsintestserver.com/api/',
-  //BASE: 'http://beckwayapi.projectsintestserver.com/api/',
-  BASE: 'http://beckway.dotnettestserver.com/api/',
+  BASE: 'http://beckwayapi.projectsintestserver.com/api/',
+  //BASE: 'http://beckway.dotnettestserver.com/api/',
   NEW: 'http://beckwayapi.projectsintestserver.com/api/'
 };
 
