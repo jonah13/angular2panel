@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
+import {Component, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-calendar-popover',

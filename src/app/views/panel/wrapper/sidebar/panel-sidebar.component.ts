@@ -12,6 +12,7 @@ export class PanelSidebarComponent implements OnInit{
   @Output() logoutClicked = new EventEmitter<void>();
   public elements:any[];
   public rate:number = 3;
+  public prio_type:string = 'graphical';
 
   ngOnInit(): void {
     this.elements = [
@@ -20,6 +21,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'organization',
         hide: false,
+        locked: true,
         rate: 3,
         level: 1
       },
@@ -28,6 +30,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'company',
         hide: false,
+        locked: true,
         rate: 2,
         level: 2
       },
@@ -36,6 +39,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'program',
         hide: false,
+        locked: true,
         rate: 4,
         level: 3
       },
@@ -44,6 +48,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'strategy',
         hide: false,
+        locked: true,
         rate: 4,
         level: 4
       },
@@ -52,6 +57,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 2,
         level: 5
       },
@@ -60,6 +66,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 1,
         level: 5
       },
@@ -68,6 +75,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 1,
         level: 5
       },
@@ -76,6 +84,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'strategy',
         hide: false,
+        locked: true,
         rate: 4,
         level: 4
       },
@@ -84,6 +93,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 4,
         level: 5
       },
@@ -92,6 +102,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 3,
         level: 5
       },
@@ -100,6 +111,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 3,
         level: 5
       },
@@ -108,6 +120,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'strategy',
         hide: false,
+        locked: true,
         rate: 5,
         level: 4
       },
@@ -116,6 +129,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 1,
         level: 5
       },
@@ -124,6 +138,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 2,
         level: 5
       },
@@ -132,6 +147,7 @@ export class PanelSidebarComponent implements OnInit{
         state: 'expanded',
         type: 'initiative',
         hide: false,
+        locked: true,
         rate: 4,
         level: 5
       }

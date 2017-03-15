@@ -135,7 +135,10 @@
                 <img src="/assets/images/svg/hirarchy-5.svg">
                 <a href="#">Hierarchy</a>
               </th>
-              <th><a href="#">PRIO</a></th>
+              <th class="list-popover-container">
+                <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom">PRIO</a>
+                <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event"></app-prio-popover></template>
+              </th>
               <th><a href="#">LEAD</a></th>
               <th><a href="#">STAT</a></th>
               <th><a href="#">ATTN</a></th>
@@ -156,14 +159,26 @@
               </td>
               <td><img src="/assets/images/svg/comment.svg"/></td>
               <td class="rate">
-                <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off"></rating>
+                <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off" *ngIf="prio_type === 'graphical'"></rating>
+                <p *ngIf="prio_type === 'numerical'">{{elmt.rate}}</p>
+                <i *ngIf="prio_type === 'color'" class="fa fa-circle mr-1" aria-hidden="true"
+                   [ngClass]="{
+                     'txt-green': elmt.rate === 1,
+                     'txt-lightblue': elmt.rate === 2,
+                     'txt-grey': elmt.rate === 3,
+                     'txt-yellow': elmt.rate === 4,
+                     'txt-lightred': elmt.rate === 5
+                   }"></i>
               </td>
               <td>M. Habner</td>
               <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
               <td><input type="checkbox"/></td>
               <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom">set</a></td>
               <td>3 Weeks</td>
-              <td><i class="fa fa-lock" aria-hidden="true"></i></td>
+              <td>
+                <i class="fa" [ngClass]="{'fa-lock': elmt.locked, 'fa-unlock-alt': !elmt.locked}" aria-hidden="true"
+                   (click)="elmt.locked = !elmt.locked;"></i>
+              </td>
             </tr>
           </tbody>
         </table>

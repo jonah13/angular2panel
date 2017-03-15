@@ -46,6 +46,7 @@ import {GroupListComponent} from "./views/panel/group-list/group-list.component"
 import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invite-users-modal.component";
 import {AddOrganizationModalModalComponent} from "./views/panel/modals/add-organization/add-organization-modal.component";
 import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/calendar-popover.component';
+import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-popover.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/
     NotificationsPopoverComponent,
     SettingsPopoverComponent,
     CalendarPopoverComponent,
+    PrioPopoverComponent,
     GroupListComponent,
     InviteUsersModalComponent,
     AddOrganizationModalModalComponent
