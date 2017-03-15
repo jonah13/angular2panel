@@ -47,6 +47,9 @@ import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invit
 import {AddOrganizationModalModalComponent} from "./views/panel/modals/add-organization/add-organization-modal.component";
 import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/calendar-popover.component';
 import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-popover.component';
+import {ListPopoverComponent} from "./views/panel/popovers/list-popover/list-popover.component";
+import {PanelHeaderComponent} from "./views/panel/wrapper/header/panel-header.component";
+import {OrganizationsHeaderComponent} from "./views/panel/wrapper/header/organizations-header.component";
 
 @NgModule({
   declarations: [
@@ -69,9 +72,12 @@ import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-pop
     SettingsPopoverComponent,
     CalendarPopoverComponent,
     PrioPopoverComponent,
+    ListPopoverComponent,
     GroupListComponent,
     InviteUsersModalComponent,
-    AddOrganizationModalModalComponent
+    AddOrganizationModalModalComponent,
+    PanelHeaderComponent,
+    OrganizationsHeaderComponent
   ],
   imports: [
     routing,

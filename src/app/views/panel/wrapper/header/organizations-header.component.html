@@ -1,0 +1,66 @@
+<div class="row mt-2 mb-2">
+    <div class="col-8">
+        <div dropdown class="btn-group btn-group-left-panel">
+            <button type="button" class="btn pl-2 pr-2 pb-0 pt-0 bg-white">
+                <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile" class="w-100">
+            </button>
+            <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split" id="org-dropdown" aria-expanded="false" dropdownToggle>
+                <span class="sr-only"><i class="fa fa-angle-down md-blue" aria-hidden="true"></i></span>
+            </button>
+            <div class="lg-dpdn dropdown-menu" dropdownMenu aria-labelledby="org-dropdown">
+                <a class="dropdown-item" href (click)="onClick()">
+                    <figure>
+                        <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile" class="w-100">
+                    </figure>
+                </a>
+                <a class="dropdown-item" href (click)="onClick()">
+                    <figure>
+                        <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile" class="w-100">
+                    </figure>
+                </a>
+                <a class="dropdown-item" href (click)="onClick()">
+                    <figure>
+                        <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile" class="w-100">
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <ul class="nav nav-pills left-nav-pills row">
+            <li class="col-3">
+              <span class="dropdown">
+                <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="/assets/images/svg/copy-paste.svg" alt="Text" title="Text" class="ic16">
+                </a>
+                <div class="dropdown-menu dropdown-menu-left text-left nav-icons">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="title mb-10">Report options:</h3>
+                    <p>Options</p>
+                    <p>Options</p>
+                    <p>Options</p>
+                    <button type="button" class="btn btn-confirm-icon mt-20 btn-block sspsb">GENERATE</button>
+                </div>
+              </span>
+            </li>
+            <li class="col-3">
+                <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="/assets/images/svg/menu.svg" alt="Menu" title="Menu" class="ic16">
+                </a>
+            </li>
+            <li class="col-3">
+                <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="/assets/images/svg/edit.svg" alt="Edit" title="Edit" class="ic16">
+                </a>
+            </li>
+            <li class="col-3 sidebar-delete-popover">
+                <a href [popover]="sidebarButtonsTemplate" (click)="onClick()" placement="bottom">
+                    <img src="/assets/images/svg/delete.svg" alt="Delete" >
+                </a>
+                <template #sidebarButtonsTemplate><app-buttons-popover></app-buttons-popover></template>
+            </li>
+        </ul>
+    </div>
+</div>
