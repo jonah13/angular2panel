@@ -155,18 +155,20 @@
                 {{elmt.name}}
               </td>
               <td><img src="/assets/images/svg/comment.svg"/></td>
-              <td class="prio">
-                <rating [(ngModel)]="elmt.rate"></rating>
+              <td class="rate">
+                <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off"></rating>
               </td>
               <td>M. Habner</td>
               <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
               <td><input type="checkbox"/></td>
-              <td><a href="#">set</a></td>
+              <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom">set</a></td>
               <td>3 Weeks</td>
               <td><i class="fa fa-lock" aria-hidden="true"></i></td>
             </tr>
           </tbody>
         </table>
+
+        <template #calendarTemplate><app-calendar-popover></app-calendar-popover></template>
       </div>
     </div>
 
