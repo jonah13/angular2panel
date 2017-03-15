@@ -10,19 +10,23 @@ app-panel {
   width: 100%;
 
   .panel-left {
-    /*position: absolute;
+    //*
+    position: absolute;
     left: 0;
     top: 0;
-    width: 550px;*/
+    width: 550px;
+    //*/
     height: 100%;
   }
   .panel-right {
-    /*position: absolute;
+    //*
+    position: absolute;
     left: 550px;
     top: 0;
     width: -webkit-calc(100% - 550px);
     width:    -moz-calc(100% - 550px);
-    width:         calc(100% - 550px);*/
+    width:         calc(100% - 550px);
+    //*/
     background: #FAFAFA;
     height: 100vh;
     overflow: hidden;

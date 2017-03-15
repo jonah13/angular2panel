@@ -133,7 +133,10 @@
                 <img src="/assets/images/svg/hirarchy-3.svg">
                 <img src="/assets/images/svg/hirarchy-4.svg">
                 <img src="/assets/images/svg/hirarchy-5.svg">
-                <a href="#">Hierarchy</a>
+                  <span class="list-popover-container">
+                    <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom" href="#">Hierarchy</a>
+                    <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event"></app-prio-popover></template>
+                  </span>
               </th>
               <th class="list-popover-container">
                 <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom" #prioPop="bs-popover">PRIO</a>
