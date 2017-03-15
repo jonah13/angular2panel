@@ -37,9 +37,12 @@ import {PanelSidebarComponent} from './views/panel/wrapper/sidebar/panel-sidebar
 import {EditProfileModalComponent} from './views/panel/modals/edit-profile/edit-profile-modal.component';
 import {CollapsibleSectionComponent} from './views/panel/components/collapsible-section/collapsible-section.component';
 import {ButtonsPopoverComponent} from './views/panel/popovers/buttons-popover/buttons-popover.component';
+import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/settings-popover.component';
 import {RevisionsPopoverComponent} from './views/panel/popovers/revisions-popover/revisions-popover.component';
 import {NotificationsPopoverComponent} from './views/panel/popovers/notifications-popover/notifications-popover.component';
-import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/settings-popover.component';
+import {GroupListComponent} from "./views/panel/group-list/group-list.component";
+import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invite-users-modal.component";
+import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
 
 @NgModule({
   declarations: [
@@ -59,7 +62,9 @@ import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/
     ButtonsPopoverComponent,
     RevisionsPopoverComponent,
     NotificationsPopoverComponent,
-    SettingsPopoverComponent
+    SettingsPopoverComponent,
+    GroupListComponent,
+    InviteUsersModalComponent
   ],
   imports: [
     routing,
@@ -69,7 +74,8 @@ import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/
     DropdownModule.forRoot(),
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    SplitPaneModule
   ],
   providers: [
     appRoutingProviders,
@@ -84,4 +90,5 @@ import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

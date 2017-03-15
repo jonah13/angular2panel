@@ -1,0 +1,574 @@
+<div id="panel-page" class="group-list">
+
+    <div class="panel-left">
+        <div class="panel-sidebar">
+            <div class="sidebar-header">
+                <div class="user-panel">
+
+                    <div class="profile-image">
+                        <img src="{{user?.ProfilePic || '/assets/images/profile.jpg'}}"/>
+                    </div>
+
+                    <div class="profile-details">
+                        <h3>{{user?.FullName || 'New User'}}</h3>
+                        <p>{{user?.role || 'Role'}}</p>
+                    </div>
+                    <div class="actions-menu">
+                        <div dropdown class="dropdown">
+                            <a href id="simple-dropdown" dropdownToggle>
+                                <i class="fa fa-angle-down md-blue" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#" (click)="onClickEditProfile();">
+                                        <img src="/assets/images/svg/profile.svg"> Edit Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href (click)="onClick()">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" hre (click)="onClick()">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" (click)="onClickLogout();"><img
+                                            src="/assets/images/svg/logout.svg"> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end user-panel -->
+                <div class="search-form">
+                    <form class="form search">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 mt-6">
+                            <input type="text txt-grey" class="form-control" id="inlineFormInputGroup"
+                                   placeholder="Search">
+                            <div class="input-group-addon">
+                                <img src="/assets/images/svg/search.svg">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end search-form -->
+                <div class="groups-section border-left-grey text-center">
+                    <a routerLink="/group-list" href="#"><img src="/assets/images/svg/group.svg" alt="profile"
+                                                              class="mt-13 ic20"> </a>
+                </div>
+            </div>
+
+            <div class="sidebar-body">
+
+                <div class="left-panel-page col-12">
+                    <div class="row mt-2 mb-2">
+                        <div class="col-8">
+                            <div dropdown class="btn-group btn-group-left-panel">
+                                <button type="button" class="btn pl-2 pr-2 pb-0 pt-0 bg-white">
+                                    <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile"
+                                         class="w-100">
+                                </button>
+                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split"
+                                        id="org-dropdown" aria-expanded="false" dropdownToggle>
+                                    <span class="sr-only"><i class="fa fa-angle-down md-blue"
+                                                             aria-hidden="true"></i></span>
+                                </button>
+                                <div class="lg-dpdn dropdown-menu" dropdownMenu aria-labelledby="org-dropdown">
+                                    <a class="dropdown-item" href (click)="onClick()">
+                                        <figure>
+                                            <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile"
+                                                 class="w-100">
+                                        </figure>
+                                    </a>
+                                    <a class="dropdown-item" href (click)="onClick()">
+                                        <figure>
+                                            <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile"
+                                                 class="w-100">
+                                        </figure>
+                                    </a>
+                                    <a class="dropdown-item" href (click)="onClick()">
+                                        <figure>
+                                            <img src="/assets/images/beckway_logo.png" alt="Profile" title="profile"
+                                                 class="w-100">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <ul class="nav nav-pills left-nav-pills row">
+                                <li class="col-3">
+                                  <span class="dropdown">
+                                    <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#"
+                                       role="button"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <img src="/assets/images/svg/copy-paste.svg" alt="Text" title="Text"
+                                             class="ic16">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-left text-left nav-icons">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="title mb-10">Report options:</h3>
+                                        <p>Options</p>
+                                        <p>Options</p>
+                                        <p>Options</p>
+                                        <button type="button" class="btn btn-confirm-icon mt-20 btn-block sspsb">
+                                            GENERATE
+                                        </button>
+                                    </div>
+                                  </span>
+                                </li>
+                                <li class="col-3">
+                                    <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/assets/images/svg/menu.svg" alt="Menu" title="Menu" class="ic16">
+                                    </a>
+                                </li>
+                                <li class="col-3">
+                                    <a class="nav-link p-0 text-center mt-6" data-toggle="dropdown" href="#"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/assets/images/svg/edit.svg" alt="Edit" title="Edit" class="ic16">
+                                    </a>
+                                </li>
+                                <li class="col-3 sidebar-delete-popover">
+                                    <a href [popover]="sidebarButtonsTemplate" (click)="onClick()" placement="bottom">
+                                        <img src="/assets/images/svg/delete.svg" alt="Delete">
+                                    </a>
+                                    <template #sidebarButtonsTemplate>
+                                        <app-buttons-popover></app-buttons-popover>
+                                    </template>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="left-panel-page col-12">
+                        <div class="row mt-2 mb-2">
+                            <div class="col-12">
+                                <div class="left-menu group-list">
+
+                                    <table class="table tree-2 table-sm table-striped table-condensed small">
+                                        <tr class="menu-head">
+                                            <td><input type="checkbox" name=""></td>
+                                            <td>#</td>
+                                            <td>
+                                                <div class="row gpl participants">
+                                                    <div class="col-md-12">
+                                                        <div class="btn-group ml-2">
+                                                            <div dropdown class="btn-group btn-group-left-panel">
+                                                                <button type="button"
+                                                                        class="btn pl-2 pr-5 pb-0 pt-0 bg-white text-left">
+                                                                    <label class="mb-0">All Participants</label><br><br>
+                                                                    <span>3 Users</span>
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="btn btn-lg btn-secondary dropdown-toggle-split"
+                                                                        id="participants-dropdown" aria-expanded="false"
+                                                                        dropdownToggle>
+                                                                    <span class="sr-only"><i
+                                                                            class="fa fa-angle-down md-blue"
+                                                                            aria-hidden="true"></i></span>
+                                                                </button>
+                                                                <div class="lg-dpdn dropdown-menu" dropdownMenu
+                                                                     aria-labelledby="participants-dropdown">
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <label class="mb-0">All Participants</label><br>
+                                                                        <span><i>3 Users</i></span>
+                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <label class="mb-0">All Participants</label><br>
+                                                                        <span><i>3 Users</i></span>
+                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <label class="mb-0">All Participants</label><br>
+                                                                        <span><i>3 Users</i></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/assets/images/svg/hirarchy-1.svg" class="ic12">
+                                                <img src="/assets/images/svg/hirarchy-2.svg" class="ic12">
+                                                <img src="/assets/images/svg/hirarchy-3.svg" class="ic12">
+                                                <img src="/assets/images/svg/hirarchy-4.svg" class="ic12">
+                                                <img src="/assets/images/svg/hirarchy-5.svg" class="ic12">
+                                                <span class="dropdown">
+                                                  <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                                     aria-expanded="false">Hierarchy</a>
+                                                  <div class="dropdown-menu dropdown-menu-center dd-design1 text-center">
+                                                      <a class="dropdown-item" href="#">nested order (standard)</a>
+                                                      <a class="dropdown-item" href="#">alphabetical order</a>
+                                                      <a class="dropdown-item" href="#">sort by category</a>
+                                                  </div>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1">
+                                                    <span><img src="/assets/images/profile.png"></span>
+                                                    <figcaption class="figure-caption">Sunny S</figcaption>
+                                                </figure>
+                                                <small><i>Administrator</i></small>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1">
+                                                    <span><img src="/assets/images/profile.png"></span>
+                                                    <figcaption class="figure-caption">Bryan W</figcaption>
+                                                </figure>
+                                                <small><i>Manager</i></small>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1">
+                                                    <span><img src="/assets/images/profile.png"></span>
+                                                    <figcaption class="figure-caption">Mark H</figcaption>
+                                                </figure>
+                                                <small><i>user</i></small>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1">
+                                                    <span></span>
+                                                    <figcaption class="figure-caption">&nbsp;</figcaption>
+                                                </figure>
+                                                <small><i>&nbsp;</i></small>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1">
+                                                    <span></span>
+                                                    <figcaption class="figure-caption">&nbsp;</figcaption>
+                                                </figure>
+                                                <small><i>&nbsp;</i></small>
+                                            </td>
+                                            <td>
+                                                <figure class="mb-0 mt-1" data-toggle="modal"
+                                                        data-target="#modelinvite">
+                                                    <span class="text-center" (click)="inviteUsersModal.trigger();"><i
+                                                            class="fa fa-plus mt-2 pt-1"></i></span>
+                                                    <figcaption class="figure-caption">Invite</figcaption>
+                                                </figure>
+                                                <small><i>Group</i></small>
+
+                                                <app-invite-users-modal #inviteUsersModal></app-invite-users-modal>
+
+                                            </td>
+                                        </tr>
+
+                                        <tr class="treegrid-1">
+                                            <td><input type="checkbox"></td>
+                                            <td>3</td>
+                                            <td class="jk"><span data-toggle="tooltip" data-placement="top"
+                                                                 title="Tooltip on top">Root node 1</span>
+                                                <span class="float-right comment-icon"><img
+                                                        src="/assets/images/svg/comment.svg" class="ic14">
+                                              </span>
+                                            </td>
+                                            <td>
+                                                <strong><i>Owner</i></strong>
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><strong>Edit</strong></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-2 treegrid-parent-1">
+                                            <td><input type="checkbox"></td>
+                                            <td>3</td>
+                                            <td>Node 1-1</td>
+                                            <td>
+                                                <strong><i>Admin</i></strong>
+                                            </td>
+                                            <td><strong>Edit</strong></td>
+                                            <td><span>Comment</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-3 treegrid-parent-1">
+                                            <td><input type="checkbox"></td>
+                                            <td>3</td>
+                                            <td>Node 1-2</td>
+                                            <td>
+                                                <strong>Edit</strong>
+                                            </td>
+                                            <td><strong>Edit</strong></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-4 treegrid-parent-3">
+                                            <td><input type="checkbox"></td>
+                                            <td>3</td>
+                                            <td>Node 1-2-1</td>
+                                            <td>
+                                                <strong>Edit</strong>
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-5">
+                                            <td><input type="checkbox"></td>
+                                            <td>-</td>
+                                            <td class="jk">Root node 2</td>
+                                            <td>
+                                                <strong>Edit</strong>
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-6 treegrid-parent-5">
+                                            <td><input type="checkbox"></td>
+                                            <td>-</td>
+                                            <td class="jk">Node 2-1</td>
+                                            <td>
+                                                <span>Comment</span>
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-7 treegrid-parent-5">
+                                            <td><input type="checkbox"></td>
+                                            <td>-</td>
+                                            <td class="jk">Node 2-2</td>
+                                            <td>
+                                                <span>Comment</span>
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td><input type="checkbox"></td>
+                                            <td>-</td>
+                                            <td class="jk">Node 2-2-1</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td><span>Comment</span></td>
+                                            <td><span>View</span></td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                        <tr class="treegrid-8 treegrid-parent-7">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="jk">&nbsp;</td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

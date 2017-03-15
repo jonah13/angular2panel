@@ -1,5 +1,5 @@
 .panel-sidebar {
-  width: 550px;
+  /*width: 550px;*/
   height: 100%;
   background: #E6EBF2;
   .sidebar-header {
@@ -60,6 +60,7 @@
           top: 35px;
           left: -132px;
           border-left: none;
+          padding: 0 0 0 8px;
           .dropdown-item {
             border-bottom: 1px solid #f1f1f1;
             font-size: 14px;

@@ -48,7 +48,7 @@
     </div>
     <!-- end search-form -->
     <div class="groups-section border-left-grey text-center">
-      <a href="group-list.html"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20"> </a>
+      <a routerLink="/group-list" href="#"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20"> </a>
     </div>
   </div>
 
@@ -155,7 +155,7 @@
                 {{elmt.name}}
               </td>
               <td><img src="/assets/images/svg/comment.svg"/></td>
-              <td class="rate">
+              <td class="prio">
                 <rating [(ngModel)]="elmt.rate"></rating>
               </td>
               <td>M. Habner</td>

@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {UserModelService} from '../../models/user/user.model.service';
 import {AuthInfoService} from '../../services/auth/auth.info.service';
 import {EditProfileModalComponent} from './modals/edit-profile/edit-profile-modal.component';
+import {ResizeEvent} from "angular-resizable-element/dist/esm/src/index";
 
 @Component({
   selector: 'app-panel',
@@ -23,6 +24,8 @@ export class PanelComponent implements OnInit {
   protected triage: boolean = false;
   protected graph_only: boolean = false;
   protected table_only: boolean = false;
+  protected styleLeft: Object = {};
+  protected styleRight: Object = {};
 
   /**
    * Injecting needed services
@@ -141,6 +144,47 @@ export class PanelComponent implements OnInit {
       console.log(error);
       this.logout();
     });
+  }
+
+  onResizeLeftEnd(event: ResizeEvent): void {
+    console.log('Left Element was resized', event);
+    this.styleLeft = {
+      position: 'fixed',
+      left: `${event.rectangle.left}px`,
+      top: `${event.rectangle.top}px`,
+      width: `${event.rectangle.width}px`,
+      height: `${event.rectangle.height}px`
+    };
+  }
+
+  onResizeRightEnd(event: ResizeEvent): void {
+    console.log('Right Element was resized', event);
+    this.styleRight = {
+      position: 'fixed',
+      left: `${event.rectangle.left}px`,
+      top: `${event.rectangle.top}px`,
+      width: `${event.rectangle.width}px`,
+      height: `${event.rectangle.height}px`
+    };
+  }
+
+  validateRight(event: ResizeEvent): boolean {
+    console.info("validate");
+    console.info(event.rectangle);
+
+    this.styleLeft = {
+      position: 'fixed',
+      left: `${event.rectangle.left}px`,
+      top: `${event.rectangle.top}px`,
+      width: `${event.rectangle.width}px`,
+      height: `${event.rectangle.height}px`
+    };
+
+    const MIN_DIMENSIONS_PX: number = 50;
+    if (event.rectangle.width < MIN_DIMENSIONS_PX || event.rectangle.height < MIN_DIMENSIONS_PX) {
+      return false;
+    }
+    return true;
   }
 
 }
