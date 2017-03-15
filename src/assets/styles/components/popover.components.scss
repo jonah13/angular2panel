@@ -314,15 +314,19 @@
 
 }
 .comment-box {
+  popover-container {
+    background: #e6ebf2;
+  }
+  .popover.popover-right::after {
+    border-right-color: #e6ebf2;
+  }
   .comment-popover {
     background: #e6ebf2;
-    border-radius: 10px;
-    padding: 1.2em;
     text-align: left;
-    border: 1px solid #979fab;
     label {
       font-size: 1em;
       color: #000;
+      margin-bottom: 5px;
     }
     textarea {
       font-size: 0.9em;
@@ -331,6 +335,13 @@
       background: #fff;
       border-radius: 10px;
       font-weight: 100;
+      width: 400px;
+      height: 120px;
+    }
+    .btn-sm {
+      float: right;
+      margin-left: 6px;
+      margin-bottom: 6px;
     }
   }
 
