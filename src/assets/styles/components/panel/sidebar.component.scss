@@ -1,5 +1,4 @@
 .panel-sidebar {
-  /*width: 550px;*/
   height: 100%;
   background: #E6EBF2;
   .sidebar-header {
@@ -98,50 +97,55 @@
     .sidebar-body-content {
       background: #bbc8dc;
       position: relative;
-      .tree-table {
+      table.tree-table {
         width: 100%;
-        thead {
+        > thead {
           background: rgba(0, 0, 0, 0.05);
-          th {
-            text-align: center;
-            font-family: 'source_sans_proregular';
-            font-size: 13px;
-            height: 25px;
-            padding-top: 3px;
-            color: #292b2c;
-            text-transform: uppercase;
-            a {
+          > tr {
+            > th {
+              text-align: center;
+              font-family: 'source_sans_proregular';
+              font-size: 13px;
+              height: 25px;
+              padding-top: 3px;
               color: #292b2c;
-              text-decoration: underline;
-              &:hover {
-                color: #014c8c;
+              text-transform: uppercase;
+              a {
+                color: #292b2c;
+                text-decoration: underline;
+                &:hover {
+                  color: #014c8c;
+                }
+              }
+              img {
+                width: 12px;
+                height: 12px;
+                position: relative;
+                top: 2px;
+              }
+              input[type="checkbox"] {
+                height: 12px;
+                width: 12px;
+                margin: 0 2px;
               }
             }
-            img {
-              width: 12px;
-              height: 12px;
-              position: relative;
-              top: 2px;
-            }
-            input[type="checkbox"] {
-              height: 12px;
-              width: 12px;
-              margin: 0 2px;
-            }
+
           }
         }
-        tbody {
-          tr {
+        > tbody {
+          > tr {
             background: #FFF;
+            border-bottom: 1px solid #b5c0d1;
             &.hide {
               display: none;
             }
-            td {
+            > td {
               font-family: 'source_sans_proregular';
               font-size: 13px;
-              img {
-                width: 14px;
-                height: 14px;
+              text-align: center;
+              border-right: 1px solid #ddd;
+              &:first-child, &:nth-child(2) {
+                border-right: 1px dashed #979fab;
               }
               &:nth-child(3) {
                 text-align: left;
@@ -171,25 +175,29 @@
                   padding-left: 95px;
                 }
               }
-              &.prio {
+              &.rate {
                 padding: 3px 0 0;
-                span {
+                .span-on, .span-off {
                   display: inline-block;
                   height: 12px;
                   width: 4px;
                   margin-right: 1px;
                   background: #bbc2cb;
                   cursor: pointer;
-                  &.active {
-                    background: #000;
-                  }
                   &:last-child {
                     margin-right: 0;
                   }
                 }
+                .span-on {
+                  background: #000;
+                }
+              }
+              img {
+                width: 14px;
+                height: 14px;
               }
             }
-            td:nth-child(-n+4) {
+            > td:nth-child(-n+4) {
               background: #BBC8DC;
             }
             &:nth-child(2n+1) {

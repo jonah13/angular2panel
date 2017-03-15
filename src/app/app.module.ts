@@ -9,6 +9,8 @@ import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { ModalModule } from 'ng2-bootstrap/modal';
 import { PopoverModule } from 'ng2-bootstrap/popover';
 import { RatingModule } from 'ng2-bootstrap/rating';
+import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
 
 //services
 import {TitleService} from './services/helpers/title.service';
@@ -42,7 +44,7 @@ import {RevisionsPopoverComponent} from './views/panel/popovers/revisions-popove
 import {NotificationsPopoverComponent} from './views/panel/popovers/notifications-popover/notifications-popover.component';
 import {GroupListComponent} from "./views/panel/group-list/group-list.component";
 import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invite-users-modal.component";
-import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
+import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/calendar-popover.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
     RevisionsPopoverComponent,
     NotificationsPopoverComponent,
     SettingsPopoverComponent,
+    CalendarPopoverComponent,
     GroupListComponent,
     InviteUsersModalComponent
   ],
@@ -75,6 +78,7 @@ import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
     RatingModule.forRoot(),
+    DatepickerModule.forRoot(),
     SplitPaneModule
   ],
   providers: [

@@ -265,11 +265,6 @@
   font-size: 0.85em;
 }
 
-/* .group-list .menu-head td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
-    background: #fff;
-    border-bottom: 1px solid #bebebf !important;
-} */
-
 .group-list .menu-head td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)), .group-list td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
   background: #fff;
   border-bottom: 1px solid #bebebf !important;
@@ -278,69 +273,6 @@
 
 .group-list td:not(:nth-child(1)):not(:nth-child(2)) {
   border-right: 1px solid #e5e5e5 !important;
-}
-
-.left-panel-page .tree-table td {
-  text-align: center;
-  border-top: 0 !important;
-  border-bottom: 0 !important;
-}
-
-.left-panel-page .tree-table td:first-child,
-.left-panel-page .tree-table td:nth-child(2) {
-  border-right: 1px dashed #979fab;
-}
-
-.left-panel-page .tree-table tr:not(:first-child) {
-  border-bottom: 1px solid #b5c0d1;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) {
-  background: #f5f7fa;
-}
-
-.left-panel-page .tree-table tr:nth-child(even):not(:first-child) {
-  background: #fff !important;
-}
-
-.left-panel-page .tree-table tr:nth-child(even):not(:first-child) td:first-child {
-  background: #bbc8dc;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) td:first-child {
-  background: #cad4e4;
-}
-
-.left-panel-page .tree-table tr:nth-child(even):not(:first-child) td:nth-child(2) {
-  background: #bbc8dc;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) td:nth-child(2) {
-  background: #cad4e4;
-}
-
-.left-panel-page .tree-table tr:nth-child(even):not(:first-child) td:nth-child(3) {
-  background: #bbc8dc;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) td:nth-child(3) {
-  background: #cad4e4;
-}
-
-.left-panel-page .tree-table tr:nth-child(even):not(:first-child) td:nth-child(4) {
-  background: #bbc8dc;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) td:nth-child(4) {
-  background: #cad4e4;
-}
-
-.left-panel-page .tree-table tr:not(:first-child) {
-  border-bottom: 1px solid #b5c0d1;
-}
-
-.left-panel-page .tree-table tr:nth-child(odd):not(:first-child) {
-  background: #f5f7fa;
 }
 
 .left-panel-page td.jk {
@@ -827,9 +759,6 @@
 
 tr.menu-head a {
   text-decoration: underline;
-}
-.left-panel-page .tree-table td{
-  border-right: 1px solid #ddd;
 }
 .btn-group-left-panel{width: 100%; max-width: 255px;}
 .left-nav-pills{width: 100%; float: right; max-width: 160px; min-width: 100px;
