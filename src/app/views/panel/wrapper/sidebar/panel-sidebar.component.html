@@ -160,7 +160,11 @@
                       *ngIf="elmt.type !== 'initiative'" (click)="onExpandCollapseClick(i)"></span>
                 {{elmt.name}}
               </td>
-              <td><img src="/assets/images/svg/comment.svg"/></td>
+              <td class="comment-box">
+                <a href [popover]="commentTemplate" (click)="currentComment = elmt.comment; onClick()" placement="right" triggers="focus">
+                  <img src="/assets/images/svg/comment.svg" class="bubble"/>
+                </a>
+              </td>
               <td class="rate">
                 <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off" *ngIf="prio_type === 'graphical'"></rating>
                 <p *ngIf="prio_type === 'numerical'">{{elmt.rate}}</p>
@@ -173,9 +177,21 @@
                      'txt-lightred': elmt.rate === 5
                    }"></i>
               </td>
-              <td>M. Habner</td>
+              <td class="set-user">
+                <span *ngIf="elmt.lead">
+                  {{elmt.lead}}
+                  <a href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                  </a>
+                </span>
+                <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom">set</a>
+              </td>
               <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
-              <td><input type="checkbox"/></td>
+              <td class="comment-box">
+                <a href [popover]="flagTemplate" (click)="onClick()" placement="right" triggers="focus">
+                  <input type="checkbox"/>
+                </a>
+              </td>
               <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom">set</a></td>
               <td>3 Weeks</td>
               <td>
@@ -186,7 +202,14 @@
           </tbody>
         </table>
 
+        <template #flagTemplate>
+          <app-comment-popover [title]="'Reason for flagging attention?'"></app-comment-popover>
+        </template>
+        <template #commentTemplate>
+          <app-comment-popover [title]="'Edit Initiative Description'" [comment]="currentComment"></app-comment-popover>
+        </template>
         <template #calendarTemplate><app-calendar-popover></app-calendar-popover></template>
+        <template #selectUserTemplate><app-select-user-popover></app-select-user-popover></template>
       </div>
     </div>
 

@@ -300,3 +300,38 @@
     }
   }
 }
+.set-user {
+  popover-container {
+    background: #e6ebf2;
+  }
+  .popover.popover-bottom::after {
+    border-bottom-color: #e6ebf2;
+  }
+  .mainpro img {
+    width: 28px;
+    height: 28px;
+  }
+
+}
+.comment-box {
+  .comment-popover {
+    background: #e6ebf2;
+    border-radius: 10px;
+    padding: 1.2em;
+    text-align: left;
+    border: 1px solid #979fab;
+    label {
+      font-size: 1em;
+      color: #000;
+    }
+    textarea {
+      font-size: 0.9em;
+      padding: 1em;
+      border: 1px solid #a1a1a1;
+      background: #fff;
+      border-radius: 10px;
+      font-weight: 100;
+    }
+  }
+
+}
