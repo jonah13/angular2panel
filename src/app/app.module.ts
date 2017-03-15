@@ -43,6 +43,7 @@ import {NotificationsPopoverComponent} from './views/panel/popovers/notification
 import {GroupListComponent} from "./views/panel/group-list/group-list.component";
 import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invite-users-modal.component";
 import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
+import {AddOrganizationModalModalComponent} from "./views/panel/modals/add-organization/add-organization-modal.component";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";
     NotificationsPopoverComponent,
     SettingsPopoverComponent,
     GroupListComponent,
-    InviteUsersModalComponent
+    InviteUsersModalComponent,
+    AddOrganizationModalModalComponent
   ],
   imports: [
     routing,

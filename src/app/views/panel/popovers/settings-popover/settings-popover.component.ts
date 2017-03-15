@@ -7,9 +7,15 @@ import {Component, Input, Output, EventEmitter, ViewEncapsulation} from '@angula
   styleUrls: ['../../../../../assets/styles/components/popover.components.scss',]
 })
 export class SettingsPopoverComponent {
+  @Output() addOrganizationClicked = new EventEmitter<void>();
   @Output() confirmClicked = new EventEmitter<void>();
   onConfirmClicked():boolean {
     this.confirmClicked.emit();
+    return false;
+  }
+
+  onClickAddOrganization(): boolean {
+    this.addOrganizationClicked.emit();
     return false;
   }
 
