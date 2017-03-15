@@ -1,10 +1,14 @@
 <div id="panel-page">
 
-  <div class="panel-left">
+  <vertical-split-pane primary-component-minsize="400"
+                       secondary-component-minsize="400"
+                       primary-component-initialratio="0.5" >
+  <div class="panel-left split-pane-content-primary" >
     <app-panel-sidebar [user]="user" (editProfileClicked)="editProfileModal.trigger()" (logoutClicked)="logout()"></app-panel-sidebar>
   </div>
 
-  <div class="panel-right">
+
+  <div class="panel-right split-pane-content-secondary">
 
     <div class="panel-header">
 
@@ -391,7 +395,7 @@
     </div>
 
   </div>
-
+  </vertical-split-pane>
 </div>
 
 <app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user"

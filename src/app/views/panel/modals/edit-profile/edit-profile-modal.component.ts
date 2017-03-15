@@ -15,7 +15,7 @@ export class EditProfileModalComponent {
   @Input('user') user: any;
   @Output() formSubmitted = new EventEmitter<any>();
 
-  constructor (private sanitizer: DomSanitizer,) {
+  constructor (private sanitizer: DomSanitizer) {
   }
 
   public trigger(open = true):void {
