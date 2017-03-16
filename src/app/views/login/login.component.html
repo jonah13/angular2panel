@@ -22,11 +22,11 @@
           <p>{{error}}</p>
         </div>
         <div class="form-group fpl text-right">
-          <a href="#" routerLink="/request-password-reset" class="sspb text-ul small">Help, I forgot my password!</a>
-          <a class="btn btn-md btn-primary ml-4 sspb" href="#" (click)="onSubmit()" *ngIf="!working">
+          <a href="javascript:void(0)" routerLink="/request-password-reset" class="sspb text-ul small">Help, I forgot my password!</a>
+          <a class="btn btn-md btn-primary ml-4 sspb" href="javascript:void(0)" (click)="onSubmit()" *ngIf="!working">
             LOGIN <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
-          <a class="btn btn-md btn-primary ml-4 sspb" href="#" (click)="onSubmit()" *ngIf="working">
+          <a class="btn btn-md btn-primary ml-4 sspb" href="javascript:void(0)" (click)="onSubmit()" *ngIf="working">
             <span class="working"><img src="/assets/images/loading.png" alt="working..."/></span>
           </a>
         </div>

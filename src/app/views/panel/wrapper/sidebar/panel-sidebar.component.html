@@ -21,7 +21,7 @@
                 <img src="/assets/images/svg/hirarchy-4.svg">
                 <img src="/assets/images/svg/hirarchy-5.svg">
                   <span class="list-popover-container">
-                    <a [popover]="hierarchyTemplate" (click)="onClick()" placement="bottom" href="#">Hierarchy</a>
+                    <a [popover]="hierarchyTemplate" (click)="onClick()" placement="bottom" href="javascript:void(0)">Hierarchy</a>
                     <template #hierarchyTemplate><app-list-popover [items]="hierarchy_menu" (choiceClicked)="hierarchy_type = $event"></app-list-popover></template>
                   </span>
               </th>
@@ -31,14 +31,14 @@
               </th>
               <th>
                 <span class="list-popover-container">
-                  <a [popover]="leadTemplate" (click)="onClick()" placement="bottom" href="#">LEAD</a>
+                  <a [popover]="leadTemplate" (click)="onClick()" placement="bottom" href="javascript:void(0)">LEAD</a>
                   <template #leadTemplate><app-list-popover [items]="lead_menu" (choiceClicked)="lead_type = $event"></app-list-popover></template>
                  </span>
               </th>
-              <th><a href="#">STAT</a></th>
-              <th><a href="#">ATTN</a></th>
+              <th><a href="javascript:void(0)">STAT</a></th>
+              <th><a href="javascript:void(0)">ATTN</a></th>
               <th></th>
-              <th><a href="#">END</a></th>
+              <th><a href="javascript:void(0)">END</a></th>
               <th></th>
             </tr>
           </thead>

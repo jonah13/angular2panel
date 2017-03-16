@@ -15,5 +15,5 @@ export class GroupListComponent {
    */
   constructor(private pageTitle:TitleService) {
   }
-  
+
 }

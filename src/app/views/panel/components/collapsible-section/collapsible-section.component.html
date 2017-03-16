@@ -4,17 +4,17 @@
     <div class="section-controls">
       <ul>
         <li>
-          <a href="#" (click)="onGraphTableClick('table')" [ngClass]="{active: table_only}">
+          <a href="javascript:void(0)" (click)="onGraphTableClick('table')" [ngClass]="{active: table_only}">
             <img src="/assets/images/svg/calender.svg" alt="table">
           </a>
         </li>
         <li>
-          <a href="#" (click)="onGraphTableClick('graph')" [ngClass]="{active: graph_only}">
+          <a href="javascript:void(0)" (click)="onGraphTableClick('graph')" [ngClass]="{active: graph_only}">
             <img src="/assets/images/svg/statistics.svg" alt="graph">
           </a>
         </li>
         <li>
-          <a href="#" [ngClass]="{'expand-collapse': true, collapse: !section_collapsed, expand: section_collapsed}"
+          <a href="javascript:void(0)" [ngClass]="{'expand-collapse': true, collapse: !section_collapsed, expand: section_collapsed}"
                (click)="onExpandCollapseClick()"></a>
         </li>
       </ul>

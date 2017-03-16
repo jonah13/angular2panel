@@ -1,8 +1,8 @@
-<div class="sidebar-header">
-    <div class="user-panel">
+<div class="row sidebar-header">
+    <div class="user-panel col-lg-4 col-md-4 col-sm-4">
 
         <div class="profile-image">
-            <img src="{{user?.ProfilePic || '/assets/images/profile.jpg'}}" />
+            <img src="{{user?.ProfilePic || '/assets/images/profile.jpg'}}"/>
         </div>
 
         <div class="profile-details">
@@ -16,7 +16,7 @@
                 </a>
                 <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
                     <li>
-                        <a class="dropdown-item" href="#" (click)="onClickEditProfile();">
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="onClickEditProfile();">
                             <img src="/assets/images/svg/profile.svg"> Edit Profile
                         </a>
                     </li>
@@ -27,7 +27,8 @@
                         <a class="dropdown-item" href (click)="onClick()">&nbsp;</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href (click)="onClickLogout();"><img src="/assets/images/svg/logout.svg"> Logout</a>
+                        <a class="dropdown-item" href (click)="onClickLogout();"><img
+                                src="/assets/images/svg/logout.svg"> Logout</a>
                     </li>
                 </ul>
             </div>
@@ -35,7 +36,7 @@
 
     </div>
     <!-- end user-panel -->
-    <div class="search-form">
+    <div class="search-form col-lg-4 col-md-4 col-sm-4">
         <form class="form search">
             <div class="input-group mb-2 mr-sm-2 mb-sm-0 mt-6">
                 <input type="text txt-grey" class="form-control" id="inlineFormInputGroup" placeholder="Search">
@@ -46,7 +47,8 @@
         </form>
     </div>
     <!-- end search-form -->
-    <div class="groups-section border-left-grey text-center">
-        <a routerLink="/group-list" href="#"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20"> </a>
+    <div class="groups-section border-left-grey text-center col-lg-4 col-md-4 col-sm-4">
+        <a routerLink="/group-list" href="javascript:void(0)"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20">
+        </a>
     </div>
 </div>
