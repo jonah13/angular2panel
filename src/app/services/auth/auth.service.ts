@@ -57,7 +57,7 @@ export class AuthService {
     return this._httpService
       .post(this._userApiService.endpoints.login.uri, JSON.stringify({Email: email, password}))
       .map(res => {
-        if (res['User_ID'] && res['User_Role']) {
+        if (res && res['User_ID'] && res['User_Role']) {
           let user = {user_ID: res['User_ID'], user_Role: res['User_Role']};
           this._authInfoService.setCurrentUser(JSON.stringify(user));
           return;

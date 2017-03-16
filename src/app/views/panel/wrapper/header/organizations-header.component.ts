@@ -7,5 +7,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: []
 })
 export class OrganizationsHeaderComponent {
-
+  onClick():boolean {
+    return false;
+  }
 }

@@ -48,8 +48,13 @@ export class PanelComponent implements OnInit {
     let str: string = ''+this._authInfoService.getCurrentUser();
     try {
       this.user = JSON.parse(str);
-      this.role = this.user.user_Role;
-      this.user_ID = this.user.user_ID;
+      if (this.user) {
+        this.role = this.user.user_Role || '';
+        this.user_ID = this.user.user_ID;
+      } else {
+        this.role = '';
+        this.user_ID = 0;
+      }
     } catch (err) {
       console.log(err);
     }
@@ -59,7 +64,7 @@ export class PanelComponent implements OnInit {
     } else {
       console.log(this.user);
       console.log(typeof this.user);
-      this.logout();
+      //this.logout();
     }
   }
 

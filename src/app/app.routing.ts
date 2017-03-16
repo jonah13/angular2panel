@@ -18,12 +18,12 @@ const appRoutes:Routes = [
   //TODO: MOVE INTO CHILD ROUTER UNDER A CHILD MODULE FOR THE PANEL
   {
     path: 'panel',
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: PanelComponent
   },
   {
     path: 'group-list',
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: GroupListComponent
   },
   {

@@ -31,7 +31,7 @@
               </th>
               <th>
                 <span class="list-popover-container">
-                  <a [popover]="leadTemplate" (click)="onClick()" placement="bottom" href="javascript:void(0)">LEAD</a>
+                  <a [popover]="leadTemplate" (click)="onClick()" placement="bottom">LEAD</a>
                   <template #leadTemplate><app-list-popover [items]="lead_menu" (choiceClicked)="lead_type = $event"></app-list-popover></template>
                  </span>
               </th>
