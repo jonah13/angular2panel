@@ -7,7 +7,8 @@ import {Component, Output, Input, EventEmitter, ViewEncapsulation} from '@angula
   styleUrls: []
 })
 export class PanelHeaderComponent {
+  @Input('group_url') group_url:string = '/group-list';
   @Input('user') user:{};
   @Input('user_temp') user_temp:any[] = [];
-
+  
 }
