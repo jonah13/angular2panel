@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ng2-bootstrap/modal';
 import {TeamMember} from "../../../../models/team-member/team-member.interface";
 import {AuthInfoService} from "../../../../services/auth/auth.info.service";
+import {TeamMemberModelService} from "../../../../models/team-member/team-member.model.service";
 
 @Component({
   selector: 'app-invite-users-modal',
@@ -12,13 +13,15 @@ import {AuthInfoService} from "../../../../services/auth/auth.info.service";
 export class InviteUsersModalComponent implements OnInit {
   @ViewChild('inviteUsersModal') public inviteUsersModal:ModalDirective;
   protected teamMembersToInvite:TeamMember[] = [];
-  protected user_ID:number;
   protected user:any;
+  protected user_ID:number;
+  protected organization_ID:number = 28;
 
   /**
    * @param _authInfoService
    */
-  constructor(private _authInfoService:AuthInfoService) {
+  constructor(private _authInfoService:AuthInfoService,
+              private _teamMemberModelService:TeamMemberModelService) {
   }
 
   ngOnInit() {
@@ -49,10 +52,12 @@ export class InviteUsersModalComponent implements OnInit {
 
   addNewTeamMemberToInvite() {
     this.teamMembersToInvite.push({
-      fullName: '',
-      titleRole: '',
-      email: '',
-      permissionGroup: 'Administrator'
+      FullName: '',
+      Title: '',
+      Email: '',
+      PermissionGroup: '',
+      organizationId: this.organization_ID,
+      Created_by: +this.user_ID
     });
   }
 
@@ -61,7 +66,8 @@ export class InviteUsersModalComponent implements OnInit {
   }
 
   sendInvites() {
-    console.log('sendInvites', JSON.stringify(this.teamMembersToInvite));
+    console.log(this.teamMembersToInvite);
+    this._teamMemberModelService.create(this.teamMembersToInvite);
   }
 
 }

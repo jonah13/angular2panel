@@ -14,6 +14,8 @@ import { DatepickerModule } from 'ng2-bootstrap/datepicker';
 //services
 import {OrganizationApiService} from '../models/organization/organization.api.service';
 import {OrganizationModelService} from '../models/organization/organization.model.service';
+import {TeamMemberModelService} from "../models/team-member/team-member.model.service";
+import {TeamMemberApiService} from "../models/team-member/team-member.api.service";
 
 //components
 import {PanelComponent} from './panel.component';
@@ -72,7 +74,9 @@ import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.co
   ],
   providers: [
     OrganizationApiService,
-    OrganizationModelService
+    OrganizationModelService,
+    TeamMemberApiService,
+    TeamMemberModelService
   ],
   exports: [PanelComponent]
 })
