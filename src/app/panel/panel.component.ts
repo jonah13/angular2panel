@@ -1,16 +1,16 @@
 import {Component, ViewEncapsulation, OnInit, ViewChild} from '@angular/core';
-import {TitleService} from '../../services/helpers/title.service';
-import {AuthService} from '../../services/auth/auth.service';
+import {TitleService} from '../services/helpers/title.service';
+import {AuthService} from '../services/auth/auth.service';
 import {Router} from '@angular/router';
-import {UserModelService} from '../../models/user/user.model.service';
-import {AuthInfoService} from '../../services/auth/auth.info.service';
-import {EditProfileModalComponent} from './modals/edit-profile/edit-profile-modal.component';
+import {UserModelService} from '../models/user/user.model.service';
+import {AuthInfoService} from '../services/auth/auth.info.service';
+import {EditProfileModalComponent} from './components/modals/edit-profile/edit-profile-modal.component';
 
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['../../../assets/styles/pages/panel.component.scss', '../../../assets/styles/pages/after-login.scss']
+  styleUrls: ['../../assets/styles/pages/panel.component.scss', '../../assets/styles/pages/after-login.scss']
 })
 export class PanelComponent implements OnInit {
   @ViewChild('editProfileModal') public editProfileModal:EditProfileModalComponent;

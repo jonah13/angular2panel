@@ -4,7 +4,7 @@ import {Component, ViewEncapsulation, Output, EventEmitter, Input, OnInit} from 
   selector: 'app-panel-sidebar',
   templateUrl: './panel-sidebar.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['../../../../../assets/styles/components/panel/sidebar.component.scss']
+  styleUrls: ['../../../../assets/styles/components/panel/sidebar.component.scss']
 })
 export class PanelSidebarComponent implements OnInit {
   @Input('user') user:any[] = [];

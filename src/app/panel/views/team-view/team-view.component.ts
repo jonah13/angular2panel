@@ -2,12 +2,12 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {TitleService} from "../../../services/helpers/title.service";
 
 @Component({
-  selector: 'app-group-list',
-  templateUrl: './group-list.component.html',
+  selector: 'app-team-view',
+  templateUrl: './team-view.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['../../../../assets/styles/pages/group-list.component.scss', '../../../../assets/styles/pages/after-login.scss', '../../../../assets/styles/components/panel/sidebar.component.scss']
+  styleUrls: ['../../../../assets/styles/pages/team-view.component.scss', '../../../../assets/styles/pages/after-login.scss', '../../../../assets/styles/components/panel/sidebar.component.scss']
 })
-export class GroupListComponent {
+export class TeamViewComponent {
 
   /**
    * Injecting needed services
