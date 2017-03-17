@@ -6,9 +6,9 @@ import {CreateNewPasswordComponent} from './views/reset-password/create-new-pass
 import {AboutComponent} from './views/about/about.component';
 import {HelpComponent} from './views/help/help.component';
 import {ContactComponent} from './views/contact/contact.component';
-import {PanelComponent} from './views/panel/panel.component';
+import {PanelComponent} from './panel/panel.component';
 import {AuthGuardService} from './services/auth/auth-guard.service';
-import {GroupListComponent} from "./views/panel/group-list/group-list.component";
+import {TeamViewComponent} from "./panel/views/team-view/team-view.component";
 
 const appRoutes:Routes = [
   {
@@ -18,13 +18,13 @@ const appRoutes:Routes = [
   //TODO: MOVE INTO CHILD ROUTER UNDER A CHILD MODULE FOR THE PANEL
   {
     path: 'panel',
-    //canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     component: PanelComponent
   },
   {
-    path: 'group-list',
-    //canActivate: [AuthGuardService],
-    component: GroupListComponent
+    path: 'team-view',
+    canActivate: [AuthGuardService],
+    component: TeamViewComponent
   },
   {
     path: 'request-password-reset',

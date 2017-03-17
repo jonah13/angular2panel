@@ -4,14 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders }  from './app.routing';
 
-//third party
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
-import { ModalModule } from 'ng2-bootstrap/modal';
-import { PopoverModule } from 'ng2-bootstrap/popover';
-import { RatingModule } from 'ng2-bootstrap/rating';
-import { DatepickerModule } from 'ng2-bootstrap/datepicker';
-/*import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";*/
-
 //services
 import {TitleService} from './services/helpers/title.service';
 import {UserModelService} from './models/user/user.model.service';
@@ -21,6 +13,9 @@ import {HttpService} from './services/http/http.service';
 import {AuthService} from './services/auth/auth.service';
 import {AuthInfoService} from './services/auth/auth.info.service';
 import {AuthGuardService} from './services/auth/auth-guard.service';
+
+//panel module
+import {PanelModule} from './panel/panel.module';
 
 //components
 import { AppComponent } from './app.component';
@@ -34,24 +29,6 @@ import {CreateNewPasswordComponent} from './views/reset-password/create-new-pass
 import {AboutComponent} from './views/about/about.component';
 import {HelpComponent} from './views/help/help.component';
 import {ContactComponent} from './views/contact/contact.component';
-import {PanelComponent} from './views/panel/panel.component';
-import {PanelSidebarComponent} from './views/panel/wrapper/sidebar/panel-sidebar.component';
-import {EditProfileModalComponent} from './views/panel/modals/edit-profile/edit-profile-modal.component';
-import {CollapsibleSectionComponent} from './views/panel/components/collapsible-section/collapsible-section.component';
-import {ButtonsPopoverComponent} from './views/panel/popovers/buttons-popover/buttons-popover.component';
-import {SettingsPopoverComponent} from './views/panel/popovers/settings-popover/settings-popover.component';
-import {RevisionsPopoverComponent} from './views/panel/popovers/revisions-popover/revisions-popover.component';
-import {NotificationsPopoverComponent} from './views/panel/popovers/notifications-popover/notifications-popover.component';
-import {GroupListComponent} from "./views/panel/group-list/group-list.component";
-import {InviteUsersModalComponent} from "./views/panel/modals/invite-users/invite-users-modal.component";
-import {AddOrganizationModalModalComponent} from "./views/panel/modals/add-organization/add-organization-modal.component";
-import {CalendarPopoverComponent} from './views/panel/popovers/calendar-popover/calendar-popover.component';
-import {PrioPopoverComponent} from './views/panel/popovers/prio-popover/prio-popover.component';
-import {SelectUserPopoverComponent} from './views/panel/popovers/select-user-popover/select-user-popover.component';
-import {CommentPopoverComponent} from './views/panel/popovers/comment-popover/comment-popover.component';
-import {ListPopoverComponent} from "./views/panel/popovers/list-popover/list-popover.component";
-import {PanelHeaderComponent} from "./views/panel/wrapper/header/panel-header.component";
-import {OrganizationsHeaderComponent} from "./views/panel/wrapper/header/organizations-header.component";
 
 @NgModule({
   declarations: [
@@ -63,37 +40,14 @@ import {OrganizationsHeaderComponent} from "./views/panel/wrapper/header/organiz
     CreateNewPasswordComponent,
     AboutComponent,
     HelpComponent,
-    ContactComponent,
-    PanelComponent,
-    PanelSidebarComponent,
-    EditProfileModalComponent,
-    CollapsibleSectionComponent,
-    ButtonsPopoverComponent,
-    RevisionsPopoverComponent,
-    NotificationsPopoverComponent,
-    SettingsPopoverComponent,
-    CalendarPopoverComponent,
-    SelectUserPopoverComponent,
-    CommentPopoverComponent,
-    PrioPopoverComponent,
-    ListPopoverComponent,
-    GroupListComponent,
-    InviteUsersModalComponent,
-    AddOrganizationModalModalComponent,
-    PanelHeaderComponent,
-    OrganizationsHeaderComponent
+    ContactComponent
   ],
   imports: [
     routing,
     BrowserModule,
     FormsModule,
     HttpModule,
-    /*SplitPaneModule*/
-    DropdownModule.forRoot(),
-    ModalModule.forRoot(),
-    PopoverModule.forRoot(),
-    RatingModule.forRoot(),
-    DatepickerModule.forRoot()
+    PanelModule
   ],
   providers: [
     appRoutingProviders,
