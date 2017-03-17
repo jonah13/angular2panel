@@ -32,6 +32,8 @@ import {ListPopoverComponent} from "./components/popovers/list-popover/list-popo
 import {HeaderComponent} from "./components/header/header.component";
 import {OrganizationsHeaderComponent} from "./components/organizations-header/organizations-header.component";
 import {RouterModule} from '@angular/router';
+import {TeamMemberModelService} from "../models/team-member/team-member.model.service";
+import {TeamMemberApiService} from "../models/team-member/team-member.api.service";
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import {RouterModule} from '@angular/router';
     DatepickerModule.forRoot()
   ],
   providers: [
+    TeamMemberApiService,
+    TeamMemberModelService
   ],
   exports: [PanelComponent]
 })

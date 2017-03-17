@@ -1,6 +1,8 @@
 export interface  TeamMember {
-  fullName: string,
-  titleRole: string,
-  email: string,
-  permissionGroup: string
+  FullName: string,
+  Title: string,
+  Email: string,
+  PermissionGroup: string,
+  organizationId: number,
+  Created_by: number
 }

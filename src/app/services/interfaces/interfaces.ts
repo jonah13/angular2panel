@@ -14,6 +14,7 @@ export interface Endpoint {
   token?: HttpUri;
   login?: HttpUri;
   contact?: HttpUri;
+  listAll?: HttpUri;
   getById?: HttpUri;
   updateUser?: HttpUri;
   resetPassword?: HttpUri;
@@ -32,11 +33,11 @@ export interface AuthToken {
 export interface ApiServiceInterface {
   endpoints: Endpoint;
   observer$: Observable<Array<any>>;
-  list?(obj: any): void;
-  create?(obj: any): void;
-  update?(obj: any): void;
-  destroy?(id:any, obj: any): void;
-  view?(id:any, obj: any): void;
+  list?(obj:any): void;
+  create?(obj:any): void;
+  update?(obj:any): void;
+  destroy?(id:any, obj:any): void;
+  view?(id:any, obj:any): void;
   query?(params:any):void;
 }
 
