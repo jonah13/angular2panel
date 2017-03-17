@@ -8,7 +8,7 @@ import {Component, ViewEncapsulation, Output, EventEmitter, Input, OnInit} from 
 })
 export class PanelSidebarComponent implements OnInit {
   @Input('user') user:any[] = [];
-  @Output() editProfileClicked = new EventEmitter<void>();
+  @Input('user_temp') user_temp:any[] = [];
   @Output() logoutClicked = new EventEmitter<void>();
   public elements:any[];
   public rate:number = 3;
@@ -201,11 +201,6 @@ export class PanelSidebarComponent implements OnInit {
   }
 
   onClick():boolean {
-    return false;
-  }
-
-  onClickEditProfile():boolean {
-    this.editProfileClicked.emit();
     return false;
   }
 

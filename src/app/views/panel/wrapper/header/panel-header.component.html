@@ -1,5 +1,5 @@
 <div class="row sidebar-header">
-    <div class="user-panel col-lg-4 col-md-4 col-sm-4">
+    <div class="user-panel col-lg-5 col-md-5 col-sm-5">
 
         <div class="profile-image">
             <img src="{{user?.ProfilePic || '/assets/images/profile.jpg'}}"/>
@@ -16,7 +16,7 @@
                 </a>
                 <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="onClickEditProfile();">
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="editProfileModal.trigger();"> 
                             <img src="/assets/images/svg/profile.svg"> Edit Profile
                         </a>
                     </li>
@@ -47,8 +47,11 @@
         </form>
     </div>
     <!-- end search-form -->
-    <div class="groups-section border-left-grey text-center col-lg-4 col-md-4 col-sm-4">
+    <div class="groups-section border-left-grey text-center col-lg-3 col-md-3 col-sm-3">
         <a routerLink="/group-list"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20">
         </a>
     </div>
 </div>
+
+<app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user"
+                        (formSubmitted)="onSubmit($event)"></app-edit-profile-modal>

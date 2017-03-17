@@ -38,4 +38,8 @@ export class InviteUsersModalComponent implements OnInit {
     this.teamMembersToInvite.splice(index, 1);
   }
 
+  sendInvites() {
+    console.log('sendInvites', JSON.stringify(this.teamMembersToInvite));
+  }
+
 }

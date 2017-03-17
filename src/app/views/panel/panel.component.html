@@ -6,7 +6,7 @@
                        primary-component-initialratio="0.5" >
                        -->
   <div class="panel-left split-pane-content-primary" >
-    <app-panel-sidebar [user]="user" (editProfileClicked)="editProfileModal.trigger()" (logoutClicked)="logout()"></app-panel-sidebar>
+    <app-panel-sidebar [user]="user" [user_temp]="user_temp" (logoutClicked)="logout()"></app-panel-sidebar>
   </div>
 
 
@@ -401,7 +401,5 @@
   <!--</vertical-split-pane>-->
 </div>
 
-<app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user"
-                        (formSubmitted)="onSubmit($event)"></app-edit-profile-modal>
 
 <app-add-organization-modal #addOrganizationModal></app-add-organization-modal>

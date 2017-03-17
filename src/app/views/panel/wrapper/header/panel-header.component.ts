@@ -7,6 +7,7 @@ import {Component, Output, Input, EventEmitter, ViewEncapsulation} from '@angula
   styleUrls: []
 })
 export class PanelHeaderComponent {
-  @Input('user') user:{} ;
+  @Input('user') user:{};
+  @Input('user_temp') user_temp:any[] = [];
 
 }
