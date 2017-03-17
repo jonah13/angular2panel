@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ng2-bootstrap/modal';
 import {TeamMember} from "../../../../models/team-member/team-member.interface";
+import {AuthInfoService} from "../../../../services/auth/auth.info.service";
 
 @Component({
   selector: 'app-invite-users-modal',
@@ -9,8 +10,33 @@ import {TeamMember} from "../../../../models/team-member/team-member.interface";
   styleUrls: ['../../../../../assets/styles/components/panel/edit-profile-modal.component.scss', '../../../../../assets/styles/components/panel/invite-users-modal.component.scss']
 })
 export class InviteUsersModalComponent implements OnInit {
-  protected teamMembersToInvite:TeamMember[] = [];
   @ViewChild('inviteUsersModal') public inviteUsersModal:ModalDirective;
+  protected teamMembersToInvite:TeamMember[] = [];
+  protected user_ID:number;
+  protected user:any;
+
+  /**
+   * @param _authInfoService
+   */
+  constructor(private _authInfoService:AuthInfoService) {
+  }
+
+  ngOnInit() {
+    this.addNewTeamMemberToInvite();
+
+    let str:string = '' + this._authInfoService.getCurrentUser();
+    try {
+      this.user = JSON.parse(str);
+      if (this.user) {
+        this.user_ID = this.user.user_ID;
+      } else {
+        this.user_ID = 0;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
 
   public trigger(open = true):void {
     if (open) {
@@ -19,10 +45,6 @@ export class InviteUsersModalComponent implements OnInit {
       this.inviteUsersModal.hide();
     }
 
-  }
-
-  ngOnInit() {
-    this.addNewTeamMemberToInvite();
   }
 
   addNewTeamMemberToInvite() {

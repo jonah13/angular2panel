@@ -21,19 +21,19 @@
             <form class="form-inline">
               <div class="form-group col-md-3">
                 <label>Full Name:</label>
-                <input type="text" class="form-control" value="{{member.fullName}}">
+                <input type="text" class="form-control" name="fullName" [(ngModel)]="member.fullName">
               </div>
               <div class="form-group col-md-3">
                 <label>Title/Role:</label>
-                <input type="text" class="form-control" value="{{member.titleRole}}">
+                <input type="text" class="form-control" name="titleRole" [(ngModel)]="member.titleRole">
               </div>
               <div class="form-group col-md-3">
                 <label>Email:</label>
-                <input type="email" class="form-control" value="{{member.email}}">
+                <input type="email" class="form-control" name="email" [(ngModel)]="member.email">
               </div>
               <div class="form-group col-md-3">
                 <label>Permission Group</label>
-                <select class="form-control w100" value="{{member.permissionGroup}}">
+                <select class="form-control w100" name="permissionGroup" [(ngModel)]="member.permissionGroup">
                   <option>Administrator</option>
                   <option>Manager</option>
                   <option>Member</option>
