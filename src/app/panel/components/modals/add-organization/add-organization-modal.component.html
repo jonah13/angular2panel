@@ -17,51 +17,77 @@
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label for="organizationlogo">Add Logo of the company</label>
-                                    <input type="file" name="fupload[]" id="fupload" class="inputfile fupld"
-                                           data-multiple-caption="{count} files selected" multiple/>
-                                    <label for="fupload">
+                                    <label for="org_logo">Organization Logo:</label>
+                                    <input type="file" name="org_logo" id="org_logo" class="inputfile fupld"
+                                           (change)="onImageChange($event)"/>
+                                    <label for="org_logo">
                                         <figure>
-                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         width="320.317px" height="319.774px" viewBox="0 0 320.317 319.774" enable-background="new 0 0 320.317 319.774"
-                         xml:space="preserve">
-                    <path fill="#768296" d="M207.491,0C153.002,0,107.325,38.542,97.15,90.54c-9.638-3.86-19.826-5.784-30.284-5.229
-                        C29.446,86.68,0,118.623,0,157.128c0,37.709,30.543,68.259,68.247,68.259c6.333,0,11.292-4.957,11.292-11.285
-                        c0-6.327-4.958-11.284-11.292-11.284c-25.037,0-45.683-20.375-45.683-45.689c0-26.135,20.375-48.705,45.417-49.803
-                        c11.557-0.554,22.287,3.022,31.371,9.904c3.293,2.479,7.696,3.034,11.55,1.394c3.854-1.665,6.333-5.525,6.605-9.928
-                        c1.93-48.433,41.28-86.679,89.984-86.679c49.814,0,90.257,40.453,90.257,90.255c0,1.11,0,2.208-0.26,3.306v1.924v2.208
-                        c-0.826,45.955-38.529,83.109-84.755,83.109c-6.34,0-11.285,4.957-11.285,11.284c0,6.328,4.945,11.285,11.285,11.285
-                        c59.151,0,107.324-48.162,107.324-107.331v-1.098c0-1.652,0.26-3.034,0.26-4.687C320.317,50.358,269.689,0,207.491,0"/>
-                    <path fill="#768296" d="M153.286,189.879c-4.403-4.392-11.556-4.392-15.959,0l-72.934,72.928c-4.397,4.392-4.397,11.568,0,15.982
-                        c4.409,4.392,11.569,4.392,15.966,0l53.656-53.686v83.386c0,6.328,4.958,11.285,11.292,11.285c6.321,0,11.279-4.957,11.279-11.285
-                        v-83.386l53.385,53.38c2.208,2.219,4.958,3.328,7.979,3.328c2.763,0,5.785-1.109,7.979-3.328c4.415-4.392,4.415-11.545,0-15.96
-                        L153.286,189.879z"/>
-                    </svg>
-                                            <span class="sspl text-center">Click to upload</span></figure>
+                                          <img alt="Upload"
+                                               [src]="_sanitizer.bypassSecurityTrustUrl(organization_img || '/assets/images/svg/upload.svg')">
+                                          <span class="sspl text-center">Click to upload</span>
+                                        </figure>
                                     </label>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="organizationame">Tageline of the company</label>
-                                    <input type="text" class="form-control" id="organizationame">
+                                    <label for="org_name">Organization Name:</label>
+                                    <input type="text" name="org_name" class="form-control" id="org_name"
+                                           [(ngModel)]="organization.Name">
                                 </div>
-                                <!-- <div class="form-group">
-                                            <label for="logindescription">Login Description (120 Character limit)</label>
-                                            <textarea class="form-control" id="logindescription"></textarea>
-                                        </div> -->
+
                                 <div class="form-group">
-                                    <label>Select color scheme</label>
-                                    <select class="form-control">
-                                        <option>One</option>
-                                        <option>Two</option>
-                                    </select>
+                                    <label for="org_tagline">Login Description (120 Character limit):</label>
+                                    <textarea name="org_tagline" id="org_tagline" class="form-control" maxlength="120"
+                                              [(ngModel)]="organization.Description"></textarea>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="predefinedemail">Provide company admin Email</label>
-                                    <input type="email" class="form-control" id="predefinedemail">
+                                    <label for="color-scheme" id="color-scheme">Select color scheme</label>
+
+                                  <div dropdown class="dropdown">
+                                    <a href id="cs-dropdown" dropdownToggle>
+                                      {{organization.defaultscheme}}
+                                      <app-colors-scheme [scheme]="organization.defaultscheme"></app-colors-scheme>
+                                    </a>
+                                    <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                                      <li>
+                                        <a class="dropdown-item" href="javascript:void(0)"
+                                           (click)="organization.defaultscheme = 'Beckway Blue'">
+                                          Beckway Blue
+                                          <app-colors-scheme></app-colors-scheme>
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a class="dropdown-item" href="javascript:void(0)"
+                                           (click)="organization.defaultscheme = 'Beckway Green'">
+                                          Beckway Green
+                                          <app-colors-scheme [scheme]="'green'"></app-colors-scheme>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
                                 </div>
-                                <div class="form-group fpl text-right">
-                                    <button class="btn btn-md btn-success ml-4 sspb" type="submit">CONFIRM <i
-                                            class="fa fa-angle-right" aria-hidden="true"></i></button>
+
+                                <div class="form-group">
+                                    <label for="predefinedemail">Predefined Email</label>
+                                    <input type="email" class="form-control" id="predefinedemail" name="email"
+                                           [(ngModel)]="organization.Email">
+                                </div>
+                                <div class="form-group" *ngIf="error">
+                                  <p class="error">{{error}}</p>
+                                </div>
+                                <div class="form-group" *ngIf="success">
+                                  <p class="success">{{success}}</p>
+                                </div>
+                                <div class="form-group fpl text-right submit_form">
+                                    <button class="btn btn-md btn-success ml-4 sspb" type="submit" (click)="onSubmit()" *ngIf="!working">
+                                      CONFIRM
+                                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="btn btn-md btn-success ml-4 sspb" type="submit" *ngIf="working">
+                                      Working...
+                                      <span class="working"><img src="/assets/images/loading.png" alt="working..."/></span>
+                                    </button>
                                 </div>
                             </form>
                         </div>

@@ -1,3 +1,5 @@
+@import '../../_variables.scss';
+
 .modal-header {
   background: #D3DDEA;
   border-radius: 5px 5px 0 0;
@@ -146,4 +148,59 @@
   text-decoration: underline;
   font-weight: 500;
   font-size: 0.8rem;
+}
+
+#addOrganizationModal {
+  form {
+    padding: 30px 40px 0;
+    label {
+      margin-bottom: 10px;
+    }
+    figure {
+      width: 100%;
+      border-radius: 8px;
+      img {
+        display: block;
+        margin: -13px auto 5px;
+        height: 40px;
+      }
+      span {
+        display: block;
+      }
+    }
+    #cs-dropdown {
+      display: block;
+      background: #fff;
+      color: #464a4c;
+      padding: 3px 8px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 4px;
+      font-size: 13px;
+      &::after {
+        display: none;
+      }
+      &:hover, a:hover, &.active {
+        text-decoration: none;
+      }
+    }
+    .dropdown-menu {
+      width: 100%;
+      font-size: 13px;
+    }
+    .colors {
+      display: inline-block;
+      position: relative;
+      top: 6px;
+      margin-left: 20px;
+      span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+    }
+    .submit_form {
+      margin-top: 30px;
+    }
+  }
 }

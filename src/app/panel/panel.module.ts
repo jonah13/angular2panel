@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import { routing, appRoutingProviders }  from '../app.routing';
+import {RouterModule} from '@angular/router';
 
 //third party
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -10,6 +10,10 @@ import { PopoverModule } from 'ng2-bootstrap/popover';
 import { RatingModule } from 'ng2-bootstrap/rating';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
 /*import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";*/
+
+//services
+import {OrganizationApiService} from '../models/organization/organization.api.service';
+import {OrganizationModelService} from '../models/organization/organization.model.service';
 
 //components
 import {PanelComponent} from './panel.component';
@@ -23,7 +27,7 @@ import {SettingsPopoverComponent} from './components/popovers/settings-popover/s
 import {RevisionsPopoverComponent} from './components/popovers/revisions-popover/revisions-popover.component';
 import {NotificationsPopoverComponent} from './components/popovers/notifications-popover/notifications-popover.component';
 import {InviteUsersModalComponent} from "./components/modals/invite-users/invite-users-modal.component";
-import {AddOrganizationModalModalComponent} from "./components/modals/add-organization/add-organization-modal.component";
+import {AddOrganizationModalComponent} from "./components/modals/add-organization/add-organization-modal.component";
 import {CalendarPopoverComponent} from './components/popovers/calendar-popover/calendar-popover.component';
 import {PrioPopoverComponent} from './components/popovers/prio-popover/prio-popover.component';
 import {SelectUserPopoverComponent} from './components/popovers/select-user-popover/select-user-popover.component';
@@ -31,7 +35,7 @@ import {CommentPopoverComponent} from './components/popovers/comment-popover/com
 import {ListPopoverComponent} from "./components/popovers/list-popover/list-popover.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {OrganizationsHeaderComponent} from "./components/organizations-header/organizations-header.component";
-import {RouterModule} from '@angular/router';
+import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +54,10 @@ import {RouterModule} from '@angular/router';
     PrioPopoverComponent,
     ListPopoverComponent,
     InviteUsersModalComponent,
-    AddOrganizationModalModalComponent,
+    AddOrganizationModalComponent,
     HeaderComponent,
-    OrganizationsHeaderComponent
+    OrganizationsHeaderComponent,
+    ColorsSchemeComponent
   ],
   imports: [
     CommonModule,
@@ -66,6 +71,8 @@ import {RouterModule} from '@angular/router';
     DatepickerModule.forRoot()
   ],
   providers: [
+    OrganizationApiService,
+    OrganizationModelService
   ],
   exports: [PanelComponent]
 })

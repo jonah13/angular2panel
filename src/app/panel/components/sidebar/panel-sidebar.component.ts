@@ -203,10 +203,4 @@ export class PanelSidebarComponent implements OnInit {
   onClick():boolean {
     return false;
   }
-
-  onClickLogout():boolean {
-    console.log('logout clicked');
-    this.logoutClicked.emit();
-    return false;
-  }
 }

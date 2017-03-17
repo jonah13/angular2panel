@@ -1,0 +1,47 @@
+/*- COLORS SCHEMES -*/
+$DarkerBlue:  #3a4657;
+$DarkBlue:    #758296;
+$MediumBlue:  #bbc8dc;
+$LightBlue:   #d3ddeb;
+$LighterBlue: #f5f7fa;
+
+$DarkerGreen:  #3E7044;
+$DarkGreen:    #63A454;
+$MediumGreen:  #88C560;
+$LightGreen:   #A9CF5F;
+$LighterGreen: #F5F3B1;
+
+.lighterBg {
+  background: $LighterBlue;
+}
+.lightBg {
+  background: $LightBlue;
+}
+.mediumBg {
+  background: $MediumBlue;
+}
+.darkBg {
+  background: $DarkBlue;
+}
+.darkerBg {
+  background: $DarkerBlue;
+}
+
+
+.green {
+  .lighterBg {
+    background: $LighterGreen;
+  }
+  .lightBg {
+    background: $LightGreen;
+  }
+  .mediumBg {
+    background: $MediumGreen;
+  }
+  .darkBg {
+    background: $DarkGreen;
+  }
+  .darkerBg {
+    background: $DarkerGreen;
+  }
+}

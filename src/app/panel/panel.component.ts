@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {UserModelService} from '../models/user/user.model.service';
 import {AuthInfoService} from '../services/auth/auth.info.service';
 import {EditProfileModalComponent} from './components/modals/edit-profile/edit-profile-modal.component';
+import {AddOrganizationModalComponent} from './components/modals/add-organization/add-organization-modal.component';
 
 @Component({
   selector: 'app-panel',
@@ -14,6 +15,7 @@ import {EditProfileModalComponent} from './components/modals/edit-profile/edit-p
 })
 export class PanelComponent implements OnInit {
   @ViewChild('editProfileModal') public editProfileModal:EditProfileModalComponent;
+  @ViewChild('addOrganizationModal') public addOrganizationModal:AddOrganizationModalComponent;
   protected role: string = '';
   protected user_ID: number;
   protected user: any;
@@ -40,7 +42,7 @@ export class PanelComponent implements OnInit {
   }
 
   /**
-   * Initial loading of local businesses and setting page title
+   * on init actions
    */
   ngOnInit() {
     this.pageTitle.setTitle('Panel');
@@ -127,8 +129,20 @@ export class PanelComponent implements OnInit {
       }
       console.log(data);
       if (data.ResponseCode === 200 && data.ResponseMessage === 'Success') {
+        //updating user object
         this.user = data.UserDetails;
-        this.user.role = this.role;
+
+        //updating user in LS
+        let user_to_store = {
+          user_ID: this.user_ID,
+          user_Role: this.role,
+          ProfilePic:this.user['ProfilePic'],
+          Title: this.user.Title,
+          FullName: this.user.FullName
+        };
+        this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
+
+        this.user.user_Role = this.role;
         this.user_temp = {UserID: this.user.UserID, FullName: this.user.FullName, Password: this.user.Password, Title: this.user.Title};
         if (!this.user.FullName) {
           this.editProfileModal.trigger();
