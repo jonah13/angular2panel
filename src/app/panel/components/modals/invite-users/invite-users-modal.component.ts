@@ -55,7 +55,7 @@ export class InviteUsersModalComponent implements OnInit {
       FullName: '',
       Title: '',
       Email: '',
-      PermissionGroup: '',
+      PermissionGroup: 'Administrator',
       organizationId: this.organization_ID,
       Created_by: +this.user_ID
     });
@@ -66,8 +66,11 @@ export class InviteUsersModalComponent implements OnInit {
   }
 
   sendInvites() {
-    console.log(this.teamMembersToInvite);
     this._teamMemberModelService.create(this.teamMembersToInvite);
+    setTimeout(function () {
+      this.inviteUsersModal.hide();
+    }.bind(this), 1000);
+
   }
 
 }
