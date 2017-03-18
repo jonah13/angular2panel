@@ -1,6 +1,6 @@
 <div class="panel-sidebar">
 
-  <app-header [user]="user" [user_temp]="user_temp"></app-header>
+  <app-header></app-header>
 
   <div class="sidebar-body">
 
@@ -36,7 +36,6 @@
                  </span>
               </th>
               <th><a href="javascript:void(0)">STAT</a></th>
-              <th><a href="javascript:void(0)">ATTN</a></th>
               <th></th>
               <th><a href="javascript:void(0)">END</a></th>
               <th></th>
@@ -53,7 +52,8 @@
                 {{elmt.name}}
               </td>
               <td class="comment-box">
-                <a href [popover]="commentTemplate" (click)="currentComment = elmt.comment; onClick()" placement="right" triggers="focus">
+                <a href [popover]="commentTemplate" (click)="currentComment = elmt.comment; onClick()" placement="right"
+                   triggers="focus:click">
                   <img src="/assets/images/svg/comment.svg" class="bubble"/>
                 </a>
               </td>
@@ -79,17 +79,31 @@
                 <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom">set</a>
               </td>
               <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
+              <!--
               <td class="comment-box">
                 <a href [popover]="flagTemplate" (click)="onClick()" placement="right" triggers="focus">
                   <input type="checkbox"/>
                 </a>
               </td>
+              -->
               <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom">set</a></td>
               <td>3 Weeks</td>
               <td>
                 <i class="fa" [ngClass]="{'fa-lock': elmt.locked, 'fa-unlock-alt': !elmt.locked}" aria-hidden="true"
                    (click)="elmt.locked = !elmt.locked;"></i>
               </td>
+            </tr>
+            <tr *ngFor="let elmt of placeHolder">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>

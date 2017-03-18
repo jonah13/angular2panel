@@ -64,14 +64,9 @@
 .delete-popover {
   popover-container {
     background: #e6ebf2;
-    left: 580px !important;
   }
-  .popover.popover-bottom::after {
-    margin-left: 120px;
-    border-bottom-color: #e6ebf2;
-  }
-  .popover.popover-bottom::before {
-    margin-left: 119px;
+  .popover.popover-left::after {
+    border-left-color: #e6ebf2;
   }
 }
 .sidebar-delete-popover {

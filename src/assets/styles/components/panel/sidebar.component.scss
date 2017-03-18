@@ -9,6 +9,8 @@
     .user-panel {
       display: inline-block;
       padding: 0;
+      width: 220px;
+      position: relative;
       .profile-image {
         display: inline-block;
         padding: 4px 4px 0 4px;
@@ -45,10 +47,12 @@
         border-left: 1px solid #E9E9E9;
         height: 46px;
         vertical-align: top;
-        padding: 10px 6px;
+        padding: 10px;
         margin-left: 4px;
         background: #fff;
         font-size: 18px;
+        position: absolute;
+        right: 3px;
         .dropdown-toggle::after {
           content: none;
         }
@@ -58,7 +62,8 @@
           border: 1px solid rgba(0, 0, 0, 0.15);
           border-radius: 0;
           top: 35px;
-          left: -132px;
+          left: -200px;
+          width: 220px;
           border-left: none;
           padding: 0 0 0 8px;
           .dropdown-item {
@@ -77,13 +82,16 @@
       }
     }
     .search-form {
-      width: 110px;
+      width: calc(100% - 260px);
       display: inline-block;
       vertical-align: top;
       padding: 4px 10px;
       background: #F2F4F7;
       position: relative;
       left: -3px;
+      form {
+        max-width: 400px;
+      }
     }
     .groups-section {
       display: inline-block;
@@ -92,6 +100,7 @@
       position: relative;
       left: -5px;
       float: right;
+      width: 40px;
     }
   }
   .sidebar-body {
@@ -99,6 +108,7 @@
     .sidebar-body-content {
       background: #bbc8dc;
       position: relative;
+      height: calc(100vh - 113px);
       table.tree-table {
         width: 100%;
         > thead {
@@ -136,6 +146,7 @@
         }
         > tbody {
           > tr {
+            height: 23px;
             background: #FFF;
             border-bottom: 1px solid #b5c0d1;
             &.hide {

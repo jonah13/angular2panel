@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, Output, EventEmitter, Input, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-panel-sidebar',
@@ -7,17 +7,16 @@ import {Component, ViewEncapsulation, Output, EventEmitter, Input, OnInit} from 
   styleUrls: ['../../../../assets/styles/components/panel/sidebar.component.scss']
 })
 export class PanelSidebarComponent implements OnInit {
-  @Input('user') user:any[] = [];
-  @Input('user_temp') user_temp:any[] = [];
-  @Output() logoutClicked = new EventEmitter<void>();
   public elements:any[];
   public rate:number = 3;
   public prio_type:string = 'graphical';
   public currentComment:string = '';
   public hierarchy_menu:string[];
   public lead_menu:string[];
+  public placeHolder:number[] = Array(20);
 
   ngOnInit():void {
+    this.placeHolder.fill(1);
     this.elements = [
       {
         name: 'Portfolio',

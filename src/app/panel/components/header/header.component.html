@@ -1,5 +1,5 @@
 <div class="row sidebar-header">
-  <div class="user-panel col-lg-5 col-md-5 col-sm-5">
+  <div class="user-panel">
 
     <div class="profile-image">
       <img src="{{user?.ProfilePic || '/assets/images/profile.jpg'}}"/>
@@ -27,7 +27,7 @@
             <a class="dropdown-item" href (click)="onClick()">&nbsp;</a>
           </li>
           <li>
-            <a class="dropdown-item" href (click)="onClickLogout();"><img
+            <a class="dropdown-item" href (click)="logout();"><img
               src="/assets/images/svg/logout.svg"> Logout</a>
           </li>
         </ul>
@@ -36,7 +36,7 @@
 
   </div>
   <!-- end user-panel -->
-  <div class="search-form col-lg-4 col-md-4 col-sm-4">
+  <div class="search-form">
     <form class="form search">
       <div class="input-group mb-2 mr-sm-2 mb-sm-0 mt-6">
         <input type="text txt-grey" class="form-control" id="inlineFormInputGroup" placeholder="Search">
@@ -47,7 +47,7 @@
     </form>
   </div>
   <!-- end search-form -->
-  <div class="groups-section border-left-grey text-center col-lg-3 col-md-3 col-sm-3">
+  <div class="groups-section border-left-grey text-center">
     <a href routerLink="{{group_url}}"><img src="/assets/images/svg/group.svg" alt="profile" class="mt-13 ic20">
     </a>
   </div>

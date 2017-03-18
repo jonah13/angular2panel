@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" *ngIf="user.user_Role === 'SuperAdmin'">
     <div class="col-lg-4 col-md-4 col-sm-4">
       <div class="text-right">
         <button class="btn btn-md btn-normal btn-block" (click)="onClickAddOrganization();">Add Organization</button>

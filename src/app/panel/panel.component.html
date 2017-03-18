@@ -6,7 +6,7 @@
                        primary-component-initialratio="0.5" >
                        -->
   <div class="panel-left split-pane-content-primary" >
-    <app-panel-sidebar [user]="user" [user_temp]="user_temp" (logoutClicked)="logout()"></app-panel-sidebar>
+    <app-panel-sidebar></app-panel-sidebar>
   </div>
 
 
@@ -87,7 +87,7 @@
             <li><a href="javascript:void(0)"><img src="/assets/images/svg/menu.svg" alt="Menu"></a></li>
             <li><a href="javascript:void(0)"><img src="/assets/images/svg/edit.svg" alt="Edit"></a></li>
             <li class="delete-popover">
-              <a href [popover]="buttonsTemplate" (click)="onClick()" placement="bottom">
+              <a href [popover]="buttonsTemplate" (click)="onClick()" placement="left">
                 <img src="/assets/images/svg/delete.svg" alt="Delete" >
               </a>
               <template #buttonsTemplate><app-buttons-popover></app-buttons-popover></template>
