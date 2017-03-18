@@ -1,5 +1,5 @@
 <div class="list-popover">
-    <ul *ngFor="let item of items, let i = index">
-        <li><a href (click)="onChoiceClicked(item)">{{item}}</a></li>
+    <ul>
+        <li *ngFor="let item of items, let i = index"><a href (click)="onChoiceClicked(item)">{{item}}</a></li>
     </ul>
 </div>

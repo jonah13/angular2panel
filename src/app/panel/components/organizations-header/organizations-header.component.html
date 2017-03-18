@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="col-3 sidebar-delete-popover">
-                <a href [popover]="sidebarButtonsTemplate" (click)="onClick()" placement="bottom">
+                <a href [popover]="sidebarButtonsTemplate" (click)="onClick()" placement="bottom" triggers="focus">
                     <img src="/assets/images/svg/delete.svg" alt="Delete" >
                 </a>
                 <template #sidebarButtonsTemplate><app-buttons-popover></app-buttons-popover></template>

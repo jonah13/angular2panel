@@ -17,6 +17,7 @@ export class PanelComponent implements OnInit {
   protected triage: boolean = false;
   protected graph_only: boolean = false;
   protected table_only: boolean = false;
+  public small_breakpoint = false;
 
   /**
    * Injecting needed services
@@ -80,6 +81,10 @@ export class PanelComponent implements OnInit {
 
   onClick() {
     return false;
+  }
+
+  onResizePanel(sizes:number[]) {
+    this.small_breakpoint = (sizes[0] < 35);
   }
 
 }

@@ -9,13 +9,17 @@ import { ModalModule } from 'ng2-bootstrap/modal';
 import { PopoverModule } from 'ng2-bootstrap/popover';
 import { RatingModule } from 'ng2-bootstrap/rating';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
-/*import {SplitPaneModule} from "ng2-split-pane/lib/ng2-split-pane";*/
+import { TooltipModule } from 'ng2-bootstrap/tooltip';
+import { AngularSplitModule } from 'angular-split';
 
 //services
 import {OrganizationApiService} from '../models/organization/organization.api.service';
 import {OrganizationModelService} from '../models/organization/organization.model.service';
 import {TeamMemberModelService} from "../models/team-member/team-member.model.service";
 import {TeamMemberApiService} from "../models/team-member/team-member.api.service";
+
+//Pipes
+import {TruncatePipe} from './pipes/truncate.pipe';
 
 //components
 import {PanelComponent} from './panel.component';
@@ -59,18 +63,20 @@ import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.co
     AddOrganizationModalComponent,
     HeaderComponent,
     OrganizationsHeaderComponent,
-    ColorsSchemeComponent
+    ColorsSchemeComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    /*SplitPaneModule,*/
+    AngularSplitModule,
     DropdownModule.forRoot(),
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
     RatingModule.forRoot(),
-    DatepickerModule.forRoot()
+    DatepickerModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   providers: [
     OrganizationApiService,

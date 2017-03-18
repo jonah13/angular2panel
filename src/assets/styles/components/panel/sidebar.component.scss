@@ -205,9 +205,15 @@
                   background: #000;
                 }
               }
+              &.comment-box {
+                padding: 0 2px;
+                text-align: left;
+              }
               img.bubble {
                 width: 14px;
                 height: 14px;
+                position: relative;
+                top: 1px;
               }
             }
             > td:nth-child(-n+4) {
@@ -228,5 +234,14 @@
         }
       }
     }
+  }
+  .tooltip-inner {
+    text-align: left;
+    font-size: 10px;
+  }
+}
+.small {
+  .comment-box span {
+    display: none;
   }
 }

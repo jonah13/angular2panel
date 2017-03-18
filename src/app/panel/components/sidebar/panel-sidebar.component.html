@@ -9,7 +9,7 @@
       <app-organizations-header></app-organizations-header>
 
       <div class="sidebar-body-content">
-        <table class="tree-table">
+        <table #treeTable class="tree-table">
           <thead>
             <tr>
               <th><input type="checkbox"/></th>
@@ -56,6 +56,9 @@
                    triggers="focus:click">
                   <img src="/assets/images/svg/comment.svg" class="bubble"/>
                 </a>
+                <span class="comment-view" *ngIf="elmt.comment" tooltip="{{elmt.comment}}" placement="bottom">
+                  {{elmt?.comment | truncate : 10}}
+                </span>
               </td>
               <td class="rate">
                 <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off" *ngIf="prio_type === 'graphical'"></rating>
@@ -72,11 +75,11 @@
               <td class="set-user">
                 <span *ngIf="elmt.lead">
                   {{elmt.lead}}
-                  <a href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom">
+                  <a href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">
                     <i class="fa fa-edit" aria-hidden="true"></i>
                   </a>
                 </span>
-                <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom">set</a>
+                <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a>
               </td>
               <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
               <!--
@@ -86,7 +89,7 @@
                 </a>
               </td>
               -->
-              <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom">set</a></td>
+              <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a></td>
               <td>3 Weeks</td>
               <td>
                 <i class="fa" [ngClass]="{'fa-lock': elmt.locked, 'fa-unlock-alt': !elmt.locked}" aria-hidden="true"

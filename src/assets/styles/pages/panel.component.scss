@@ -9,18 +9,20 @@ app-panel {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  min-width: 1100px;
 
   .panel-left {
-    //*
+    /*
     position: absolute;
     left: 0;
     top: 0;
     width: 550px;
     //*/
     height: 100%;
+    min-width: 460px;
   }
   .panel-right {
-    //*
+    /*
     position: absolute;
     left: 550px;
     top: 0;
@@ -28,6 +30,7 @@ app-panel {
     width:    -moz-calc(100% - 550px);
     width:         calc(100% - 550px);
     //*/
+    min-width: 630px;
     background: #FAFAFA;
     height: 100vh;
     overflow: hidden;

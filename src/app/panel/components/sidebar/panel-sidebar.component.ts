@@ -13,7 +13,7 @@ export class PanelSidebarComponent implements OnInit {
   public currentComment:string = '';
   public hierarchy_menu:string[];
   public lead_menu:string[];
-  public placeHolder:number[] = Array(20);
+  public placeHolder:number[] = Array(30);
 
   ngOnInit():void {
     this.placeHolder.fill(1);
