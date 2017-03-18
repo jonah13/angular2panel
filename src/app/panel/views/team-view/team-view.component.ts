@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
 import {TeamMemberModelService} from "../../../models/team-member/team-member.model.service";
 import {TeamMember} from "../../../models/team-member/team-member.interface";
 
@@ -11,13 +12,15 @@ import {TeamMember} from "../../../models/team-member/team-member.interface";
 export class TeamViewComponent implements OnInit {
   protected teamMembers:TeamMember[] = [];
   protected filteredTeamMembers:TeamMember[] = [];
+  protected elements:string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   protected selectedGroup:string = 'All Participants';
 
   /**
    * Injecting needed services
    * @param pageTitle
    */
-  constructor(private _teamMemberModelService:TeamMemberModelService) {
+  constructor(private _teamMemberModelService:TeamMemberModelService,
+              private _router:Router) {
   }
 
   ngOnInit() {
@@ -26,11 +29,9 @@ export class TeamViewComponent implements OnInit {
   }
 
   private _subscribe(result:any) {
-
     if (typeof result.RegisteredUserResponse !== "undefined") {
       // a member was added
       this._teamMemberModelService.listAll();
-
     } else if (typeof result.MemberDetails !== "undefined") {
       // we retrieve the list of all members
       this.teamMembers = result.MemberDetails;
