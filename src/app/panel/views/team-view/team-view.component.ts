@@ -10,6 +10,8 @@ import {TeamMember} from "../../../models/team-member/team-member.interface";
 })
 export class TeamViewComponent implements OnInit {
   protected teamMembers:TeamMember[] = [];
+  protected filteredTeamMembers:TeamMember[] = [];
+  protected selectedGroup:string = 'All Participants';
 
   /**
    * Injecting needed services
@@ -24,6 +26,43 @@ export class TeamViewComponent implements OnInit {
   }
 
   private _subscribe(result:any) {
-    this.teamMembers = result.MemberDetails;
+
+    if (typeof result.RegisteredUserResponse !== "undefined") {
+      // a member was added
+      this._teamMemberModelService.listAll();
+
+    } else if (typeof result.MemberDetails !== "undefined") {
+      // we retrieve the list of all members
+      this.teamMembers = result.MemberDetails;
+      this.filteredTeamMembers = this.teamMembers.slice(0);
+      this.selectedGroup = 'All Participants';
+    }
   }
+
+  private countByRole(role):string {
+
+    if (role === 'All Participants') {
+      let count = this.teamMembers.length;
+      return count + ' User' + (count === 1 ? '' : 's');
+    }
+
+    let count = this.teamMembers.filter(function (value) {
+      return value.PermissionGroup === role;
+    }).length;
+
+    return count + ' User' + (count === 1 ? '' : 's');
+  }
+
+  private changeRoleFilter(role) {
+    this.selectedGroup = role;
+
+    if (role === 'All Participants') {
+      this.filteredTeamMembers = this.teamMembers.slice(0);
+    } else {
+      this.filteredTeamMembers = this.teamMembers.filter(function (value) {
+        return value.PermissionGroup === role;
+      });
+    }
+  }
+
 }

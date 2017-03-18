@@ -24,8 +24,8 @@
                             <div class="btn-group ml-2">
                               <div dropdown class="btn-group btn-group-left-panel">
                                 <button type="button" class="btn pl-2 pr-5 pb-0 pt-0 bg-white text-left">
-                                  <label class="mb-0">All Participants</label><br><br>
-                                  <span>3 Users</span>
+                                  <label class="mb-0">{{selectedGroup}}s</label><br><br>
+                                  <span>{{countByRole(selectedGroup)}}</span>
                                 </button>
                                 <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split"
                                         id="participants-dropdown" aria-expanded="false" dropdownToggle>
@@ -35,25 +35,35 @@
                                 </button>
                                 <div class="lg-dpdn dropdown-menu" dropdownMenu
                                      aria-labelledby="participants-dropdown">
-                                  <a class="dropdown-item" href="javascript:void(0)">
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('All Participants')">
+                                    <label class="mb-0">All Participants</label><br>
+                                    <span><i>{{countByRole('All Participants')}}</i></span>
+                                  </a>
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('Administrator')">
                                     <label class="mb-0">Administrators</label><br>
-                                    <span><i>3 Users</i></span>
+                                    <span><i>{{countByRole('Administrator')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)">
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('Manager')">
                                     <label class="mb-0">Managers</label><br>
-                                    <span><i>3 Users</i></span>
+                                    <span><i>{{countByRole('Manager')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)">
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('Member')">
                                     <label class="mb-0">Members</label><br>
-                                    <span><i>3 Users</i></span>
+                                    <span><i>{{countByRole('Member')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)">
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('Viewer')">
                                     <label class="mb-0">Viewers</label><br>
-                                    <span><i>3 Users</i></span>
+                                    <span><i>{{countByRole('Viewer')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)">
+                                  <a class="dropdown-item" href="javascript:void(0)"
+                                     (click)="changeRoleFilter('Visitor')">
                                     <label class="mb-0">Visitors</label><br>
-                                    <span><i>3 Users</i></span>
+                                    <span><i>{{countByRole('Visitor')}}</i></span>
                                   </a>
                                 </div>
                               </div>
@@ -75,7 +85,7 @@
                           </div>
                         </span>
                       </td>
-                      <td *ngFor="let member of teamMembers, let i = index">
+                      <td *ngFor="let member of filteredTeamMembers, let i = index" class="member-cell">
                         <figure class="mb-0 mt-1">
                           <span><img src="/assets/images/profile.png"></span>
                           <figcaption class="figure-caption">{{member.FullName}}</figcaption>
@@ -83,10 +93,10 @@
                         <small><i>{{member.PermissionGroup}}</i></small>
                       </td>
                       <td>
-                        <figure class="mb-0 mt-1" data-toggle="modal"
-                                data-target="#modelinvite">
-                                                    <span class="text-center" (click)="inviteUsersModal.trigger();"><i
-                                                            class="fa fa-plus mt-2 pt-1"></i></span>
+                        <figure class="mb-0 mt-1" data-toggle="modal" data-target="#modelinvite">
+                          <span class="text-center" (click)="inviteUsersModal.trigger();">
+                            <i class="fa fa-plus mt-2 pt-1"></i>
+                          </span>
                           <figcaption class="figure-caption">Invite</figcaption>
                         </figure>
                         <small><i>Group</i></small>
@@ -103,7 +113,7 @@
                       <td>
                         &nbsp;
                       </td>
-                      <td *ngFor="let member of teamMembers">&nbsp;</td>
+                      <td *ngFor="let member of filteredTeamMembers">&nbsp;</td>
                     </tr>
 
                   </table>

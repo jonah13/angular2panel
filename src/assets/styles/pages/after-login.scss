@@ -1,5 +1,3 @@
-
-
 /*logo dropdown*/
 
 .lg-dpdn {
@@ -31,7 +29,7 @@
   position: relative !important;
 }
 
-.left-panel-page .btn+.dropdown-toggle-split::after {
+.left-panel-page .btn + .dropdown-toggle-split::after {
   border: 0 !important;
   content: "";
 }
@@ -43,7 +41,6 @@
 .gpl .menu-head .dropdown-menu .lg-dpdn {
   width: 82% !important;
 }
-
 
 .root-popup:before {
   content: '';
@@ -154,7 +151,6 @@
   color: #fff
 }
 
-
 /*left panel*/
 
 .prio-lines span {
@@ -164,7 +160,6 @@
   margin-right: 2px;
   float: left;
 }
-
 
 /** tree view menu css **/
 
@@ -201,11 +196,11 @@
   padding: 0 0px;
 }
 
-.left-panel-page ul.nav li>figure {
+.left-panel-page ul.nav li > figure {
   margin-bottom: 0;
 }
 
-.left-panel-page ul.nav li>figure>img {
+.left-panel-page ul.nav li > figure > img {
   width: 100%;
   margin: 5px 0 5px 0px;
 }
@@ -283,6 +278,7 @@
   background: #bbc8dc;
   padding-right: 20px;
   position: relative;
+  overflow: auto;
 }
 
 .left-menu .fa-circle {
@@ -363,7 +359,6 @@
   margin-bottom: 0.8em;
 }
 
-
 /*tree menu with datatable*/
 
 .treegrid-indent {
@@ -393,7 +388,7 @@
   display: inline-block;
 }
 
-.tick-checkbox input[type="checkbox"]:checked+span {
+.tick-checkbox input[type="checkbox"]:checked + span {
   background: url('../../images/flag-check.png') no-repeat;
   background-size: 8px;
 }
@@ -526,13 +521,11 @@
   font-size: 0.6rem;
 }
 
-
 /*button*/
 
 .btn-primary {
   box-shadow: 0 0 0 0 #000;
 }
-
 
 /*color scheme*/
 
@@ -585,13 +578,11 @@
   color: #445061;
 }
 
-
 /*text*/
 
 .text-ul {
   text-decoration: underline;
 }
-
 
 /*background color*/
 
@@ -618,7 +609,6 @@
 .bg-dkblue {
   background-color: #3A4657;
 }
-
 
 /*border*/
 
@@ -649,7 +639,6 @@
 .left-panel-page .btn-group button {
   border: 1px solid #E9E9E9;
 }
-
 
 /*icons*/
 
@@ -682,7 +671,6 @@
   width: 24px;
   height: 24px;
 }
-
 
 /*search*/
 
@@ -717,7 +705,6 @@
   /* Firefox 18- */
   color: #BBBBBB;
 }
-
 
 .field-tip {
   position: relative;
@@ -760,6 +747,16 @@
 tr.menu-head a {
   text-decoration: underline;
 }
-.btn-group-left-panel{width: 100%; max-width: 255px;}
-.left-nav-pills{width: 100%; float: right; max-width: 160px; min-width: 100px;
-  padding-top: 10px;}
+
+.btn-group-left-panel {
+  width: 100%;
+  max-width: 255px;
+}
+
+.left-nav-pills {
+  width: 100%;
+  float: right;
+  max-width: 160px;
+  min-width: 100px;
+  padding-top: 10px;
+}
