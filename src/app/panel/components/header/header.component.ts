@@ -70,10 +70,11 @@ export class HeaderComponent implements OnInit {
   }
 
   firstTimeEditModal() {
-    //_localStorage
-    if (!this.user.FullName) {
+    let not_first_login = this._localStorage.get('nfl'+this.user.user_ID);
+    if (!this.user.ProfilePic && !not_first_login) {
       this.editProfileModal.trigger();
     }
+    this._localStorage.set('nfl'+this.user.user_ID, true);
   }
 
   /**

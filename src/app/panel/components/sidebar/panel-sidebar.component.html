@@ -1,126 +1,112 @@
-<div class="panel-sidebar">
+<div class="sidebar-body-content">
+  <table #treeTable class="tree-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox"/></th>
+        <th>#</th>
+        <th colspan="2">
+          <img src="/assets/images/svg/hirarchy-1.svg">
+          <img src="/assets/images/svg/hirarchy-2.svg">
+          <img src="/assets/images/svg/hirarchy-3.svg">
+          <img src="/assets/images/svg/hirarchy-4.svg">
+          <img src="/assets/images/svg/hirarchy-5.svg">
+            <span class="list-popover-container">
+              <a [popover]="hierarchyTemplate" (click)="onClick()" placement="bottom" href="javascript:void(0)">Hierarchy</a>
+              <template #hierarchyTemplate><app-list-popover [items]="hierarchy_menu" (choiceClicked)="hierarchy_type = $event"></app-list-popover></template>
+            </span>
+        </th>
+        <th class="list-popover-container">
+          <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom" #prioPop="bs-popover">PRIO</a>
+          <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event; prioPop.hide()"></app-prio-popover></template>
+        </th>
+        <th>
+          <span class="list-popover-container">
+            <a [popover]="leadTemplate" (click)="onClick()" placement="bottom">LEAD</a>
+            <template #leadTemplate><app-list-popover [items]="lead_menu" (choiceClicked)="lead_type = $event"></app-list-popover></template>
+           </span>
+        </th>
+        <th><a href="javascript:void(0)">STAT</a></th>
+        <th></th>
+        <th><a href="javascript:void(0)">END</a></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elmt of elements, let i = index" [ngClass]="{hide:elmt.hide}">
+        <td><input type="checkbox"/></td>
+        <td>3</td>
+        <td class="{{elmt.type}}">
+          <span class="treegrid-expander fa"
+                [ngClass]="{'fa-angle-down':elmt.state === 'expanded', 'fa-angle-right':elmt.state === 'collapsed'}"
+                *ngIf="elmt.type !== 'initiative'" (click)="onExpandCollapseClick(i)"></span>
+          {{elmt.name}}
+        </td>
+        <td class="comment-box">
+          <a href [popover]="commentTemplate" (click)="currentComment = elmt.comment; onClick()" placement="right"
+             triggers="focus:click">
+            <img src="/assets/images/svg/comment.svg" class="bubble"/>
+          </a>
+          <span class="comment-view" *ngIf="elmt.comment" tooltip="{{elmt.comment}}" placement="bottom">
+            {{elmt?.comment | truncate : 10}}
+          </span>
+        </td>
+        <td class="rate">
+          <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off" *ngIf="prio_type === 'graphical'"></rating>
+          <p *ngIf="prio_type === 'numerical'">{{elmt.rate}}</p>
+          <i *ngIf="prio_type === 'color'" class="fa fa-circle mr-1" aria-hidden="true"
+             [ngClass]="{
+               'txt-green': elmt.rate === 1,
+               'txt-lightblue': elmt.rate === 2,
+               'txt-grey': elmt.rate === 3,
+               'txt-yellow': elmt.rate === 4,
+               'txt-lightred': elmt.rate === 5
+             }"></i>
+        </td>
+        <td class="set-user">
+          <span *ngIf="elmt.lead">
+            {{elmt.lead}}
+            <a href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
+          </span>
+          <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a>
+        </td>
+        <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
+        <!--
+        <td class="comment-box">
+          <a href [popover]="flagTemplate" (click)="onClick()" placement="right" triggers="focus">
+            <input type="checkbox"/>
+          </a>
+        </td>
+        -->
+        <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a></td>
+        <td>3 Weeks</td>
+        <td>
+          <i class="fa" [ngClass]="{'fa-lock': elmt.locked, 'fa-unlock-alt': !elmt.locked}" aria-hidden="true"
+             (click)="elmt.locked = !elmt.locked;"></i>
+        </td>
+      </tr>
+      <tr *ngFor="let elmt of placeHolder">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <app-header></app-header>
-
-  <div class="sidebar-body">
-
-    <div class="left-panel-page col-12">
-
-      <app-organizations-header></app-organizations-header>
-
-      <div class="sidebar-body-content">
-        <table #treeTable class="tree-table">
-          <thead>
-            <tr>
-              <th><input type="checkbox"/></th>
-              <th>#</th>
-              <th colspan="2">
-                <img src="/assets/images/svg/hirarchy-1.svg">
-                <img src="/assets/images/svg/hirarchy-2.svg">
-                <img src="/assets/images/svg/hirarchy-3.svg">
-                <img src="/assets/images/svg/hirarchy-4.svg">
-                <img src="/assets/images/svg/hirarchy-5.svg">
-                  <span class="list-popover-container">
-                    <a [popover]="hierarchyTemplate" (click)="onClick()" placement="bottom" href="javascript:void(0)">Hierarchy</a>
-                    <template #hierarchyTemplate><app-list-popover [items]="hierarchy_menu" (choiceClicked)="hierarchy_type = $event"></app-list-popover></template>
-                  </span>
-              </th>
-              <th class="list-popover-container">
-                <a href [popover]="prioTemplate" (click)="onClick()" placement="bottom" #prioPop="bs-popover">PRIO</a>
-                <template #prioTemplate><app-prio-popover (choiceClicked)="prio_type = $event; prioPop.hide()"></app-prio-popover></template>
-              </th>
-              <th>
-                <span class="list-popover-container">
-                  <a [popover]="leadTemplate" (click)="onClick()" placement="bottom">LEAD</a>
-                  <template #leadTemplate><app-list-popover [items]="lead_menu" (choiceClicked)="lead_type = $event"></app-list-popover></template>
-                 </span>
-              </th>
-              <th><a href="javascript:void(0)">STAT</a></th>
-              <th></th>
-              <th><a href="javascript:void(0)">END</a></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let elmt of elements, let i = index" [ngClass]="{hide:elmt.hide}">
-              <td><input type="checkbox"/></td>
-              <td>3</td>
-              <td class="{{elmt.type}}">
-                <span class="treegrid-expander fa"
-                      [ngClass]="{'fa-angle-down':elmt.state === 'expanded', 'fa-angle-right':elmt.state === 'collapsed'}"
-                      *ngIf="elmt.type !== 'initiative'" (click)="onExpandCollapseClick(i)"></span>
-                {{elmt.name}}
-              </td>
-              <td class="comment-box">
-                <a href [popover]="commentTemplate" (click)="currentComment = elmt.comment; onClick()" placement="right"
-                   triggers="focus:click">
-                  <img src="/assets/images/svg/comment.svg" class="bubble"/>
-                </a>
-                <span class="comment-view" *ngIf="elmt.comment" tooltip="{{elmt.comment}}" placement="bottom">
-                  {{elmt?.comment | truncate : 10}}
-                </span>
-              </td>
-              <td class="rate">
-                <rating [(ngModel)]="elmt.rate" stateOn="span-on" stateOff="span-off" *ngIf="prio_type === 'graphical'"></rating>
-                <p *ngIf="prio_type === 'numerical'">{{elmt.rate}}</p>
-                <i *ngIf="prio_type === 'color'" class="fa fa-circle mr-1" aria-hidden="true"
-                   [ngClass]="{
-                     'txt-green': elmt.rate === 1,
-                     'txt-lightblue': elmt.rate === 2,
-                     'txt-grey': elmt.rate === 3,
-                     'txt-yellow': elmt.rate === 4,
-                     'txt-lightred': elmt.rate === 5
-                   }"></i>
-              </td>
-              <td class="set-user">
-                <span *ngIf="elmt.lead">
-                  {{elmt.lead}}
-                  <a href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">
-                    <i class="fa fa-edit" aria-hidden="true"></i>
-                  </a>
-                </span>
-                <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a>
-              </td>
-              <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
-              <!--
-              <td class="comment-box">
-                <a href [popover]="flagTemplate" (click)="onClick()" placement="right" triggers="focus">
-                  <input type="checkbox"/>
-                </a>
-              </td>
-              -->
-              <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a></td>
-              <td>3 Weeks</td>
-              <td>
-                <i class="fa" [ngClass]="{'fa-lock': elmt.locked, 'fa-unlock-alt': !elmt.locked}" aria-hidden="true"
-                   (click)="elmt.locked = !elmt.locked;"></i>
-              </td>
-            </tr>
-            <tr *ngFor="let elmt of placeHolder">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <template #flagTemplate>
-          <app-comment-popover [title]="'Reason for flagging attention?'"></app-comment-popover>
-        </template>
-        <template #commentTemplate>
-          <app-comment-popover [title]="'Edit Initiative Description'" [comment]="currentComment"></app-comment-popover>
-        </template>
-        <template #calendarTemplate><app-calendar-popover></app-calendar-popover></template>
-        <template #selectUserTemplate><app-select-user-popover></app-select-user-popover></template>
-      </div>
-    </div>
-
-  </div>
+  <template #flagTemplate>
+    <app-comment-popover [title]="'Reason for flagging attention?'"></app-comment-popover>
+  </template>
+  <template #commentTemplate>
+    <app-comment-popover [title]="'Edit Initiative Description'" [comment]="currentComment"></app-comment-popover>
+  </template>
+  <template #calendarTemplate><app-calendar-popover></app-calendar-popover></template>
+  <template #selectUserTemplate><app-select-user-popover></app-select-user-popover></template>
 </div>
