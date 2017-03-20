@@ -12,6 +12,7 @@ import {OrganizationModelService} from '../../../models/organization/organizatio
 })
 export class OrganizationsHeaderComponent {
   @Output() organizationChanged = new EventEmitter<any>();
+  @Output() organizationResponse = new EventEmitter<any>();
   protected user:any = null;
   protected organizations:any[] = [];
   protected current_organization:any = null;
@@ -57,6 +58,10 @@ export class OrganizationsHeaderComponent {
     }
   }
 
+  submitOrganization(organization) {
+    this._organizationModelService.createOrganization(organization);
+  }
+
   /**
    * Subscribes to the necessary observable.
    */
@@ -71,21 +76,43 @@ export class OrganizationsHeaderComponent {
         }
       }
       console.log(data);
+      if (data.ResponseMessage === "User Already Exist!") {
+        let response = {
+          success: '',
+          error: data.ResponseMessage,
+          working: false
+        };
+        this.organizationResponse.emit(response);
+      }
       if (data.ResponseCode === 200 && data.ResponseMessage === 'Success') {
-        if (data.ListOrganizationDetails) {
+        if (data.MailStatus === 'Sent') {
+          let response = {
+            success: 'Organization created successfully, an email has been sent to the provided address to continue registration',
+            error: '',
+            working: false
+          };
+          this.organizationResponse.emit(response);
+        }
+        else if (data.ListOrganizationDetails) {
           this.organizations = data.ListOrganizationDetails;
           if (this.organizations.length > 0) {
-            this.current_organization = this.organizations[0];
+            this.current_organization = this.organizations[this.organizations.length - 1];
             this.organizationChanged.emit(this.current_organization);
           }
         }
-        if (data.OrganizationDetails) {
+        else if (data.OrganizationDetails) {
           this.current_organization = data.OrganizationDetails;
           this.organizationChanged.emit(this.current_organization);
         }
       }
     }, error => {
       console.log(error);
+      let response = {
+        success: '',
+        error: 'An Error occurred',
+        working: false
+      };
+      this.organizationResponse.emit(response);
     });
   }
 

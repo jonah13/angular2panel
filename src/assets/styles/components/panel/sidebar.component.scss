@@ -109,130 +109,6 @@
       background: #bbc8dc;
       position: relative;
       height: calc(100vh - 113px);
-      table.tree-table {
-        width: 100%;
-        > thead {
-          background: rgba(0, 0, 0, 0.05);
-          > tr {
-            > th {
-              text-align: center;
-              font-family: 'source_sans_proregular';
-              font-size: 13px;
-              height: 25px;
-              padding-top: 3px;
-              color: #292b2c;
-              text-transform: uppercase;
-              a {
-                color: #292b2c;
-                text-decoration: underline;
-                &:hover {
-                  color: #014c8c;
-                }
-              }
-              img {
-                width: 12px;
-                height: 12px;
-                position: relative;
-                top: 2px;
-              }
-              input[type="checkbox"] {
-                height: 12px;
-                width: 12px;
-                margin: 0 2px;
-              }
-            }
-
-          }
-        }
-        > tbody {
-          > tr {
-            height: 23px;
-            background: #FFF;
-            border-bottom: 1px solid #b5c0d1;
-            &.hide {
-              display: none;
-            }
-            > td {
-              font-family: 'source_sans_proregular';
-              font-size: 13px;
-              text-align: center;
-              border-right: 1px solid #ddd;
-              &:first-child, &:nth-child(2) {
-                border-right: 1px dashed #979fab;
-              }
-              &:nth-child(3) {
-                text-align: left;
-                padding-left: 20px;
-                font-family: 'source_sans_proregular';
-                font-size: 13px;
-                font-weight: normal;
-                line-height: 19px;
-                &.organization {
-                  font-family: 'source_sans_problack';
-                  text-transform: uppercase;
-                }
-                &.company {
-                  text-transform: uppercase;
-                  padding-left: 35px;
-                }
-                &.program {
-                  text-transform: uppercase;
-                  padding-left: 50px;
-                }
-                &.strategy {
-                  text-transform: capitalize;
-                  padding-left: 65px;
-                }
-                &.initiative {
-                  text-transform: capitalize;
-                  padding-left: 95px;
-                }
-              }
-              &.rate {
-                padding: 3px 0 0;
-                .span-on, .span-off {
-                  display: inline-block;
-                  height: 12px;
-                  width: 4px;
-                  margin-right: 1px;
-                  background: #bbc2cb;
-                  cursor: pointer;
-                  &:last-child {
-                    margin-right: 0;
-                  }
-                }
-                .span-on {
-                  background: #000;
-                }
-              }
-              &.comment-box {
-                padding: 0 2px;
-                text-align: left;
-              }
-              img.bubble {
-                width: 14px;
-                height: 14px;
-                position: relative;
-                top: 1px;
-              }
-            }
-            > td:nth-child(-n+4) {
-              background: #BBC8DC;
-            }
-            &:nth-child(2n+1) {
-              background: #F5F7FA;
-              > td:nth-child(-n+4) {
-                background: #CAD4E4;
-              }
-            }
-            input[type="checkbox"] {
-              height: 10px;
-              width: 10px;
-              margin: 0 2px;
-            }
-          }
-        }
-      }
     }
   }
   .tooltip-inner {
@@ -256,5 +132,130 @@
 .small {
   .comment-box span {
     display: none;
+  }
+}
+
+table.tree-table {
+  width: 100%;
+  > thead {
+    background: rgba(0, 0, 0, 0.05);
+    > tr {
+      > th {
+        text-align: center;
+        font-family: 'source_sans_proregular';
+        font-size: 13px;
+        height: 25px;
+        padding-top: 3px;
+        color: #292b2c;
+        text-transform: uppercase;
+        a {
+          color: #292b2c;
+          text-decoration: underline;
+          &:hover {
+            color: #014c8c;
+          }
+        }
+        img {
+          width: 12px;
+          height: 12px;
+          position: relative;
+          top: 2px;
+        }
+        input[type="checkbox"] {
+          height: 12px;
+          width: 12px;
+          margin: 0 2px;
+        }
+      }
+
+    }
+  }
+  > tbody {
+    > tr {
+      height: 23px;
+      background: #FFF;
+      border-bottom: 1px solid #b5c0d1;
+      &.hide {
+        display: none;
+      }
+      > td {
+        font-family: 'source_sans_proregular';
+        font-size: 13px;
+        text-align: center;
+        border-right: 1px solid #ddd;
+        &:first-child, &:nth-child(2) {
+          border-right: 1px dashed #979fab;
+        }
+        &:nth-child(3) {
+          text-align: left;
+          padding-left: 20px;
+          font-family: 'source_sans_proregular';
+          font-size: 13px;
+          font-weight: normal;
+          line-height: 19px;
+          &.organization {
+            font-family: 'source_sans_problack';
+            text-transform: uppercase;
+          }
+          &.company {
+            text-transform: uppercase;
+            padding-left: 35px;
+          }
+          &.program {
+            text-transform: uppercase;
+            padding-left: 50px;
+          }
+          &.strategy {
+            text-transform: capitalize;
+            padding-left: 65px;
+          }
+          &.initiative {
+            text-transform: capitalize;
+            padding-left: 95px;
+          }
+        }
+        &.rate {
+          padding: 3px 0 0;
+          .span-on, .span-off {
+            display: inline-block;
+            height: 12px;
+            width: 4px;
+            margin-right: 1px;
+            background: #bbc2cb;
+            cursor: pointer;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          .span-on {
+            background: #000;
+          }
+        }
+        &.comment-box {
+          padding: 0 2px;
+          text-align: left;
+        }
+        img.bubble {
+          width: 14px;
+          height: 14px;
+          position: relative;
+          top: 1px;
+        }
+      }
+      > td:nth-child(-n+4) {
+        background: #BBC8DC;
+      }
+      &:nth-child(2n+1) {
+        background: #F5F7FA;
+        > td:nth-child(-n+4) {
+          background: #CAD4E4;
+        }
+      }
+      input[type="checkbox"] {
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+      }
+    }
   }
 }

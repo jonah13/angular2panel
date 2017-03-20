@@ -59,7 +59,7 @@ export class OrganizationModelService extends ModelService {
   }
 
   /**
-   * get org details by ID
+   * get user details by ID
    * @param id
    */
   getById(id) {

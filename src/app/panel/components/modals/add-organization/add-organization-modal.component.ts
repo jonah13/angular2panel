@@ -1,8 +1,7 @@
-import {Component, ViewEncapsulation, ViewChild, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation, ViewChild, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {ModalDirective} from 'ng2-bootstrap/modal';
 import {AuthInfoService} from '../../../../services/auth/auth.info.service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {OrganizationModelService} from '../../../../models/organization/organization.model.service';
 import {StringUtils} from '../../../../shared/utils/string.utils';
 
 @Component({
@@ -13,21 +12,20 @@ import {StringUtils} from '../../../../shared/utils/string.utils';
 })
 export class AddOrganizationModalComponent implements OnInit {
   @ViewChild('addOrganizationModal') public addOrganizationModal:ModalDirective;
+  @Output() newOrganizationSubmitted = new EventEmitter<any>();
+  @Input('working') working:boolean = false;
+  @Input('error') error:string = '';
+  @Input('success') success:string = '';
   public organization:any = {Name: '', Description: '', defaultscheme: 'Beckway Blue', Email: ''};
   public organization_img:string = '';
-  public success:string = '';
-  public error:string = '';
   protected user_ID:number;
-  protected working:boolean = false;
 
   /**
    * Injecting needed service
    * @param _authInfoService
-   * @param _organizationModelService
    * @param _sanitizer
    */
   constructor(private _authInfoService: AuthInfoService,
-              private _organizationModelService: OrganizationModelService,
               private _sanitizer: DomSanitizer) {
   }
 
@@ -35,7 +33,6 @@ export class AddOrganizationModalComponent implements OnInit {
    * Initial loading of local businesses and setting page title
    */
   ngOnInit():void {
-    this._subscribe();
     let str: string = ''+this._authInfoService.getCurrentUser();
     try {
       let user = JSON.parse(str);
@@ -59,6 +56,7 @@ export class AddOrganizationModalComponent implements OnInit {
     if (open) {
       this.addOrganizationModal.show();
     } else {
+      this.working = false;
       this.addOrganizationModal.hide();
     }
   }
@@ -69,7 +67,7 @@ export class AddOrganizationModalComponent implements OnInit {
 
     if (this.validate()) {
       this.working = true;
-      this._organizationModelService.createOrganization(this.organization);
+      this.newOrganizationSubmitted.emit(this.organization);
     }
   }
 
@@ -84,6 +82,10 @@ export class AddOrganizationModalComponent implements OnInit {
     this.organization.Name = this.organization.Name.trim();
     if (!this.organization.Name) {
       this.error = 'Organization Name is required';
+      return false;
+    }
+    if (!this.organization.OrganizationLogo) {
+      this.error = 'Organization Logo is required';
       return false;
     }
     this.organization.Description = this.organization.Description.trim();
@@ -104,31 +106,4 @@ export class AddOrganizationModalComponent implements OnInit {
     this.organization_img = URL.createObjectURL(this.organization.OrganizationLogo);
   }
 
-  /**
-   * Subscribes to the necessary observable.
-   */
-  private _subscribe():void {
-    this._organizationModelService.subscribe(data => {
-      this.working = false;
-      if (typeof data === 'string') {
-        try {
-          data = JSON.parse(data);
-        } catch (e) {
-          console.log(e);
-        }
-      }
-      console.log(data);
-      if (data.ResponseCode === 200 && data.ResponseMessage === 'Success' && data.MailStatus === 'Sent') {
-        this.success = 'Organization created successfully, an email has been sent to the provided address to continue registration';
-        setTimeout(() => {
-          this.trigger(false);
-        }, 3000);
-      } else {
-        this.error = 'an error has occurred';
-      }
-    }, error => {
-      this.error = 'an error has occurred';
-      console.log(error);
-    });
-  }
 }

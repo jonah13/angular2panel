@@ -1,8 +1,9 @@
-import {Component, ViewEncapsulation, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit, ViewChild} from '@angular/core';
 import {TitleService} from '../services/helpers/title.service';
 import {AuthService} from '../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {AuthInfoService} from '../services/auth/auth.info.service';
+import {AddOrganizationModalComponent} from './components/modals/add-organization/add-organization-modal.component';
 
 @Component({
   selector: 'app-panel',
@@ -11,6 +12,7 @@ import {AuthInfoService} from '../services/auth/auth.info.service';
   styleUrls: ['../../assets/styles/pages/panel.component.scss', '../../assets/styles/pages/after-login.scss']
 })
 export class PanelComponent implements OnInit {
+  @ViewChild('addOrganizationModal') public addOrganizationModal:AddOrganizationModalComponent;
   protected user: any;
   protected target: boolean = true;
   protected track: boolean = false;
@@ -18,6 +20,9 @@ export class PanelComponent implements OnInit {
   protected graph_only: boolean = false;
   protected table_only: boolean = false;
   public small_breakpoint = false;
+  public orgSuccessMsg: string = '';
+  public orgErrorMsg: string = '';
+  public orgWorking: boolean = false;
 
   /**
    * Injecting needed services
@@ -46,6 +51,20 @@ export class PanelComponent implements OnInit {
       }
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  updateAddOrgStatus(res) {
+    this.orgSuccessMsg = res.success;
+    this.orgErrorMsg = res.error;
+    this.orgWorking = false;
+    if (res.success) {
+      setTimeout(() => {
+        this.addOrganizationModal.trigger(false);
+        this.orgSuccessMsg = '';
+        this.orgErrorMsg = '';
+        this.orgWorking = false;
+      }, 2000);
     }
   }
 
