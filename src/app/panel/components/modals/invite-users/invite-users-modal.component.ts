@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
+import {Component, OnInit, Input, ViewEncapsulation, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ng2-bootstrap/modal';
 import {TeamMember} from "../../../../models/team-member/team-member.interface";
 import {AuthInfoService} from "../../../../services/auth/auth.info.service";
@@ -12,10 +12,10 @@ import {TeamMemberModelService} from "../../../../models/team-member/team-member
 })
 export class InviteUsersModalComponent implements OnInit {
   @ViewChild('inviteUsersModal') public inviteUsersModal:ModalDirective;
+  @Input('organization_ID') organization_ID:number = 28;
   protected teamMembersToInvite:TeamMember[] = [];
   protected user:any;
   protected user_ID:number;
-  protected organization_ID:number = 28;
 
   /**
    * @param _authInfoService
@@ -25,6 +25,7 @@ export class InviteUsersModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.organization_ID);
     this.addNewTeamMemberToInvite();
 
     let str:string = '' + this._authInfoService.getCurrentUser();

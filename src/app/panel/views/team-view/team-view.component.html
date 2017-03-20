@@ -7,7 +7,9 @@
       <div class="sidebar-body">
 
         <div class="left-panel-page col-12">
-          <app-organizations-header></app-organizations-header>
+          <app-organizations-header
+                  (organizationChanged)="organizationChangedHandler($event)">
+          </app-organizations-header>
 
           <div class="left-panel-page col-12">
             <div class="row mt-2 mb-2">
@@ -101,8 +103,9 @@
                         </figure>
                         <small><i>Group</i></small>
 
-                        <app-invite-users-modal #inviteUsersModal></app-invite-users-modal>
-
+                        <app-invite-users-modal #inviteUsersModal [organization_ID]="organization_ID">
+                        </app-invite-users-modal>
+                        
                       </td>
                     </tr>
 
