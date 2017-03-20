@@ -15,6 +15,7 @@ export class TeamViewComponent implements OnInit {
   protected filteredTeamMembers:TeamMember[] = [];
   protected elements:any[];
   protected selectedGroup:string = 'All Participants';
+  protected organization_ID:number;
 
   /**
    * Injecting needed services
@@ -37,7 +38,7 @@ export class TeamViewComponent implements OnInit {
       this._teamMemberModelService.listAll();
     } else if (typeof result.MemberDetails !== "undefined") {
       // we retrieve the list of all members
-      this.teamMembers = result.MemberDetails;
+      this.teamMembers = result.MemberDetails ? result.MemberDetails : [];
       this.filteredTeamMembers = this.teamMembers.slice(0);
       this.selectedGroup = 'All Participants';
     }
@@ -67,6 +68,11 @@ export class TeamViewComponent implements OnInit {
         return value.PermissionGroup === role;
       });
     }
+  }
+
+  private organizationChangedHandler(organization) {
+    console.info('organizationChangedHandler', organization);
+    this.organization_ID = organization.ID;
   }
 
 }
