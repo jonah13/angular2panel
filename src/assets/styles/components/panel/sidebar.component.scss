@@ -239,6 +239,15 @@
     text-align: left;
     font-size: 10px;
   }
+  .organizations-dropdown {
+    .logo-button, a {
+      width: 200px;
+    }
+    img.org-logo {
+      height: 40px;
+      max-width: 160px;
+    }
+  }
 }
 .small {
   .comment-box span {

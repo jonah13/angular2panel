@@ -11,7 +11,9 @@ export class OrganizationApiService extends ApiService {
    * For example, 'users:create'
    */
   endpoints: Endpoint = {
-    multiPartCreate: {uri: 'UserDetails/AdminSetUp', verb: 'post'}
+    multiPartCreate: {uri: 'UserDetails/AdminSetUp', verb: 'post'},
+    getById: {uri: 'UserDetails/GetOrganizationDetails', verb: 'post'},
+    list: {uri: 'UserDetails/ListOrganizationDetails', verb: 'get'}
   };
 
   /**
@@ -47,5 +49,15 @@ export class OrganizationApiService extends ApiService {
   resetObserver() {
     this.observer$ = new Observable(observer =>
       this._observer = observer).share();
+  }
+
+  /**
+   * get org by Id.
+   */
+  getById(Id) {
+    this._httpService.post(this.endpoints.getById.uri,
+      JSON.stringify({ID:Id}), false)
+      .subscribe((data) => this._observer.next(data),
+        err => this._observer.error(err));
   }
 }

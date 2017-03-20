@@ -57,4 +57,12 @@ export class OrganizationModelService extends ModelService {
     });
     this._api.multiPartCreate(formData);
   }
+
+  /**
+   * get org details by ID
+   * @param id
+   */
+  getById(id) {
+    return this._api.getById(id);
+  }
 }

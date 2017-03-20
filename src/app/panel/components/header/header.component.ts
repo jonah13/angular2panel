@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit {
   onSubmit(user_temp) {
     this.user_temp = user_temp;
     console.log(this.user_temp);
-    //this._userModelService.updateUser(this.user_temp);
+    this._userModelService.updateUser(this.user_temp);
   }
 
   logout():boolean {
@@ -93,6 +93,9 @@ export class HeaderComponent implements OnInit {
           Title: this.user.Title,
           FullName: this.user.FullName
         };
+        if (this.user.organizationid) {
+          user_to_store['organization_id'] = this.user.organizationid;
+        }
         this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
 
         this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Password: this.user.Password, Title: this.user.Title};
