@@ -247,6 +247,10 @@
       height: 40px;
       max-width: 160px;
     }
+    .dropdown-menu {
+      max-height: 400px;
+      overflow: auto;
+    }
   }
 }
 .small {

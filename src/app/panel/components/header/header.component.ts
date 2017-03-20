@@ -4,6 +4,7 @@ import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {UserModelService} from '../../../models/user/user.model.service';
 import {EditProfileModalComponent} from '../modals/edit-profile/edit-profile-modal.component';
+import {LocalStorageService} from '../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -23,11 +24,13 @@ export class HeaderComponent implements OnInit {
    * @param _authInfoService
    * @param _authService
    * @param _userModelService
+   * @param _localStorage
    * @param _router
    */
   constructor(private _authInfoService: AuthInfoService,
               private _authService: AuthService,
               private _userModelService: UserModelService,
+              private _localStorage: LocalStorageService,
               private _router: Router) {
   }
 
@@ -66,6 +69,13 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
+  firstTimeEditModal() {
+    //_localStorage
+    if (!this.user.FullName) {
+      this.editProfileModal.trigger();
+    }
+  }
+
   /**
    * Subscribes to the necessary observable.
    */
@@ -99,9 +109,8 @@ export class HeaderComponent implements OnInit {
         this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
 
         this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Password: this.user.Password, Title: this.user.Title};
-        if (!this.user.FullName) {
-          this.editProfileModal.trigger();
-        }
+        this.firstTimeEditModal();
+
       } else if (data.ResponseMessage === 'User Details Updated Successfully') {
         this.user.Title = this.user_temp.Title;
         this.user.FullName = this.user_temp.FullName;

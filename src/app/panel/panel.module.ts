@@ -17,6 +17,7 @@ import {OrganizationApiService} from '../models/organization/organization.api.se
 import {OrganizationModelService} from '../models/organization/organization.model.service';
 import {TeamMemberModelService} from "../models/team-member/team-member.model.service";
 import {TeamMemberApiService} from "../models/team-member/team-member.api.service";
+import {ElementsModelService} from '../models/elements/elements.model.service';
 
 //Pipes
 import {TruncatePipe} from './pipes/truncate.pipe';
@@ -82,7 +83,8 @@ import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.co
     OrganizationApiService,
     OrganizationModelService,
     TeamMemberApiService,
-    TeamMemberModelService
+    TeamMemberModelService,
+    ElementsModelService
   ],
   exports: [PanelComponent]
 })

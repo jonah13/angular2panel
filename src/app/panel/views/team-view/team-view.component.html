@@ -110,9 +110,14 @@
                     </tr>
 
                     <tr class="treegrid-8 treegrid-parent-7" *ngFor="let item of elements">
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td class="jk">{{item}}</td>
+                      <td><input type="checkbox"/></td>
+                      <td>3</td>
+                      <td class="{{item.type}}">
+                        <span class="treegrid-expander fa"
+                          [ngClass]="{'fa-angle-down':item.state === 'expanded', 'fa-angle-right':item.state === 'collapsed'}"
+                           *ngIf="item.type !== 'initiative'"></span>
+                        {{item.name}}
+                      </td>
                       <td *ngFor="let member of filteredTeamMembers">
                         <div dropdown class="dropdown member-role-element">
                           <a href id="cs-dropdown" dropdownToggle>

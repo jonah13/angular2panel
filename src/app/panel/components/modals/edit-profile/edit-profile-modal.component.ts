@@ -11,7 +11,6 @@ import {ModalDirective} from 'ng2-bootstrap/modal';
 export class EditProfileModalComponent implements OnInit {
   @ViewChild('editModal') public editModal:ModalDirective;
   protected img_temp:string = '';
-  protected img_preview:string = '';
   @Input('user_temp') user_temp:any;
   @Input('user') user:any;
   @Output() formSubmitted = new EventEmitter<any>();
@@ -31,10 +30,13 @@ export class EditProfileModalComponent implements OnInit {
     }
   }
 
+  resetForm() {
+    this.img_temp = this.user.ProfilePic
+  }
+
   onImageChange($event) {
     this.user_temp.ProfilePic = $event.target.files[0];
     this.img_temp = URL.createObjectURL(this.user_temp.ProfilePic);
-    this.img_preview = URL.createObjectURL(this.user_temp.ProfilePic);
   }
 
   onSubmit() {

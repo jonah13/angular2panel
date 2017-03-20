@@ -29,7 +29,6 @@ import {CreateNewPasswordComponent} from './views/reset-password/create-new-pass
 import {AboutComponent} from './views/about/about.component';
 import {HelpComponent} from './views/help/help.component';
 import {ContactComponent} from './views/contact/contact.component';
-import {TeamMemberModelService} from "./models/team-member/team-member.model.service";
 
 @NgModule({
   declarations: [
