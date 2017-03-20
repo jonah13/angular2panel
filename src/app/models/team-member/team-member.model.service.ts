@@ -54,4 +54,15 @@ export class TeamMemberModelService extends ModelService {
     this._api.listAll();
   }
 
+  /**
+   * list all team members by organization ID
+   * @param organization_ID
+   */
+  listAllByOrganizationId(organization_ID) {
+    let params = {
+      "ID": organization_ID,
+    };
+    this._api.listAllByOrganizationId(params);
+  }
+
 }

@@ -15,6 +15,7 @@ export interface Endpoint {
   login?: HttpUri;
   contact?: HttpUri;
   listAll?: HttpUri;
+  listAllByOrganizationId?: HttpUri;
   getById?: HttpUri;
   updateUser?: HttpUri;
   resetPassword?: HttpUri;

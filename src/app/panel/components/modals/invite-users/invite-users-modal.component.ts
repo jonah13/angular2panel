@@ -12,7 +12,7 @@ import {TeamMemberModelService} from "../../../../models/team-member/team-member
 })
 export class InviteUsersModalComponent implements OnInit {
   @ViewChild('inviteUsersModal') public inviteUsersModal:ModalDirective;
-  @Input('organization_ID') organization_ID:number = 28;
+  @Input('organization_ID') organization_ID:number;
   protected teamMembersToInvite:TeamMember[] = [];
   protected user:any;
   protected user_ID:number;
@@ -25,9 +25,6 @@ export class InviteUsersModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.organization_ID);
-    this.addNewTeamMemberToInvite();
-
     let str:string = '' + this._authInfoService.getCurrentUser();
     try {
       this.user = JSON.parse(str);
@@ -49,6 +46,11 @@ export class InviteUsersModalComponent implements OnInit {
       this.inviteUsersModal.hide();
     }
 
+  }
+
+  public organizationChangedHandler(organization) {
+    this.organization_ID = organization.ID;
+    this.addNewTeamMemberToInvite();
   }
 
   addNewTeamMemberToInvite() {

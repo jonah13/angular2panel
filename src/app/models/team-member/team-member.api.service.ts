@@ -13,7 +13,8 @@ export class TeamMemberApiService extends ApiService {
    */
   endpoints:Endpoint = {
     create: {uri: 'Team/AddMember', verb: 'post'},
-    listAll: {uri: 'Team/GetAllMembers', verb: 'post'}
+    listAll: {uri: 'Team/GetAllMembers', verb: 'post'},
+    listAllByOrganizationId: {uri: 'Team/GetAllMembersByID', verb: 'post'},
   };
 
   /**
@@ -57,6 +58,16 @@ export class TeamMemberApiService extends ApiService {
   listAll() {
     this._httpService.post(this.endpoints.listAll.uri,
         '', false)
+        .subscribe((data) => this._observer.next(data),
+            err => this._observer.error(err));
+  }
+
+  /**
+   * list All By Organization Id
+   */
+  listAllByOrganizationId(params) {
+    this._httpService.post(this.endpoints.listAllByOrganizationId.uri,
+        params, false)
         .subscribe((data) => this._observer.next(data),
             err => this._observer.error(err));
   }
