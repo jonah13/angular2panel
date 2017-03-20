@@ -13,7 +13,7 @@ import {OrganizationModelService} from '../../../models/organization/organizatio
 export class OrganizationsHeaderComponent {
   @Output() organizationChanged = new EventEmitter<any>();
   protected user:any = null;
-  protected organizations:any[] = null;
+  protected organizations:any[] = [];
   protected current_organization:any = null;
 
   /**

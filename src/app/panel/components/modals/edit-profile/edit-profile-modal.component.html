@@ -1,6 +1,6 @@
 <div bsModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProfileModalTitle"
      #editModal="bs-modal"
-     aria-hidden="true">
+     aria-hidden="true" (onHide)="resetForm();">
   <div class="modal-dialog" role="document">
     <div class="modal-content small">
       <div class="modal-header">
@@ -19,11 +19,11 @@
             <div class="form-group">
               <input type="file" name="fupload" id="fupload" class="inputfile fupld" (change)="onImageChange($event)"/>
               <label for="fupload">
-                <figure *ngIf="img_preview !== ''" class="preview_big preview">
-                  <img [src]="sanitizer.bypassSecurityTrustUrl(img_preview)" width="86"
+                <figure *ngIf="img_temp && img_temp !== user.ProfilePic" class="preview_big preview">
+                  <img [src]="sanitizer.bypassSecurityTrustUrl(img_temp)" width="86"
                        height="86" alt="Upload">
                 </figure>
-                <figure *ngIf="img_preview === ''">
+                <figure *ngIf="!img_temp || img_temp === user.ProfilePic">
                   <img src="/assets/images/svg/upload.svg" alt="Upload">
                 </figure>
               </label>

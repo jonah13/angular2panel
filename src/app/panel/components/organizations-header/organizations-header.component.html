@@ -1,14 +1,15 @@
 <div class="row mt-2 mb-2">
     <div class="col-8">
-        <div dropdown class="btn-group btn-group-left-panel organizations-dropdown">
+        <div dropdown class="btn-group btn-group-left-panel organizations-dropdown" *ngIf="organizations.length || current_organization">
             <button type="button" class="btn pl-2 pr-2 pb-0 pt-0 bg-white logo-button">
                 <img src="{{current_organization?.logo || '/assets/images/beckway_logo.png'}}"
                      alt="{{current_organization?.Name}}" title="{{current_organization?.Name}}" class="org-logo">
             </button>
-            <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split" id="org-dropdown" aria-expanded="false" dropdownToggle>
+            <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split" id="org-dropdown" aria-expanded="false"
+                    dropdownToggle *ngIf="organizations.length > 1">
                 <span class="sr-only"><i class="fa fa-angle-down md-blue" aria-hidden="true"></i></span>
             </button>
-            <div class="lg-dpdn dropdown-menu" dropdownMenu aria-labelledby="org-dropdown">
+            <div class="lg-dpdn dropdown-menu" dropdownMenu aria-labelledby="org-dropdown" *ngIf="organizations.length > 1">
                 <a *ngFor="let org of organizations, let i = index" class="dropdown-item" href (click)="onChooseOrganization(i);">
                     <figure>
                         <img src="{{org?.logo || '/assets/images/beckway_logo.png'}}"
