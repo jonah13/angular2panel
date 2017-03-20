@@ -1,4 +1,5 @@
-<div bsModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProfileModalTitle" #editModal="bs-modal"
+<div bsModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProfileModalTitle"
+     #editModal="bs-modal"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content small">
@@ -10,27 +11,37 @@
         </button>
       </div>
       <div class="modal-body">
-        <p *ngIf="!user?.FullName" >It looks like it's your first time logging in!<br>First, Let's set up your account</p>
+        <p *ngIf="!user?.FullName">It looks like it's your first time logging in!<br>First, Let's set up your account
+        </p>
         <div class="row">
           <div class="col-md-3">
             <h5>Profile Picture</h5>
             <div class="form-group">
-              <input type="file" name="fupload" id="fupload" class="inputfile fupld" (change)="onImageChange($event)" />
-              <label for="fupload"><figure><img src="/assets/images/svg/upload.svg" alt="Upload"></figure></label>
+              <input type="file" name="fupload" id="fupload" class="inputfile fupld" (change)="onImageChange($event)"/>
+              <label for="fupload">
+                <figure *ngIf="img_preview !== ''" class="preview_big preview">
+                  <img [src]="sanitizer.bypassSecurityTrustUrl(img_preview)" width="86"
+                       height="86" alt="Upload">
+                </figure>
+                <figure *ngIf="img_preview === ''">
+                  <img src="/assets/images/svg/upload.svg" alt="Upload">
+                </figure>
+              </label>
             </div>
             <h5>Preview</h5>
             <div class="preview_big preview">
-              <img *ngIf="img_temp" [src]="sanitizer.bypassSecurityTrustUrl(img_temp)" width="60" />
+              <img *ngIf="img_temp" [src]="sanitizer.bypassSecurityTrustUrl(img_temp)" width="60" height="60"/>
             </div>
             <div class="preview_small preview">
-              <img *ngIf="img_temp" [src]="sanitizer.bypassSecurityTrustUrl(img_temp)" width="30" />
+              <img *ngIf="img_temp" [src]="sanitizer.bypassSecurityTrustUrl(img_temp)" width="30" height="30"/>
             </div>
           </div>
           <div class="col-md-9">
             <form>
               <div class="form-group">
                 <label>Full Name:</label>
-                <input type="text" name="full_name" [(ngModel)]="user_temp.FullName" class="form-control" placeholder="Full Name">
+                <input type="text" name="full_name" [(ngModel)]="user_temp.FullName" class="form-control"
+                       placeholder="Full Name">
               </div>
               <div class="form-group">
                 <label>Title/Role:</label>
@@ -56,10 +67,14 @@
           <div class="col-sm-9">
             <div class="row">
               <div class="col-6 text-left btn-sm-block">
-                <button class="btn btn-sm btn-confirm btn-block" data-dismiss="modal" (click)="onSubmit()">CONFIRM CHANGES</button>
+                <button class="btn btn-sm btn-confirm btn-block" data-dismiss="modal" (click)="onSubmit()">CONFIRM
+                  CHANGES
+                </button>
               </div>
               <div class="col-6 text-right btn-sm-block" *ngIf="user?.FullName">
-                <button class="btn btn-sm btn-cancel btn-block" data-dismiss="modal" (click)="editModal.hide()">CANCEL CHANGES</button>
+                <button class="btn btn-sm btn-cancel btn-block" data-dismiss="modal" (click)="editModal.hide()">CANCEL
+                  CHANGES
+                </button>
               </div>
             </div>
           </div>
