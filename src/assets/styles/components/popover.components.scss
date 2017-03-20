@@ -64,6 +64,7 @@
 .delete-popover {
   popover-container {
     background: #e6ebf2;
+    min-width: 305px;
   }
   .popover.popover-left::after {
     border-left-color: #e6ebf2;
@@ -311,6 +312,7 @@
 .comment-box {
   popover-container {
     background: #e6ebf2;
+    width: 330px;
   }
   .popover.popover-right::after {
     border-right-color: #e6ebf2;
@@ -324,13 +326,13 @@
       margin-bottom: 5px;
     }
     textarea {
-      font-size: 0.9em;
+      font-size: 10px;
       padding: 1em;
       border: 1px solid #a1a1a1;
       background: #fff;
       border-radius: 10px;
       font-weight: 100;
-      width: 400px;
+      width: 300px;
       height: 120px;
     }
     .btn-sm {

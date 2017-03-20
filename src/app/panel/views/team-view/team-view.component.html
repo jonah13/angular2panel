@@ -37,33 +37,27 @@
                                 </button>
                                 <div class="lg-dpdn dropdown-menu" dropdownMenu
                                      aria-labelledby="participants-dropdown">
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('All Participants')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('All Participants')">
                                     <label class="mb-0">All Participants</label><br>
                                     <span><i>{{countByRole('All Participants')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('Administrator')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('Administrator')">
                                     <label class="mb-0">Administrators</label><br>
                                     <span><i>{{countByRole('Administrator')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('Manager')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('Manager')">
                                     <label class="mb-0">Managers</label><br>
                                     <span><i>{{countByRole('Manager')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('Member')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('Member')">
                                     <label class="mb-0">Members</label><br>
                                     <span><i>{{countByRole('Member')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('Viewer')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('Viewer')">
                                     <label class="mb-0">Viewers</label><br>
                                     <span><i>{{countByRole('Viewer')}}</i></span>
                                   </a>
-                                  <a class="dropdown-item" href="javascript:void(0)"
-                                     (click)="changeRoleFilter('Visitor')">
+                                  <a class="dropdown-item" href (click)="changeRoleFilter('Visitor')">
                                     <label class="mb-0">Visitors</label><br>
                                     <span><i>{{countByRole('Visitor')}}</i></span>
                                   </a>
@@ -89,7 +83,7 @@
                       </td>
                       <td *ngFor="let member of filteredTeamMembers, let i = index" class="member-cell">
                         <figure class="mb-0 mt-1">
-                          <span><img src="/assets/images/profile.png"></span>
+                          <span><img src="{{member.ProfilePic || '/assets/images/profile.jpg'}}" class="round"></span>
                           <figcaption class="figure-caption">{{member.FullName}}</figcaption>
                         </figure>
                         <small><i>{{member.PermissionGroup}}</i></small>
@@ -140,6 +134,11 @@
                         </div>
                       </td>
                       <td>&nbsp;</td>
+                    </tr>
+                    <tr class="treegrid-8 treegrid-parent-7" *ngFor="let emptyItem of elements">
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
 
                   </table>

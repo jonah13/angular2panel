@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {TitleService} from '../../services/helpers/title.service';
 import {AuthService} from '../../services/auth/auth.service';
 import {UserModelService} from '../../models/user/user.model.service';
 import {AuthInfoService} from '../../services/auth/auth.info.service';
+import {OrganizationModelService} from '../../models/organization/organization.model.service';
 
 @Component({
   selector: 'app-login',
@@ -17,24 +18,39 @@ export class LoginComponent implements OnInit {
   protected working: boolean = false;
   protected user: any;
   protected role: string = '';
+  protected orgId: string = '';
+  protected hideView: boolean = false;
+  protected organization: any;
 
   /**
    * Injecting needed services for login component
    * @param _authService
    * @param _authInfoService
    * @param _userModelService
+   * @param _organizationModelService
+   * @param _route
    * @param _router
    * @param pageTitle
    */
   constructor(private _authService: AuthService,
               private _authInfoService: AuthInfoService,
+              private _route: ActivatedRoute,
               private _userModelService: UserModelService,
+              private _organizationModelService: OrganizationModelService,
               private _router: Router, private pageTitle: TitleService) {
     pageTitle.setTitle('Login');
   }
 
   ngOnInit() {
     this._subscribe();
+
+    this.orgId = this._route.snapshot.queryParams['id'];
+    this.email = this._route.snapshot.queryParams['email'];
+
+    if (this.orgId) {
+      this.hideView = true;
+      this._organizationModelService.getById(this.orgId);
+    }
   }
 
   getUserDetails() {
@@ -140,6 +156,16 @@ export class LoginComponent implements OnInit {
     }, error => {
       console.log(error);
       this.error = 'could not get user ID';
+    });
+    this._organizationModelService.subscribe(data => {
+      console.log(data);
+      if (data.ResponseCode === 200 && data.ResponseMessage === 'Success' && data.OrganizationDetails) {
+        this.organization = data.OrganizationDetails;
+      }
+      this.hideView = false;
+    }, error => {
+      console.log(error);
+      this.hideView = false;
     });
   }
 }

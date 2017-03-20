@@ -59,7 +59,7 @@ export class TeamViewComponent implements OnInit {
     return count + ' User' + (count === 1 ? '' : 's');
   }
 
-  private changeRoleFilter(role) {
+  private changeRoleFilter(role):boolean {
     this.selectedGroup = role;
 
     if (role === 'All Participants') {
@@ -69,6 +69,7 @@ export class TeamViewComponent implements OnInit {
         return value.PermissionGroup === role;
       });
     }
+    return false;
   }
 
   private organizationChangedHandler(organization) {

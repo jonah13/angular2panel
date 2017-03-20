@@ -11,8 +11,11 @@ import {ModalDirective} from 'ng2-bootstrap/modal';
 export class EditProfileModalComponent implements OnInit {
   @ViewChild('editModal') public editModal:ModalDirective;
   protected img_temp:string = '';
+  protected error:string = '';
+  protected confirm_password:string = '';
   @Input('user_temp') user_temp:any;
   @Input('user') user:any;
+  @Input('firstTimeLogin') firstTimeLogin:boolean = false;
   @Output() formSubmitted = new EventEmitter<any>();
 
   constructor(private sanitizer:DomSanitizer) {
@@ -23,6 +26,7 @@ export class EditProfileModalComponent implements OnInit {
   }
 
   public trigger(open = true):void {
+    this.error = '';
     if (open) {
       this.editModal.show();
     } else {
@@ -30,8 +34,12 @@ export class EditProfileModalComponent implements OnInit {
     }
   }
 
-  resetForm() {
-    this.img_temp = this.user.ProfilePic
+  resetForm(user = null) {
+    if (user) {
+      this.user = user;
+    }
+    this.img_temp = this.user.ProfilePic;
+    this.error = '';
   }
 
   onImageChange($event) {
@@ -40,7 +48,12 @@ export class EditProfileModalComponent implements OnInit {
   }
 
   onSubmit() {
+    this.error = '';
     //TODO: add validation, check password and confirm password
-    this.formSubmitted.emit(this.user_temp);
+    if (this.confirm_password === this.user_temp.Password) {
+      this.formSubmitted.emit(this.user_temp);
+    } else {
+      this.error = 'passwords do not match or password is too short';
+    }
   }
 }

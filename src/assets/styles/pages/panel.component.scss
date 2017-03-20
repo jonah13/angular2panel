@@ -44,6 +44,7 @@ app-panel {
       }
       .bottom-header-section {
         height: 54px;
+        clear: both;
       }
       .panel-breadcrumb {
         float: left;
@@ -113,7 +114,8 @@ app-panel {
       }
       .content-desc {
           float: left;
-          width: 50%;
+          width: 25%;
+          min-width: 200px;
           padding: 5px 0 0 15px;
           color: #292b2c;
           margin-bottom: 8px;

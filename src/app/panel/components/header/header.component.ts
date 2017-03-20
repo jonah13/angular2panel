@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   protected user:any = null;
   protected user_temp:any = {};
   protected role:string = '';
+  protected firstTimeLogin:boolean = false;
 
   /**
    * Injecting needed services
@@ -71,7 +72,8 @@ export class HeaderComponent implements OnInit {
 
   firstTimeEditModal() {
     let not_first_login = this._localStorage.get('nfl'+this.user.user_ID);
-    if (!this.user.ProfilePic && !not_first_login) {
+    if (!not_first_login) {
+      this.firstTimeLogin = true;
       this.editProfileModal.trigger();
     }
     this._localStorage.set('nfl'+this.user.user_ID, true);
@@ -110,6 +112,7 @@ export class HeaderComponent implements OnInit {
         this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
 
         this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Password: this.user.Password, Title: this.user.Title};
+        this.editProfileModal.resetForm(this.user);
         this.firstTimeEditModal();
 
       } else if (data.ResponseMessage === 'User Details Updated Successfully') {
@@ -118,6 +121,7 @@ export class HeaderComponent implements OnInit {
         this.user.Password = this.user_temp.Password;
         this._userModelService.getById(this.user.user_ID);
         this.editProfileModal.trigger(false);
+        this.editProfileModal.resetForm();
       } else {
         this.logout();
       }
