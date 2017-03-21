@@ -92,6 +92,7 @@ export class OrganizationsHeaderComponent {
             working: false
           };
           this.organizationResponse.emit(response);
+          this._organizationModelService.list();
         }
         else if (data.ListOrganizationDetails) {
           this.organizations = data.ListOrganizationDetails;
