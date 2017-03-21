@@ -77,6 +77,7 @@ export class HeaderComponent implements OnInit {
       this.editProfileModal.trigger();
     }
     this._localStorage.set('nfl'+this.user.user_ID, true);
+
   }
 
   /**

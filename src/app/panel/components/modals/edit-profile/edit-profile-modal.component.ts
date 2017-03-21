@@ -16,6 +16,7 @@ export class EditProfileModalComponent implements OnInit {
   @Input('user') user:any;
   @Input('firstTimeLogin') firstTimeLogin:boolean = false;
   @Output() formSubmitted = new EventEmitter<any>();
+  @Output() modalClosed = new EventEmitter<any>();
 
   constructor(private sanitizer:DomSanitizer) {
   }
@@ -40,6 +41,7 @@ export class EditProfileModalComponent implements OnInit {
     this.img_temp = this.user.ProfilePic;
     this.error = '';
     this.user_temp.FullName = this.user.FullName;
+    this.modalClosed.emit();
   }
 
   onImageChange($event) {

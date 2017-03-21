@@ -16,7 +16,7 @@
               <div class="col-12">
                 <div class="left-menu group-list">
 
-                  <table class="table tree-2 table-sm table-striped table-condensed small tree-table">
+                  <table class="table tree-2 table-sm table-striped table-condensed small tree-table" [ngClass]="{'has-element':filteredTeamMembers?.length}">
                     <tr class="menu-head">
                       <td><input type="checkbox" name=""></td>
                       <td>#</td>
@@ -88,14 +88,16 @@
                         </figure>
                         <small><i>{{member.PermissionGroup}}</i></small>
                       </td>
-                      <td>
-                        <figure class="mb-0 mt-1" data-toggle="modal" data-target="#modelinvite">
+                      <td class="invite-col">
+                        <div>
+                          <figure class="mb-0 mt-1" data-toggle="modal" data-target="#modelinvite">
                           <span class="text-center" (click)="inviteUsersModal.trigger();">
                             <i class="fa fa-plus mt-2 pt-1"></i>
                           </span>
-                          <figcaption class="figure-caption">Invite</figcaption>
-                        </figure>
-                        <small><i>Group</i></small>
+                            <figcaption class="figure-caption">Invite</figcaption>
+                          </figure>
+                          <small><i>Group</i></small>
+                        </div>
 
                         <app-invite-users-modal #inviteUsersModal [organization_ID]="organization_ID">
                         </app-invite-users-modal>

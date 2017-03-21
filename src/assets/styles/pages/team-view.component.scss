@@ -34,3 +34,18 @@
 .group-list td:nth-child(3) {
   width: 170px;
 }
+
+.invite-col {
+  div {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+}
+
+.has-element {
+  .invite-col {
+    width: 100px;
+  }
+}

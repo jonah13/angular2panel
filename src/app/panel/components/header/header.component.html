@@ -54,4 +54,4 @@
 </div>
 
 <app-edit-profile-modal #editProfileModal [user_temp]="user_temp" [user]="user" [firstTimeLogin]="firstTimeLogin"
-                        (formSubmitted)="onSubmit($event)"></app-edit-profile-modal>
+                        (formSubmitted)="onSubmit($event)" (modalClosed)="firstTimeLogin = false;"></app-edit-profile-modal>
