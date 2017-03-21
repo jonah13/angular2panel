@@ -58,6 +58,7 @@ export class InviteUsersModalComponent implements OnInit {
     this.teamMembersToInvite.push({
       FullName: '',
       Title: '',
+      ProfilePic: '',
       Email: '',
       PermissionGroup: 'Administrator',
       organizationId: this.organization_ID,
