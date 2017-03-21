@@ -111,14 +111,13 @@ export class HeaderComponent implements OnInit {
         }
         this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
 
-        this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Password: this.user.Password, Title: this.user.Title};
+        this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Title: this.user.Title};
         this.editProfileModal.resetForm(this.user);
         this.firstTimeEditModal();
 
       } else if (data.ResponseMessage === 'User Details Updated Successfully') {
         this.user.Title = this.user_temp.Title;
         this.user.FullName = this.user_temp.FullName;
-        this.user.Password = this.user_temp.Password;
         this._userModelService.getById(this.user.user_ID);
         this.editProfileModal.trigger(false);
         this.editProfileModal.resetForm();
