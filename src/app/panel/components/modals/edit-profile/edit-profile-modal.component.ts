@@ -40,6 +40,8 @@ export class EditProfileModalComponent implements OnInit {
     }
     this.img_temp = this.user.ProfilePic;
     this.error = '';
+    this.user_temp.FullName = this.user.FullName;
+    this.user_temp.Password = this.confirm_password = '';
   }
 
   onImageChange($event) {
@@ -56,4 +58,18 @@ export class EditProfileModalComponent implements OnInit {
       this.error = 'passwords do not match or password is too short';
     }
   }
+
+  hideEventHandler() {
+    console.log('hideEventHandler');
+    console.log(this.user, this.user_temp);
+    if (this.user.FullName !== this.user_temp.FullName || this.user_temp.Password) {
+      if (confirm('Are you sure you want to leave?')) {
+        this.editModal.hide()
+      }
+      return false;
+    }
+
+    this.editModal.hide();
+  }
+
 }

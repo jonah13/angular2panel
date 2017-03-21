@@ -60,7 +60,7 @@ export class TeamMemberModelService extends ModelService {
    */
   listAllByOrganizationId(organization_ID) {
     let params = {
-      "ID": organization_ID,
+      "organizationId": organization_ID,
     };
     this._api.listAllByOrganizationId(params);
   }

@@ -50,6 +50,7 @@ export class InviteUsersModalComponent implements OnInit {
 
   public organizationChangedHandler(organization) {
     this.organization_ID = organization.ID;
+    this.teamMembersToInvite = [];
     this.addNewTeamMemberToInvite();
   }
 

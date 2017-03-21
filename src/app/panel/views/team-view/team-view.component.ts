@@ -27,7 +27,6 @@ export class TeamViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._teamMemberModelService.listAll();
     this._teamMemberModelService.observer$.subscribe(result => this._subscribe(result));
     this.elements = this._elementsModuleService.getElements();
   }
@@ -35,11 +34,10 @@ export class TeamViewComponent implements OnInit {
   private _subscribe(result:any) {
     if (typeof result.RegisteredUserResponse !== "undefined") {
       // a member was added
-      this._teamMemberModelService.listAll();
+      this._teamMemberModelService.listAllByOrganizationId(this.organization_ID);
     } else if (typeof result.MemberDetails !== "undefined") {
       // we retrieve the list of all members
       this.teamMembers = result.MemberDetails ? result.MemberDetails : [];
-      //this.filterTeamMembersByOrganizationId();
       this.filteredTeamMembers = this.teamMembers.slice(0);
       this.selectedGroup = 'All Participants';
     }
@@ -74,14 +72,6 @@ export class TeamViewComponent implements OnInit {
 
   private organizationChangedHandler(organization) {
     this.organization_ID = organization.ID;
-    //this.filterTeamMembersByOrganizationId();
-    //this._teamMemberModelService.listAllByOrganizationId(this.organization_ID);
+    this._teamMemberModelService.listAllByOrganizationId(this.organization_ID);
   }
-
-  private filterTeamMembersByOrganizationId() {
-    this.teamMembers = this.teamMembers.filter(function (value) {
-      return value.organizationId == this.organization_ID;
-    });
-  }
-
 }
