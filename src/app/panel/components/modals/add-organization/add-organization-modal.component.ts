@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, ViewChild, OnInit, Output, EventEmitter, Input} from '@angular/core';
+import {Component, ViewEncapsulation, ViewChild, OnInit, Output, EventEmitter} from '@angular/core';
 import {ModalDirective} from 'ng2-bootstrap/modal';
 import {AuthInfoService} from '../../../../services/auth/auth.info.service';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -13,9 +13,9 @@ import {StringUtils} from '../../../../shared/utils/string.utils';
 export class AddOrganizationModalComponent implements OnInit {
   @ViewChild('addOrganizationModal') public addOrganizationModal:ModalDirective;
   @Output() newOrganizationSubmitted = new EventEmitter<any>();
-  @Input('working') working:boolean = false;
-  @Input('error') error:string = '';
-  @Input('success') success:string = '';
+  protected error:string = '';
+  protected success:string = '';
+  protected working:boolean = false;
   public organization:any = {Name: '', Description: '', defaultscheme: 'Beckway Blue', Email: ''};
   public organization_img:string = '';
   protected user_ID:number;
@@ -59,6 +59,12 @@ export class AddOrganizationModalComponent implements OnInit {
       this.working = false;
       this.addOrganizationModal.hide();
     }
+  }
+
+  public updateFormStatus(status:any) {
+    this.working = status.working;
+    this.success = status.success;
+    this.error = status.error;
   }
 
   protected onSubmit():void {

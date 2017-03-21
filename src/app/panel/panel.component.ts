@@ -20,9 +20,6 @@ export class PanelComponent implements OnInit {
   protected graph_only: boolean = false;
   protected table_only: boolean = false;
   public small_breakpoint = false;
-  public orgSuccessMsg: string = '';
-  public orgErrorMsg: string = '';
-  public orgWorking: boolean = false;
 
   /**
    * Injecting needed services
@@ -55,15 +52,11 @@ export class PanelComponent implements OnInit {
   }
 
   updateAddOrgStatus(res) {
-    this.orgSuccessMsg = res.success;
-    this.orgErrorMsg = res.error;
-    this.orgWorking = false;
+    this.addOrganizationModal.updateFormStatus(res);
     if (res.success) {
       setTimeout(() => {
         this.addOrganizationModal.trigger(false);
-        this.orgSuccessMsg = '';
-        this.orgErrorMsg = '';
-        this.orgWorking = false;
+        this.addOrganizationModal.updateFormStatus({success:'', error:'', working:false});
       }, 2000);
     }
   }
