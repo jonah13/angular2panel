@@ -48,10 +48,11 @@ export class TeamViewComponent implements OnInit {
   }
 
   private addCompanyProfileToMembers() {
+
     let user, str:string = '' + this._authInfoService.getCurrentUser();
     try {
       user = JSON.parse(str);
-      if (user.user_Role !== 'Company') {
+      if (user.user_Role !== 'Company' || (this.teamMembers.length && this.teamMembers[0].FullName === user.FullName)) {
         return;
       }
 
