@@ -27,6 +27,22 @@ $LighterGreen: #F5F3B1;
   background: $DarkerBlue;
 }
 
+.lighterColor {
+  color: $LighterBlue;
+}
+.lightColor {
+  color: $LightBlue;
+}
+.mediumColor {
+  color: $MediumBlue;
+}
+.darkColor {
+  color: $DarkBlue;
+}
+.darkerColor {
+  color: $DarkerBlue;
+}
+
 
 .green {
   .lighterBg {
@@ -44,5 +60,22 @@ $LighterGreen: #F5F3B1;
   .darkerBg {
     background: $DarkerGreen;
   }
+
+  .lighterColor {
+    color: $LighterGreen;
+  }
+  .lightColor {
+    color: $LightGreen;
+  }
+  .mediumColor {
+    color: $MediumGreen;
+  }
+  .darkColor {
+    color: $DarkGreen;
+  }
+  .darkerColor {
+    color: $DarkerGreen;
+  }
+
 }
 

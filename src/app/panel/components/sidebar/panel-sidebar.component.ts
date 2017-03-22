@@ -33,7 +33,7 @@ export class PanelSidebarComponent implements OnInit {
       this.elements[i].state = 'expanded';
     }
     let level = this.elements[i].level, j = i + 1;
-    while (level < this.elements[j].level && j < this.elements.length) {
+    while (j < this.elements.length && level < this.elements[j].level) {
       this.elements[j].hide = !this.elements[j].hide;
       j++;
     }

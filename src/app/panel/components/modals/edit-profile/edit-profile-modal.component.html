@@ -53,11 +53,11 @@
               </div>
               <div class="form-group">
                 <label>New Password</label>
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" [(ngModel)]="user_temp.Password">
               </div>
               <div class="form-group">
                 <label>Confirm New Password</label>
-                <input type="password" class="form-control" name="confirm_password">
+                <input type="password" class="form-control" name="confirm_password" [(ngModel)]="confirm_password">
               </div>
             </form>
 
@@ -66,10 +66,10 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row" [ngClass]="{cssClass: expression}">
           <div class="col-sm-3"></div>
           <div class="col-sm-9">
-            <div class="row" [ngClass]="{centered: firstTimeLogin}">
+            <div class="row">
               <div class="col-6 text-left btn-sm-block">
                 <button class="btn btn-sm btn-confirm btn-block" data-dismiss="modal" (click)="onSubmit()">CONFIRM
                   CHANGES

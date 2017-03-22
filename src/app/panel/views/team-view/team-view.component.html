@@ -11,143 +11,138 @@
                   (organizationChanged)="organizationChangedHandler($event); inviteUsersModal.organizationChangedHandler($event)">
           </app-organizations-header>
 
-          <div class="left-panel-page col-12">
-            <div class="row mt-2 mb-2">
-              <div class="col-12">
-                <div class="left-menu group-list">
+            <div class="left-menu group-list">
 
-                  <table class="table tree-2 table-sm table-striped table-condensed small tree-table" [ngClass]="{'has-element':filteredTeamMembers?.length}">
-                    <tr class="menu-head">
-                      <td><input type="checkbox" name=""></td>
-                      <td>#</td>
-                      <td>
-                        <div class="row gpl participants">
-                          <div class="col-md-12">
-                            <div class="btn-group ml-2">
-                              <div dropdown class="btn-group btn-group-left-panel">
-                                <button type="button" class="btn pl-2 pr-5 pb-0 pt-0 bg-white text-left">
-                                  <label class="mb-0">{{selectedGroup}}s</label><br><br>
-                                  <span>{{countByRole(selectedGroup)}}</span>
-                                </button>
-                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split"
-                                        id="participants-dropdown" aria-expanded="false" dropdownToggle>
-                                  <span class="sr-only">
-                                    <i class="fa fa-angle-down md-blue" aria-hidden="true"></i>
-                                  </span>
-                                </button>
-                                <div class="lg-dpdn dropdown-menu" dropdownMenu
-                                     aria-labelledby="participants-dropdown">
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('All Participants')">
-                                    <label class="mb-0">All Participants</label><br>
-                                    <span><i>{{countByRole('All Participants')}}</i></span>
-                                  </a>
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('Administrator')">
-                                    <label class="mb-0">Administrators</label><br>
-                                    <span><i>{{countByRole('Administrator')}}</i></span>
-                                  </a>
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('Manager')">
-                                    <label class="mb-0">Managers</label><br>
-                                    <span><i>{{countByRole('Manager')}}</i></span>
-                                  </a>
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('Member')">
-                                    <label class="mb-0">Members</label><br>
-                                    <span><i>{{countByRole('Member')}}</i></span>
-                                  </a>
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('Viewer')">
-                                    <label class="mb-0">Viewers</label><br>
-                                    <span><i>{{countByRole('Viewer')}}</i></span>
-                                  </a>
-                                  <a class="dropdown-item" href (click)="changeRoleFilter('Visitor')">
-                                    <label class="mb-0">Visitors</label><br>
-                                    <span><i>{{countByRole('Visitor')}}</i></span>
-                                  </a>
-                                </div>
-                              </div>
+              <table class="table tree-2 table-sm table-striped table-condensed small tree-table"
+                     [ngClass]="{'has-element':filteredTeamMembers?.length}">
+                <tr class="menu-head">
+                  <td><input type="checkbox" name=""></td>
+                  <td>#</td>
+                  <td>
+                    <div class="row gpl participants">
+                      <div class="col-md-12">
+                        <div class="btn-group ml-2">
+                          <div dropdown class="btn-group btn-group-left-panel">
+                            <button type="button" class="btn pl-2 pr-5 pb-0 pt-0 bg-white text-left">
+                              <label class="mb-0">{{selectedGroup}}s</label><br><br>
+                              <span>{{countByRole(selectedGroup)}}</span>
+                            </button>
+                            <button type="button" class="btn btn-lg btn-secondary dropdown-toggle-split"
+                                    id="participants-dropdown" aria-expanded="false" dropdownToggle>
+                              <span class="sr-only">
+                                <i class="fa fa-angle-down md-blue" aria-hidden="true"></i>
+                              </span>
+                            </button>
+                            <div class="lg-dpdn dropdown-menu" dropdownMenu
+                                 aria-labelledby="participants-dropdown">
+                              <a class="dropdown-item" href (click)="changeRoleFilter('All Participants')">
+                                <label class="mb-0">All Participants</label><br>
+                                <span><i>{{countByRole('All Participants')}}</i></span>
+                              </a>
+                              <a class="dropdown-item" href (click)="changeRoleFilter('Administrator')">
+                                <label class="mb-0">Administrators</label><br>
+                                <span><i>{{countByRole('Administrator')}}</i></span>
+                              </a>
+                              <a class="dropdown-item" href (click)="changeRoleFilter('Manager')">
+                                <label class="mb-0">Managers</label><br>
+                                <span><i>{{countByRole('Manager')}}</i></span>
+                              </a>
+                              <a class="dropdown-item" href (click)="changeRoleFilter('Member')">
+                                <label class="mb-0">Members</label><br>
+                                <span><i>{{countByRole('Member')}}</i></span>
+                              </a>
+                              <a class="dropdown-item" href (click)="changeRoleFilter('Viewer')">
+                                <label class="mb-0">Viewers</label><br>
+                                <span><i>{{countByRole('Viewer')}}</i></span>
+                              </a>
+                              <a class="dropdown-item" href (click)="changeRoleFilter('Visitor')">
+                                <label class="mb-0">Visitors</label><br>
+                                <span><i>{{countByRole('Visitor')}}</i></span>
+                              </a>
                             </div>
                           </div>
                         </div>
-                        <img src="/assets/images/svg/hirarchy-1.svg" class="ic12">
-                        <img src="/assets/images/svg/hirarchy-2.svg" class="ic12">
-                        <img src="/assets/images/svg/hirarchy-3.svg" class="ic12">
-                        <img src="/assets/images/svg/hirarchy-4.svg" class="ic12">
-                        <img src="/assets/images/svg/hirarchy-5.svg" class="ic12">
-                        <span class="dropdown">
-                          <a data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true"
-                             aria-expanded="false">Hierarchy</a>
-                          <div class="dropdown-menu dropdown-menu-center dd-design1 text-center">
-                            <a class="dropdown-item" href="javascript:void(0)">nested order (standard)</a>
-                            <a class="dropdown-item" href="javascript:void(0)">alphabetical order</a>
-                            <a class="dropdown-item" href="javascript:void(0)">sort by category</a>
-                          </div>
-                        </span>
-                      </td>
-                      <td *ngFor="let member of filteredTeamMembers, let i = index" class="member-cell">
-                        <figure class="mb-0 mt-1">
-                          <span><img src="{{member.ProfilePic || '/assets/images/profile.jpg'}}" class="round"></span>
-                          <figcaption class="figure-caption">{{member.FullName}}</figcaption>
-                        </figure>
-                        <small><i>{{member.PermissionGroup}}</i></small>
-                      </td>
-                      <td class="invite-col">
-                        <div class="cell-container">
-                          <figure class="mb-0 mt-1" data-toggle="modal" data-target="#modelinvite">
-                          <span class="text-center" (click)="inviteUsersModal.trigger();">
-                            <i class="fa fa-plus mt-2 pt-1"></i>
-                          </span>
-                            <figcaption class="figure-caption">Invite</figcaption>
-                          </figure>
-                          <small><i>Group</i></small>
-                        </div>
+                      </div>
+                    </div>
+                    <img src="/assets/images/svg/hirarchy-1.svg" class="ic12">
+                    <img src="/assets/images/svg/hirarchy-2.svg" class="ic12">
+                    <img src="/assets/images/svg/hirarchy-3.svg" class="ic12">
+                    <img src="/assets/images/svg/hirarchy-4.svg" class="ic12">
+                    <img src="/assets/images/svg/hirarchy-5.svg" class="ic12">
+                    <span class="dropdown">
+                      <a data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true"
+                         aria-expanded="false">Hierarchy</a>
+                      <div class="dropdown-menu dropdown-menu-center dd-design1 text-center">
+                        <a class="dropdown-item" href="javascript:void(0)">nested order (standard)</a>
+                        <a class="dropdown-item" href="javascript:void(0)">alphabetical order</a>
+                        <a class="dropdown-item" href="javascript:void(0)">sort by category</a>
+                      </div>
+                    </span>
+                  </td>
+                  <td *ngFor="let member of filteredTeamMembers, let i = index" class="member-cell">
+                    <figure class="mb-0 mt-1">
+                      <span><img src="{{member.ProfilePic || '/assets/images/profile.jpg'}}" class="round"></span>
+                      <figcaption class="figure-caption">{{member.FullName}}</figcaption>
+                    </figure>
+                    <small><i>{{member.PermissionGroup}}</i></small>
+                  </td>
+                  <td class="invite-col">
+                    <div class="cell-container">
+                      <figure class="mb-0 mt-1" data-toggle="modal" data-target="#modelinvite">
+                      <span class="text-center" (click)="inviteUsersModal.trigger();">
+                        <i class="fa fa-plus mt-2 pt-1"></i>
+                      </span>
+                        <figcaption class="figure-caption">Invite</figcaption>
+                      </figure>
+                      <small><i>Group</i></small>
+                    </div>
 
-                        <app-invite-users-modal #inviteUsersModal [organization_ID]="organization_ID">
-                        </app-invite-users-modal>
+                    <app-invite-users-modal #inviteUsersModal [organization_ID]="organization_ID">
+                    </app-invite-users-modal>
 
-                      </td>
-                    </tr>
+                  </td>
+                </tr>
 
-                    <tr class="treegrid-8 treegrid-parent-7" *ngFor="let item of elements">
-                      <td><input type="checkbox"/></td>
-                      <td>3</td>
-                      <td class="{{item.type}}">
-                        <span class="treegrid-expander fa"
-                              [ngClass]="{'fa-angle-down':item.state === 'expanded', 'fa-angle-right':item.state === 'collapsed'}"
-                              *ngIf="item.type !== 'initiative'"></span>
-                        {{item.name}}
-                      </td>
-                      <td *ngFor="let member of filteredTeamMembers">
-                        <div dropdown class="dropdown member-role-element">
-                          <a href id="cs-dropdown" dropdownToggle>
-                            Admin
-                          </a>
-                          <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
-                            <li>
-                              <a class="dropdown-item" href="javascript:void(0)">Admin</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="javascript:void(0)">View</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="javascript:void(0)">Edit</a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="javascript:void(0)">Comment</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                      <td>&nbsp;</td>
-                    </tr>
-                    <tr class="treegrid-8 treegrid-parent-7" *ngFor="let emptyItem of elements">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                <tr class="treegrid-8 treegrid-parent-7" *ngFor="let item of elements">
+                  <td><input type="checkbox"/></td>
+                  <td>3</td>
+                  <td class="{{item.type}}">
+                    <span class="treegrid-expander fa"
+                          [ngClass]="{'fa-angle-down':item.state === 'expanded', 'fa-angle-right':item.state === 'collapsed'}"
+                          *ngIf="item.type !== 'initiative'"></span>
+                    {{item.name}}
+                  </td>
+                  <td *ngFor="let member of filteredTeamMembers">
+                    <div dropdown class="dropdown member-role-element">
+                      <a href id="cs-dropdown" dropdownToggle>
+                        Admin
+                      </a>
+                      <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">Admin</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">View</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">Comment</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr class="treegrid-8 treegrid-parent-7" *ngFor="let emptyItem of elements">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
 
-                  </table>
-                </div>
-              </div>
+              </table>
             </div>
-          </div>
 
 
         </div>

@@ -1,9 +1,9 @@
 <div class="full-height" [ngClass]="{green: organization?.defaultscheme === 'Beckway Green'}" *ngIf="!hideView">
-  <div class="fixed_page">
+  <div class="fixed_page darkerBg">
     <app-header></app-header>
     <section class="">
-      <div class="signin margin-center">
-        <h2 class="form-signin-heading">{{organization?.Name || 'Beckway Group'}} Login:</h2>
+      <div class="signin margin-center lighterBg">
+        <h2 class="form-signin-heading lightBg darkerColor">{{organization?.Name || 'Beckway Group'}} Login:</h2>
         <form class="form-signin form-horizontal" id="login_form">
           <figure class="text-center">
             <img src="{{organization?.logo || '/assets/images/beckway_logo.png'}}"
@@ -11,12 +11,12 @@
           </figure>
           <p>{{organization?.Description || 'Beckway group is proud to serve you, welcome to our VectorMarks dashboard!'}}</p>
           <div class="form-group">
-            <label for="emailaddress">Email address</label>
+            <label class="darkerColor" for="emailaddress">Email address</label>
             <span><input name="email" type="email" class="form-control" id="emailaddress"
                          [(ngModel)]="email" (keyup.enter)="onSubmit()"></span>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label class="darkerColor" for="password">Password</label>
             <input type="password" name="password" class="form-control" id="password"
                    [(ngModel)]="password" (keyup.enter)="onSubmit()">
           </div>
@@ -24,11 +24,13 @@
             <p>{{error}}</p>
           </div>
           <div class="form-group fpl text-right">
-            <a href="javascript:void(0)" routerLink="/request-password-reset" class="sspb text-ul small">Help, I forgot my password!</a>
-            <a class="btn btn-md btn-primary ml-4 sspb" href="javascript:void(0)" (click)="onSubmit()" *ngIf="!working">
+            <a href="javascript:void(0)" routerLink="/request-password-reset" class="sspb text-ul small darkerColor">
+              Help, I forgot my password!
+            </a>
+            <a class="btn btn-md btn-primary ml-4 sspb darkerColor lightBg" href="javascript:void(0)" (click)="onSubmit()" *ngIf="!working">
               LOGIN <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
-            <a class="btn btn-md btn-primary ml-4 sspb" href="javascript:void(0)" (click)="onSubmit()" *ngIf="working">
+            <a class="btn btn-md btn-primary ml-4 sspb darkerColor lightBg" href="javascript:void(0)" (click)="onSubmit()" *ngIf="working">
               <span class="working"><img src="/assets/images/loading.png" alt="working..."/></span>
             </a>
           </div>

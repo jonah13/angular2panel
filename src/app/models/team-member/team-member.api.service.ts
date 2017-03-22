@@ -3,7 +3,6 @@ import {Endpoint} from '../../services/interfaces/interfaces';
 import {ApiService} from '../../services/model/_api.service';
 import {Observable} from 'rxjs/Observable';
 import {HttpService} from '../../services/http/http.service';
-import {CONFIG} from '../../shared/config';
 
 @Injectable()
 export class TeamMemberApiService extends ApiService {

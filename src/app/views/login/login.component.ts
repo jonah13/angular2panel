@@ -8,8 +8,7 @@ import {OrganizationModelService} from '../../models/organization/organization.m
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../../../assets/styles/pages/login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
   protected email: string = '';

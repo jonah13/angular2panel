@@ -111,8 +111,11 @@ export class HeaderComponent implements OnInit {
           user_to_store['organization_id'] = this.user.organizationid;
         }
         this._authInfoService.setCurrentUser(JSON.stringify(user_to_store));
+        if (!this.user.Title || this.user.Title === 'null') {
+          this.user.Title = '';
+        }
 
-        this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Title: this.user.Title};
+        this.user_temp = {UserID: this.user.user_ID, FullName: this.user.FullName, Title: this.user.Title, Password: ''};
         this.editProfileModal.resetForm(this.user);
         this.firstTimeEditModal();
 
