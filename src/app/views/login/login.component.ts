@@ -5,6 +5,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {UserModelService} from '../../models/user/user.model.service';
 import {AuthInfoService} from '../../services/auth/auth.info.service';
 import {OrganizationModelService} from '../../models/organization/organization.model.service';
+import {LocalStorageService} from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
    * @param _authInfoService
    * @param _userModelService
    * @param _organizationModelService
+   * @param _localStorage
    * @param _route
    * @param _router
    * @param pageTitle
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
               private _route: ActivatedRoute,
               private _userModelService: UserModelService,
               private _organizationModelService: OrganizationModelService,
+              private _localStorage: LocalStorageService,
               private _router: Router, private pageTitle: TitleService) {
     pageTitle.setTitle('Login');
   }
@@ -45,6 +48,7 @@ export class LoginComponent implements OnInit {
 
     this.orgId = this._route.snapshot.queryParams['id'];
     this.email = this._route.snapshot.queryParams['email'];
+    this.organization = this._localStorage.get('org');
 
     if (this.orgId) {
       this.hideView = true;
@@ -157,9 +161,9 @@ export class LoginComponent implements OnInit {
       this.error = 'could not get user ID';
     });
     this._organizationModelService.subscribe(data => {
-      console.log(data);
       if (data.ResponseCode === 200 && data.ResponseMessage === 'Success' && data.OrganizationDetails) {
         this.organization = data.OrganizationDetails;
+        this._localStorage.set('org', this.organization);
       }
       this.hideView = false;
     }, error => {

@@ -79,3 +79,11 @@ $LighterGreen: #F5F3B1;
 
 }
 
+.navbar-inverse .navbar-nav .nav-link.active {
+  border-bottom: 3px solid $DarkBlue;
+}
+.green {
+  .navbar-inverse .navbar-nav .nav-link.active {
+    border-bottom: 3px solid $DarkGreen;
+  }
+}
