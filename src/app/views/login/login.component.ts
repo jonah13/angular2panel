@@ -127,7 +127,6 @@ export class LoginComponent implements OnInit {
           console.log(e);
         }
       }
-      console.log(data);
       if (data.ResponseCode === 200 && data.ResponseMessage === 'Success') {
         //updating user object
         this.user = data.UserDetails;

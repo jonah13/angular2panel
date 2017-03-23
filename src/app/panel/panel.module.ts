@@ -43,9 +43,10 @@ import {ListPopoverComponent} from "./components/popovers/list-popover/list-popo
 import {HeaderComponent} from "./components/header/header.component";
 import {OrganizationsHeaderComponent} from "./components/organizations-header/organizations-header.component";
 import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.component';
-import {EditableTableComponent} from "../components/reusable-components/editable-table.component";
 import {EditableStringComponent} from "../components/reusable-components/editable-string.component";
 import {EbitdaTableComponent} from "./components/tables/ebitda-table.component";
+import {EmptyGraphComponent} from './components/graphs/empty-graph/empty-graph.component';
+import {TimingTableComponent} from './components/tables/timing-table/timing-table.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,9 @@ import {EbitdaTableComponent} from "./components/tables/ebitda-table.component";
     ColorsSchemeComponent,
     TruncatePipe,
     EditableStringComponent,
-    EbitdaTableComponent
+    EbitdaTableComponent,
+    TimingTableComponent,
+    EmptyGraphComponent
   ],
   imports: [
     CommonModule,
