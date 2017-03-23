@@ -1,45 +1,45 @@
-<div class="editable-table">
-  <ar-editable-string
-          [text]="title" [placeholder]="'Enter a title for this table'"
-          (changed)="onTitleChange($event)"
-          class="table-title">
-  </ar-editable-string>
-  <table>
-    <thead>
-    <tr>
-      <th *ngFor="#header of headers; #i = index">
-        <ar-editable-string
-                [text]="header.text" [placeholder]="'col'+(i+1)"
-                (changed)="updateHeader(i, $event)">
-        </ar-editable-string>
-        <a href class="delete-column" (click)="deleteColumnConfirm(i)"><span
-                class="glyphicon glyphicon-remove-circle"></span></a>
-      </th>
-      <th class="small-column"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="#row of content; #i = index">
-      <td *ngFor="#cell of row; #j = index">
-        <ar-editable-string
-                [text]="cell.text" [placeholder]="'...'"
-                (changed)="updateContent(i, j, $event)">
-        </ar-editable-string>
-      </td>
-      <td><a href class="delete-row" (click)="deleteRowConfirm(i)"><span
-              class="glyphicon glyphicon-remove-circle"></span></a></td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="table-controls">
-    <button class="btn btn-secondary btn-mini" (click)="addRow()">Add Row</button>
-    <button class="btn btn-secondary btn-mini" (click)="addColumn()">Add Column</button>
-  </div>
-</div>
-<!-- CONFIRM MODAL -->
-<!--<ar-confirmation-modal-->
-        <!--[showModal]="showModal"-->
-        <!--[message]="confirmMessage"-->
-        <!--[positiveLabel]="'Yes'"-->
-        <!--(closed)="confirmAction($event)">-->
-<!--</ar-confirmation-modal>-->
+<!--<div class="editable-table">-->
+  <!--<app-editable-string-->
+          <!--[text]="title" [placeholder]="'Enter a title for this table'"-->
+          <!--(changed)="onTitleChange($event)"-->
+          <!--class="table-title">-->
+  <!--</app-editable-string>-->
+  <!--<table>-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--&lt;!&ndash;<th *ngFor="#header of headers; #i = index">&ndash;&gt;-->
+        <!--&lt;!&ndash;<app-editable-string&ndash;&gt;-->
+                <!--&lt;!&ndash;[text]="header.text" [placeholder]="'col'+(i+1)"&ndash;&gt;-->
+                <!--&lt;!&ndash;(changed)="updateHeader(i, $event)">&ndash;&gt;-->
+        <!--&lt;!&ndash;</app-editable-string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href class="delete-column" (click)="deleteColumnConfirm(i)"><span&ndash;&gt;-->
+                <!--&lt;!&ndash;class="glyphicon glyphicon-remove-circle"></span></a>&ndash;&gt;-->
+      <!--&lt;!&ndash;</th>&ndash;&gt;-->
+      <!--<th class="small-column"></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr *ngFor="#row of content; #i = index">-->
+      <!--<td *ngFor="#cell of row; #j = index">-->
+        <!--<app-editable-string-->
+                <!--[text]="cell.text" [placeholder]="'...'"-->
+                <!--(changed)="updateContent(i, j, $event)">-->
+        <!--</app-editable-string>-->
+      <!--</td>-->
+      <!--<td><a href class="delete-row" (click)="deleteRowConfirm(i)"><span-->
+              <!--class="glyphicon glyphicon-remove-circle"></span></a></td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<div class="table-controls">-->
+    <!--<button class="btn btn-secondary btn-mini" (click)="addRow()">Add Row</button>-->
+    <!--<button class="btn btn-secondary btn-mini" (click)="addColumn()">Add Column</button>-->
+  <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; CONFIRM MODAL &ndash;&gt;-->
+<!--&lt;!&ndash;<ar-confirmation-modal&ndash;&gt;-->
+        <!--&lt;!&ndash;[showModal]="showModal"&ndash;&gt;-->
+        <!--&lt;!&ndash;[message]="confirmMessage"&ndash;&gt;-->
+        <!--&lt;!&ndash;[positiveLabel]="'Yes'"&ndash;&gt;-->
+        <!--&lt;!&ndash;(closed)="confirmAction($event)">&ndash;&gt;-->
+<!--&lt;!&ndash;</ar-confirmation-modal>&ndash;&gt;-->

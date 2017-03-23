@@ -1,12 +1,12 @@
-import {Input, Output, Component, Renderer EventEmitter, ViewEncapsulation, ViewChild, AfterViewInit, AfterViewChecked} from '@angular/core';
+import {Input, Output, Component, Renderer, EventEmitter, ViewEncapsulation, ViewChild, AfterViewInit, AfterViewChecked} from '@angular/core';
 import {Router} from '@angular/router';
 
 
 @Component({
   selector: 'app-editable-string',
   templateUrl: './editable-string.component.html',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['../../assets/styles/pages/editable-string.scss']
+  encapsulation: ViewEncapsulation.None//,
+  //styleUrls: ['../../assets/styles/pages/editable-string.scss']
 })
 export class EditableStringComponent implements AfterViewInit, AfterViewChecked {
 
