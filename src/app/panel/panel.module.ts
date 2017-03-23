@@ -45,6 +45,7 @@ import {OrganizationsHeaderComponent} from "./components/organizations-header/or
 import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.component';
 import {EditableTableComponent} from "../components/reusable-components/editable-table.component";
 import {EditableStringComponent} from "../components/reusable-components/editable-string.component";
+import {EbitdaTableComponent} from "./components/tables/ebitda-table.component";
 
 @NgModule({
   declarations: [
@@ -68,8 +69,8 @@ import {EditableStringComponent} from "../components/reusable-components/editabl
     OrganizationsHeaderComponent,
     ColorsSchemeComponent,
     TruncatePipe,
-    EditableTableComponent,
-    EditableStringComponent
+    EditableStringComponent,
+    EbitdaTableComponent
   ],
   imports: [
     CommonModule,

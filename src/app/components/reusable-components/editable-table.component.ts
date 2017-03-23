@@ -4,8 +4,8 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-editable-table',
   templateUrl: './editable-table.component.html',
-  encapsulation: ViewEncapsulation.None//,
-  //styleUrls: ['../../assets/styles/pages/editable-table.scss']
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['../../../assets/styles/components/reusable-components/editable-table.scss']
 })
 export class EditableTableComponent implements OnInit {
 

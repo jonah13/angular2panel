@@ -31,7 +31,6 @@ export class TeamViewComponent implements OnInit {
   ngOnInit() {
     this._teamMemberModelService.observer$.subscribe(result => this._subscribe(result));
     this.elements = this._elementsModuleService.getElements();
-    this.addCompanyProfileToMembers();
   }
 
   private _subscribe(result:any) {
@@ -41,37 +40,11 @@ export class TeamViewComponent implements OnInit {
     } else if (typeof result.MemberDetails !== "undefined") {
       // we retrieve the list of all members
       this.teamMembers = result.MemberDetails ? result.MemberDetails : [];
-      this.addCompanyProfileToMembers();
       this.filteredTeamMembers = this.teamMembers.slice(0);
       this.selectedGroup = 'All Participants';
     }
   }
-
-  private addCompanyProfileToMembers() {
-
-    let user, str:string = '' + this._authInfoService.getCurrentUser();
-    try {
-      user = JSON.parse(str);
-      if (user.user_Role !== 'Company' || (this.teamMembers.length && this.teamMembers[0].FullName === user.FullName)) {
-        return;
-      }
-
-      this.teamMembers.unshift({
-        FullName: user.FullName,
-        Title: user.user_Role,
-        ProfilePic: user.ProfilePic,
-        Email: '',
-        PermissionGroup: 'Administrator',
-        organizationId: user.organization_id,
-        Created_by: user.user_Role
-      });
-
-    } catch (err) {
-      console.log(err);
-    }
-
-  }
-
+  
   private countByRole(role):string {
 
     if (role === 'All Participants') {

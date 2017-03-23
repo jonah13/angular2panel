@@ -1,0 +1,103 @@
+/*-- BOX SHADOW --*/
+/*- GREY SCALE -*/
+/*- PALLETE -*/
+/*- FONT WEIGHTS -*/
+.editable-table .table-title .editable-string {
+  margin-bottom: -10px;
+  font-size: 15px;
+  color: #666;
+}
+
+.editable-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.editable-table table thead {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border: 1px solid #eee;
+  border-bottom: none;
+}
+
+.editable-table table thead th {
+  color: #9a9a9a;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 3px;
+  padding: 12px 6px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+}
+
+.editable-table table thead th.small-column {
+  width: 20px;
+}
+
+.editable-table table thead th .delete-column {
+  position: absolute;
+  left: 20px;
+  bottom: -8px;
+  visibility: hidden;
+}
+
+.editable-table table thead th .delete-column:hover {
+  visibility: visible;
+}
+
+.editable-table table thead th:hover .delete-column {
+  visibility: visible;
+}
+
+.editable-table table tbody {
+  border: 1px solid #eee;
+}
+
+.editable-table table td {
+  color: #444;
+  font-family: "Patron", helvetica, arial, sans-serif;
+  line-height: 28px;
+  padding: 3px 6px 4px;
+  text-align: center;
+}
+
+.editable-table table td:last-child {
+  padding: 0;
+  text-align: left;
+}
+
+.editable-table table td:last-child .delete-row {
+  visibility: hidden;
+}
+
+.editable-table table tr:nth-child(even) td {
+  background: #f9f9f9;
+  border: solid #e7e7e7;
+  border-width: 1px 0;
+}
+
+.editable-table table tr:hover td:last-child .delete-row {
+  visibility: visible;
+}
+
+.editable-table table td, .editable-table table th {
+  display: -ms-grid;
+  display: grid;
+}
+
+.editable-table table td .editable-string textarea, .editable-table table th .editable-string textarea {
+  margin: 0 0 -10px 0;
+  padding: 6px 2px 6px 15px;
+  height: 42px;
+}
+
+.editable-table table td .delete-column, .editable-table table td .delete-row, .editable-table table th .delete-column, .editable-table table th .delete-row {
+  color: #b1b1b1;
+}
+
+.editable-table .table-controls {
+  text-align: right;
+  margin: 5px 0;
+}
