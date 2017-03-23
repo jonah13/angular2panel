@@ -1,19 +1,19 @@
-<div class="fixed_page">
+<div class="fixed_page darkerBg">
   <app-header></app-header>
   <section class="container in_page">
     <div class="contact-msg margin-center">
-      <p>Fill out the form below lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+      <p class="mediumColor">Fill out the form below lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
       <form class="form-horizontal" id="login_form">
         <div class="form-group">
-          <label for="emailaddress" class="lt-blue">Email address</label>
+          <label class="mediumColor" for="emailaddress">Email address</label>
           <span><input name="email" type="email" class="form-control" id="emailaddress" [(ngModel)]="email"></span>
         </div>
         <div class="form-group">
-          <label for="namesub" class="lt-blue">Name/Subject</label>
+          <label class="mediumColor" for="namesub">Name/Subject</label>
           <span><input name="subject" type="text" class="form-control" id="namesub" [(ngModel)]="subject"></span>
         </div>
         <div class="form-group">
-          <label for="message" class="lt-blue">Message</label>
+          <label class="mediumColor" for="message">Message</label>
           <span><textarea class="form-control" name="message" id="message" [(ngModel)]="message"></textarea></span>
         </div>
         <div class="form-group" *ngIf="error">
@@ -23,10 +23,10 @@
           <p class="success">{{success}}</p>
         </div>
         <div class="form-group fpl text-right">
-          <a class="btn btn-md btn-primary ml-4 sspb" href (click)="onSubmit()" *ngIf="!working">
+          <a class="btn btn-md btn-primary ml-4 sspb darkerColor lightBg" href (click)="onSubmit()" *ngIf="!working">
             SEND <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
-          <a class="btn btn-md btn-primary ml-4 sspb" href (click)="onSubmit()" *ngIf="working">
+          <a class="btn btn-md btn-primary ml-4 sspb darkerColor lightBg" href (click)="onSubmit()" *ngIf="working">
             <span class="working"><img src="/assets/images/loading.png" alt="working..."/></span>
           </a>
 

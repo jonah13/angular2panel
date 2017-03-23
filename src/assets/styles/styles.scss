@@ -31,11 +31,11 @@
 }
 
 .in_page h5 {
-  color: #758296 !important;
+  margin: 20px 0 5px 0;
 }
 
 .in_page h6 {
-  color: #758296 !important;
+  margin: 15px 0 5px 0;
 }
 
 .in_page p {
@@ -186,10 +186,6 @@ body {
 
 textarea {
   resize: none;
-}
-
-.navbar-inverse .navbar-nav .nav-link.active {
-  border-bottom: 3px solid #758296;
 }
 
 

@@ -3,6 +3,7 @@ import {AuthInfoService} from '../../../services/auth/auth.info.service';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {OrganizationModelService} from '../../../models/organization/organization.model.service';
+import {LocalStorageService} from '../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-organizations-header',
@@ -21,11 +22,13 @@ export class OrganizationsHeaderComponent {
    * Injecting needed services
    * @param _authInfoService
    * @param _authService
+   * @param _localStorage
    * @param _organizationModelService
    * @param _router
    */
   constructor(private _authInfoService: AuthInfoService,
               private _authService: AuthService,
+              private _localStorage: LocalStorageService,
               private _organizationModelService: OrganizationModelService,
               private _router: Router) {
   }
@@ -49,10 +52,9 @@ export class OrganizationsHeaderComponent {
     }
 
     if (this.user.user_Role === "SuperAdmin") {
-      console.log('SuperAdmin!!!');
+      this._localStorage.set('org', '');
       this._organizationModelService.list();
     } else if (this.user.organization_id) {
-      console.log(this.user.user_Role+'!!!');
       console.log(this.user.organization_id);
       this._organizationModelService.getById(this.user.organization_id);
     }
@@ -104,6 +106,7 @@ export class OrganizationsHeaderComponent {
         else if (data.OrganizationDetails) {
           this.current_organization = data.OrganizationDetails;
           this.organizationChanged.emit(this.current_organization);
+          this._localStorage.set('org', data.OrganizationDetails);
         }
       }
     }, error => {
