@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['../../assets/styles/pages/editable-string.scss']
 })
 export class EditableStringComponent implements AfterViewInit, AfterViewChecked {
-  
+
   @ViewChild('textarea') textarea;
   @Input() text:string = '';
   @Input() name:string = 'textarea';

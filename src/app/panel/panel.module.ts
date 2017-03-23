@@ -43,6 +43,8 @@ import {ListPopoverComponent} from "./components/popovers/list-popover/list-popo
 import {HeaderComponent} from "./components/header/header.component";
 import {OrganizationsHeaderComponent} from "./components/organizations-header/organizations-header.component";
 import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.component';
+import {EditableTableComponent} from "../components/reusable-components/editable-table.component";
+import {EditableStringComponent} from "../components/reusable-components/editable-string.component";
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import {ColorsSchemeComponent} from './components/colors-scheme/colors-scheme.co
     HeaderComponent,
     OrganizationsHeaderComponent,
     ColorsSchemeComponent,
-    TruncatePipe
+    TruncatePipe,
+    EditableTableComponent,
+    EditableStringComponent
   ],
   imports: [
     CommonModule,
