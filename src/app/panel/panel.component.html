@@ -1,4 +1,4 @@
-<div id="panel-page" >
+<div id="panel-page">
   <split direction="horizontal" [gutterSize]="5" (dragProgress)="onResizePanel($event)">
     <split-area [size]="40" [minSizePixel]="400">
       <div class="panel-left" [ngClass]="{'small': small_breakpoint}">
@@ -35,20 +35,27 @@
                 <a href [popover]="notificationsTemplate" (click)="onClick()" placement="bottom" triggers="focus">
                   <img src="/assets/images/svg/mail.svg" alt="Mail"><span class="notif_count">3</span>
                 </a>
-                <template #notificationsTemplate><app-notifications-popover></app-notifications-popover></template>
+                <template #notificationsTemplate>
+                  <app-notifications-popover></app-notifications-popover>
+                </template>
               </li>
               <li class="header-item revisions-popover">
                 <a href [popover]="revisionsTemplate" (click)="onClick()" placement="bottom" triggers="focus">
                   <img src="/assets/images/svg/time.svg" alt="Time">
                 </a>
-                <template #revisionsTemplate><app-revisions-popover></app-revisions-popover></template>
+                <template #revisionsTemplate>
+                  <app-revisions-popover></app-revisions-popover>
+                </template>
               </li>
-              <li class="header-item"><a href="javascript:void(0)"><img src="/assets/images/svg/info.svg" alt="Info"></a></li>
+              <li class="header-item"><a href="javascript:void(0)"><img src="/assets/images/svg/info.svg"
+                                                                        alt="Info"></a></li>
               <li class="header-item">
                 <div dropdown class="dropdown">
-                  <a href id="settings-dropdown" dropdownToggle><img src="/assets/images/svg/settings.svg" alt="Settings"></a>
+                  <a href id="settings-dropdown" dropdownToggle><img src="/assets/images/svg/settings.svg"
+                                                                     alt="Settings"></a>
                   <div class="settings-popover" dropdownMenu aria-labelledby="settings-dropdown">
-                    <app-settings-popover (addOrganizationClicked)="addOrganizationModal.trigger()"></app-settings-popover>
+                    <app-settings-popover
+                            (addOrganizationClicked)="addOrganizationModal.trigger()"></app-settings-popover>
                   </div>
                 </div>
 
@@ -65,27 +72,32 @@
             <div class="body-controls">
               <ul class="state-btns">
                 <li>
-                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: table_only}" (click)="onUpdateDisplayOptions('table')">
+                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: table_only}"
+                     (click)="onUpdateDisplayOptions('table')">
                     <img src="/assets/images/svg/calender.svg" alt="table">
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: graph_only}" (click)="onUpdateDisplayOptions('graph')">
+                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: graph_only}"
+                     (click)="onUpdateDisplayOptions('graph')">
                     <img src="/assets/images/svg/statistics.svg" alt="graph">
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: target}" (click)="onUpdateStateBtns('target')">
+                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: target}"
+                     (click)="onUpdateStateBtns('target')">
                     <img src="/assets/images/svg/target.svg" alt="target"> Target
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: track}" (click)="onUpdateStateBtns('track')">
+                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: track}"
+                     (click)="onUpdateStateBtns('track')">
                     <img src="/assets/images/svg/track.svg" alt="track"> Track
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: triage}" (click)="onUpdateStateBtns('triage')">
+                  <a href="javascript:void(0)" class="state-btn" [ngClass]="{active: triage}"
+                     (click)="onUpdateStateBtns('triage')">
                     <img src="/assets/images/svg/triage.svg" alt="triage"> Triage
                   </a>
                 </li>
@@ -96,9 +108,11 @@
                 <li><a href="javascript:void(0)"><img src="/assets/images/svg/edit.svg" alt="Edit"></a></li>
                 <li class="delete-popover">
                   <a href [popover]="buttonsTemplate" (click)="onClick()" placement="left" triggers="focus">
-                    <img src="/assets/images/svg/delete.svg" alt="Delete" >
+                    <img src="/assets/images/svg/delete.svg" alt="Delete">
                   </a>
-                  <template #buttonsTemplate><app-buttons-popover></app-buttons-popover></template>
+                  <template #buttonsTemplate>
+                    <app-buttons-popover></app-buttons-popover>
+                  </template>
                 </li>
               </ul>
             </div>
@@ -115,7 +129,7 @@
                 <table>
                   <thead>
                   <tr>
-                    <th><input type="checkbox" /></th>
+                    <th><input type="checkbox"/></th>
                     <th>#</th>
                     <th>Name</th>
                     <th>Name</th>
@@ -126,7 +140,7 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox"/></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -135,7 +149,7 @@
                     <td></td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox"/></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -190,7 +204,7 @@
                 <table>
                   <tbody>
                   <tr>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox"/></td>
                     <td>1</td>
                     <td>Name of Entry</td>
                     <td></td>
@@ -199,7 +213,7 @@
                     <td></td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox"/></td>
                     <td>1</td>
                     <td>Name of Entry</td>
                     <td></td>
@@ -208,7 +222,7 @@
                     <td></td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox"/></td>
                     <td>1</td>
                     <td>Name of Entry</td>
                     <td></td>
@@ -251,45 +265,247 @@
               </div>
             </app-collapsible-section>
 
-            <app-collapsible-section [title]="'Timing'" [graph_only]="graph_only" [table_only]="table_only">
+            <app-collapsible-section [title]="'Timing'" [graph_only]="graph_only" [table_only]="table_only"
+                                     class="dashboard-table">
               <div class="table-box">
                 <h5>Title of table</h5>
                 <table>
                   <thead>
                   <tr>
-                    <th><input type="checkbox" /></th>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
+                    <td colspan="3" class="top-header">Milestone</td>
+                    <td colspan="3" class="top-header">Target (Plan)</td>
+                    <td colspan="3" class="top-header">Track (Frcst)</td>
+                    <td colspan="4" class="top-header">Triage (Status)</td>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td><input type="checkbox" /></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="bold-header text-white">Ref</td>
+                    <td class="bold-header">Category</td>
+                    <td class="bold-header">Milestone</td>
+                    <td class="bold-header">Start</td>
+                    <td class="bold-header">Duration</td>
+                    <td class="bold-header">End</td>
+                    <td class="bold-header">Start</td>
+                    <td class="bold-header">Duration</td>
+                    <td class="bold-header">End</td>
+                    <td class="bold-header">r Dur.</td>
+                    <td class="bold-header">r End</td>
+                    <td class="bold-header">Status</td>
+                    <td class="bold-header">Notes</td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" /></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="bold-header text-white">1</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Plan</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value="Analyze ROI"></td>
+                    <td><input type="text" value="8/1/16"></td>
+                    <td><input type="text" value="1/19/00"></td>
+                    <td><input type="text" value="8/21/16"></td>
+                    <td><input type="text" value="8/5/16"></td>
+                    <td><input type="text" value="1/24/00"></td>
+                    <td><input type="text" value="8/30/16"></td>
+                    <td>5 U</td>
+                    <td>9 U</td>
+                    <td>C</td>
+                    <td>CFO confirmed projections</td>
                   </tr>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <td colspan="3">Total</td>
-                    <td colspan="4"></td>
+                    <td class="bold-header text-white">2</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Plan</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value="Obtain Approval"></td>
+                    <td><input type="text" value="9/1/16"></td>
+                    <td><input type="text" value="1/19/00"></td>
+                    <td><input type="text" value="9/21/16"></td>
+                    <td><input type="text" value="9/5/16"></td>
+                    <td><input type="text" value="1/9/00"></td>
+                    <td><input type="text" value="9/15/16"></td>
+                    <td>10 F</td>
+                    <td>6 F</td>
+                    <td>G</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">3</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Develop</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">4</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Develop</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">5</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Implement</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">Unplnd</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a dropdownToggle>Implement</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="bold-header text-white">Total Timing</td>
+                    <td class="bold-header">8/1/16</td>
+                    <td class="bold-header">5/21/00</td>
+                    <td class="bold-header">12/21/16</td>
+                    <td class="bold-header">8/5/16</td>
+                    <td class="bold-header">6/11/00</td>
+                    <td class="bold-header">1/15/17</td>
+                    <td class="bold-header">21 U</td>
+                    <td class="bold-header">25 U</td>
+                    <td class="bold-header">18% U</td>
+                    <td class="bold-header">Overall not worried about this initiative</td>
                   </tr>
                   </tfoot>
                 </table>
@@ -326,45 +542,167 @@
               </div>
             </app-collapsible-section>
 
-            <app-collapsible-section [title]="'EBITDA'" [graph_only]="graph_only" [table_only]="table_only">
+            <app-collapsible-section [title]="'EBITDA'" [graph_only]="graph_only" [table_only]="table_only"
+                                     class="dashboard-table">
               <div class="table-box">
                 <h5>Title of table</h5>
                 <table>
                   <thead>
                   <tr>
-                    <th><input type="checkbox" /></th>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
-                    <th>Name</th>
+                    <td colspan="3" class="top-header">Milestone</td>
+                    <td colspan="3" class="top-header">Target (Plan)</td>
+                    <td colspan="3" class="top-header">Track (Frcst)</td>
+                    <td colspan="3" class="top-header">Triage (Status)</td>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td><input type="checkbox" /></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="bold-header text-white">Ref</td>
+                    <td class="bold-header">Category</td>
+                    <td class="bold-header">Impact</td>
+                    <td class="bold-header">Worst</td>
+                    <td class="bold-header">Plan</td>
+                    <td class="bold-header">Best</td>
+                    <td class="bold-header">Worst</td>
+                    <td class="bold-header">Frcst</td>
+                    <td class="bold-header">Best</td>
+                    <td class="bold-header">rU/F</td>
+                    <td class="bold-header">%U/F</td>
+                    <td class="bold-header">Notes</td>
                   </tr>
                   <tr>
-                    <td><input type="checkbox" /></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="bold-header text-white">1</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a href id="margin-dropdown" dropdownToggle>Margin</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value="Incremental Salaries"></td>
+                    <td><input type="text" value="-$45"></td>
+                    <td><input type="text" value="-$30"></td>
+                    <td><input type="text" value="-$27"></td>
+                    <td><input type="text" value="-$45"></td>
+                    <td><input type="text" value="-$40"></td>
+                    <td><input type="text" value="-$20"></td>
+                    <td>10 U</td>
+                    <td>33%U</td>
+                    <td>CFO confirmed projections</td>
                   </tr>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <td colspan="3">Total</td>
-                    <td colspan="4"></td>
+                    <td class="bold-header text-white">2</td>
+                    <td>
+                      <div dropdown class="dropdown">
+                        <a href dropdownToggle>SG&A</a>
+                        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Design</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Develop</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Implement</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td><input type="text" value="Sublet Culver Office"></td>
+                    <td><input type="text" value="$300"></td>
+                    <td><input type="text" value="$400"></td>
+                    <td><input type="text" value="$500"></td>
+                    <td><input type="text" value="$500"></td>
+                    <td><input type="text" value="$550"></td>
+                    <td><input type="text" value="$600"></td>
+                    <td>150 F</td>
+                    <td>38%F</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">3</td>
+                    <td></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">4</td>
+                    <td></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td>0</td>
+                    <td></td>
+                    <td>3 of 10 will not relo</td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">5</td>
+                    <td></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="bold-header text-white">Unplnd</td>
+                    <td></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td><input type="text" value=""></td>
+                    <td>0</td>
+                    <td></td>
+                    <td>3 of the team will not relo; need to recruit</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="bold-header text-white">Total Timing</td>
+                    <td class="bold-header">$255</td>
+                    <td class="bold-header">$370</td>
+                    <td class="bold-header">$473</td>
+                    <td class="bold-header">$455</td>
+                    <td class="bold-header">$510</td>
+                    <td class="bold-header">$580</td>
+                    <td class="bold-header">140 F</td>
+                    <td class="bold-header">38%F</td>
+                    <td class="bold-header">Overall not worried about this initiative</td>
                   </tr>
                   </tfoot>
                 </table>
