@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {LocalStorageService} from '../storage/storage.service';
 import {Headers} from '@angular/http';
 import {HttpService} from '../http/http.service';
 import {UserApiService} from '../../models/user/user.api.service';
@@ -11,13 +10,11 @@ export class AuthService {
 
   /**
    *
-   * @param _localStorageService
    * @param _httpService
    * @param _userApiService
    * @param _authInfoService
    */
   constructor(
-    private _localStorageService: LocalStorageService,
     private _httpService: HttpService,
     private _userApiService: UserApiService,
     private _authInfoService: AuthInfoService) {

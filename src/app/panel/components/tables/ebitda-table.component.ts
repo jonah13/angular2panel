@@ -3,8 +3,7 @@ import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 @Component({
   selector: 'app-ebitda-table',
   templateUrl: './ebitda-table.component.html',
-  encapsulation: ViewEncapsulation.None,
-  //styleUrls: ['../../../../assets/styles/components/panel/sidebar.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class EbitdaTableComponent implements OnInit {
   @Input() rowsNumber:number = 1;
