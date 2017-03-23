@@ -35,10 +35,20 @@ export class EbitdaTableComponent implements OnInit {
         this.content.push(temp);
       }
     }
+
+    console.log(this.content);
+
   }
 
   private getTableData():Array<string[]> {
 
-    return [['aa', 'bb'], ['cc', 'dd']];
+    return [
+      ['1', 'Implement', 'Incremental Salaries', '-$45', '-$30', '-$27', '-$45', '-$40', '-$20', '10 U', '33%U', 'CFO confirmed projections'],
+      ['2', 'Design', 'Sublet Culver Office', '$300', '$400', '$500', '$500', '$550', '$600', '150 F', '38%F', ''],
+      ['3', '', '', '', '', '', '', '', '', '0', '', ''],
+      ['4', '', '', '', '', '', '', '', '', '0', '', '3 of 10 will not relo'],
+      ['5', '', '', '', '', '', '', '', '', '0', '', ''],
+      ['Unplnd', '', '', '', '', '', '', '', '', '-', '--', '3 of the team will not relo; need to recruit'],
+    ];
   }
 }

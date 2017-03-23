@@ -72,164 +72,43 @@
     </tr>
     </tbody>
     <tfoot>
-    <tr>
-      <td class="bold-header text-white">2</td>
-      <td>
-        <div dropdown class="dropdown">
-          <a href dropdownToggle>SG&A</a>
-          <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
-            <li>
-              <a class="dropdown-item" href="javascript:void(0)">Design</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="javascript:void(0)">Develop</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="javascript:void(0)">Implement</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="javascript:void(0)">Enhance</a>
-            </li>
-          </ul>
-        </div>
+    <!--<tr>-->
+    <!--&lt;!&ndash;&lt;!&ndash;<td class="bold-header text-white">2</td>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div dropdown class="dropdown">&ndash;&gt;-->
+    <!--&lt;!&ndash;<a href dropdownToggle>SG&A</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="dropdown-item" href="javascript:void(0)">Design</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="dropdown-item" href="javascript:void(0)">Develop</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="dropdown-item" href="javascript:void(0)">Implement</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a class="dropdown-item" href="javascript:void(0)">Enhance</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+
+    <!--<td *ngFor="let item of ">-->
+    <!--<app-editable-string [text]="'Sublet Culver Office'"></app-editable-string>-->
+    <!--</td>-->
+
+    <!--</tr>-->
+
+    <tr *ngFor="let row of content; let i = index">
+      <td *ngFor="let cell of row; let j = index">
+        <app-editable-string [text]="cell.text" (changed)="updateContent(i, j, $event)"></app-editable-string>
       </td>
-      <td>
-        <app-editable-string [text]="'Sublet Culver Office'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$300'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$400'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$500'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$500'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$550'"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="'$600'"></app-editable-string>
-      </td>
-      <td>150 F</td>
-      <td>38%F</td>
-      <td></td>
+      <!--<td><a href class="delete-row" (click)="deleteRowConfirm(i)"><span-->
+      <!--class="glyphicon glyphicon-remove-circle"></span></a></td>-->
     </tr>
-    <tr>
-      <td class="bold-header text-white">3</td>
-      <td></td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>0</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="bold-header text-white">4</td>
-      <td></td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>0</td>
-      <td></td>
-      <td>3 of 10 will not relo</td>
-    </tr>
-    <tr>
-      <td class="bold-header text-white">5</td>
-      <td></td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>0</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="bold-header text-white">Unplnd</td>
-      <td></td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>
-        <app-editable-string [text]="''"></app-editable-string>
-      </td>
-      <td>0</td>
-      <td></td>
-      <td>3 of the team will not relo; need to recruit</td>
-    </tr>
+
+
     <tr>
       <td colspan="3" class="bold-header text-white">Total Timing</td>
       <td class="bold-header">$255</td>
