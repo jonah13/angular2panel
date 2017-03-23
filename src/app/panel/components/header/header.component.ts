@@ -13,7 +13,6 @@ import {LocalStorageService} from '../../../services/storage/storage.service';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('editProfileModal') public editProfileModal:EditProfileModalComponent;
-  //@ViewChild('addOrganizationModal') public addOrganizationModal:AddOrganizationModalComponent;
   @Input('group_url') group_url:string = '/team-view';
   protected user:any = null;
   protected user_temp:any = {};

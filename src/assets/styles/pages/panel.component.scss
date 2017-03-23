@@ -1,4 +1,5 @@
 @import "../reset.scss";
+@import "../variables.scss";
 
 app-panel {
   width: 100%;
@@ -33,14 +34,11 @@ app-panel {
     width:         calc(100% - 550px);
     //*/
     min-width: 630px;
-    background: #FAFAFA;
     height: 100vh;
     overflow: hidden;
     .panel-header {
       height: 100px;
       .top-header-section {
-        background: #E6EBF2;
-        border: 1px solid #758296;
         border-right: none;
         height: 46px;
       }
@@ -161,14 +159,12 @@ app-panel {
       width: 100%;
       margin: 0;
       .body-content {
-        background: #758296;
         padding: 8px 0 8px 8px;
         min-height: 100%;
         .section {
           border-radius: 8px 0 0 8px;
           margin-bottom: 8px;
           .section-header {
-            background: #D3DDEA;
             border-bottom: 1px solid #B7BFCC;
             padding: 8px 16px;
             border-top-left-radius: 8px;
@@ -215,7 +211,6 @@ app-panel {
             }
           }
           .section-body {
-            background: #E6EBF2;
             padding: 14px;
             border-bottom-left-radius: 8px;
             .table-box {
@@ -321,6 +316,15 @@ app-panel {
         }
       }
     }
+  }
+}
+
+.top-header-section {
+  border: 1px solid $DarkBlue;
+}
+.green {
+  .top-header-section {
+    border: 1px solid $DarkGreen;
   }
 }
 

@@ -63,7 +63,6 @@ export class LoginComponent implements OnInit {
     } catch (err) {
       console.log(err);
     }
-    console.log(this.user);
     if (!this.user || !this.user.user_ID) {
       this.error = 'could not get user ID';
     } else {
@@ -82,8 +81,6 @@ export class LoginComponent implements OnInit {
       this.working = true;
       //we get the token
       this._authService.getToken(this.email.trim(), this.password.trim()).subscribe(response => {
-        console.log('getToken returned:');
-        console.log(response);
         if (response && response.error) {
           this.working = false;
           this.error = response.error;
@@ -91,8 +88,6 @@ export class LoginComponent implements OnInit {
         }
         //then login to get user ID (requires token)
         this._authService.login(this.email.trim(), this.password.trim()).subscribe((res) => {
-          console.log('login returned:');
-          console.log(res);
           this.working = false;
           if (res && res.error) {
             this.error = res.error;

@@ -1,5 +1,5 @@
 <div class="section">
-  <div class="section-header">
+  <div class="section-header lightBg">
     <h4>{{title}}</h4>
     <div class="section-controls">
       <ul>
@@ -20,7 +20,7 @@
       </ul>
     </div>
   </div>
-  <div [ngClass]="{'section-body': true, collapsed: section_collapsed, graph_only:graph_only, table_only:table_only}">
+  <div class="section-body lighterBg" [ngClass]="{collapsed: section_collapsed, graph_only:graph_only, table_only:table_only}">
     <ng-content></ng-content>
   </div>
 </div>

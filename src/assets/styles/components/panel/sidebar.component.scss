@@ -1,8 +1,9 @@
+@import '../../_variables.scss';
+
 .panel-sidebar {
   height: 100%;
-  background: #E6EBF2;
+  overflow: hidden;
   .sidebar-header {
-    background: #FAFAFA;
     height: 46px;
     margin: 0;
     padding: 0;
@@ -86,9 +87,8 @@
       display: inline-block;
       vertical-align: top;
       padding: 4px 10px;
-      background: #F2F4F7;
       position: relative;
-      left: -3px;
+      left: -4px;
       form {
         max-width: 400px;
       }
@@ -138,7 +138,6 @@
 table.tree-table {
   width: 100%;
   > thead {
-    background: rgba(0, 0, 0, 0.05);
     > tr {
       > th {
         text-align: center;
@@ -243,18 +242,35 @@ table.tree-table {
         }
       }
       > td:nth-child(-n+4) {
-        background: #BBC8DC;
+        background: $MediumBlue;
       }
       &:nth-child(2n+1) {
-        background: #F5F7FA;
+        background: $LighterBlue;
         > td:nth-child(-n+4) {
-          background: #CAD4E4;
+          background: $LightBlue;
         }
       }
       input[type="checkbox"] {
         height: 10px;
         width: 10px;
         margin: 0 2px;
+      }
+    }
+  }
+}
+.green {
+  table.tree-table {
+    > tbody {
+      > tr {
+        > td:nth-child(-n+4) {
+          background: $MediumGreen;
+        }
+        &:nth-child(2n+1) {
+          background: $LighterGreen;
+          > td:nth-child(-n+4) {
+            background: $LightGreen;
+          }
+        }
       }
     }
   }

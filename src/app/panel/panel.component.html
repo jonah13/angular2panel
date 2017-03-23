@@ -2,7 +2,7 @@
   <split direction="horizontal" [gutterSize]="5" (dragProgress)="onResizePanel($event)">
     <split-area [size]="40" [minSizePixel]="400">
       <div class="panel-left" [ngClass]="{'small': small_breakpoint}">
-        <div class="panel-sidebar">
+        <div class="panel-sidebar lightBg">
           <app-header></app-header>
           <div class="sidebar-body">
             <div class="left-panel-page col-12">
@@ -18,11 +18,11 @@
       </div>
     </split-area>
     <split-area [size]="60" [minSizePixel]="600">
-      <div class="panel-right">
+      <div class="panel-right lighterBg">
 
-        <div class="panel-header">
+        <div class="panel-header lighterBg">
 
-          <div class="top-header-section">
+          <div class="top-header-section lightBg">
             <div class="panel-breadcrumb">
               <h2>Portfolio</h2> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
               <h3>Company</h3> <i class="fa fa-angle-right md-blue ml-0 mr-1" aria-hidden="true"></i>
@@ -121,7 +121,7 @@
         </div>
 
         <div class="panel-body clear">
-          <div class="body-content clear">
+          <div class="body-content clear darkBg">
 
             <app-collapsible-section [title]="'Description'" [graph_only]="graph_only" [table_only]="table_only">
               <div class="table-box">

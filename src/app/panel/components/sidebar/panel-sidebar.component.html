@@ -1,6 +1,6 @@
 <div class="sidebar-body-content">
   <table #treeTable class="tree-table">
-    <thead>
+    <thead class="darkBg">
       <tr>
         <th><input type="checkbox"/></th>
         <th>#</th>
@@ -72,13 +72,6 @@
           <a *ngIf="!elmt.lead" href [popover]="selectUserTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a>
         </td>
         <td><i class="fa fa-circle txt-green mr-1" aria-hidden="true"></i></td>
-        <!--
-        <td class="comment-box">
-          <a href [popover]="flagTemplate" (click)="onClick()" placement="right" triggers="focus">
-            <input type="checkbox"/>
-          </a>
-        </td>
-        -->
         <td class="calendar-td"><a href [popover]="calendarTemplate" (click)="onClick()" placement="bottom" triggers="focus">set</a></td>
         <td>3 Weeks</td>
         <td>

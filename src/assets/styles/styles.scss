@@ -39,8 +39,14 @@
 }
 
 .in_page p {
-  color: #BBC8DC;
   font-size: 0.9em;
+}
+
+.transparentBg {
+  background: transparent;
+  &.search {
+    background: transparent;
+  }
 }
 
 
