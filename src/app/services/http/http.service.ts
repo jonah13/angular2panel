@@ -139,7 +139,6 @@ export class HttpService {
    * @returns {Promise<T>|Promise}
    */
   multiPartPut(uri:string, formData:FormData):Promise<any> {
-    console.log('sending put');
     return new Promise((resolve, reject) => {
       let xhr:XMLHttpRequest = new XMLHttpRequest();
       xhr.onreadystatechange = () => {
@@ -163,7 +162,6 @@ export class HttpService {
    * @returns {string}
    */
   endPointFullUrl(uri: string): string {
-    console.log(this.baseUri.concat(uri));
     return this.baseUri.concat(uri);
   }
 }

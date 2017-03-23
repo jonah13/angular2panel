@@ -46,7 +46,6 @@ export class HeaderComponent implements OnInit {
     } catch (err) {
       console.log(err);
     }
-    console.log(this.user);
 
     if (!this.user || !this.user.user_ID) {
       this.logout();
@@ -60,7 +59,6 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(user_temp) {
     this.user_temp = user_temp;
-    console.log(this.user_temp);
     this._userModelService.updateUser(this.user_temp);
   }
 
@@ -92,7 +90,6 @@ export class HeaderComponent implements OnInit {
           console.log(e);
         }
       }
-      console.log(data);
       if (data.ResponseCode === 200 && data.ResponseMessage === 'Success') {
         //updating user object
         this.user = data.UserDetails;

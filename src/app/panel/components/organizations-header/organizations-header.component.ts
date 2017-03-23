@@ -44,7 +44,6 @@ export class OrganizationsHeaderComponent {
     } catch (err) {
       console.log(err);
     }
-    console.log(this.user);
 
     if (!this.user || !this.user.user_ID) {
       this.logout();
@@ -55,7 +54,6 @@ export class OrganizationsHeaderComponent {
       this._localStorage.set('org', '');
       this._organizationModelService.list();
     } else if (this.user.organization_id) {
-      console.log(this.user.organization_id);
       this._organizationModelService.getById(this.user.organization_id);
     }
   }
@@ -70,14 +68,12 @@ export class OrganizationsHeaderComponent {
   private _subscribe() {
     this._organizationModelService.subscribe(data => {
       if (typeof data === 'string') {
-        console.log('string');
         try {
           data = JSON.parse(data);
         } catch (e) {
           console.log(e);
         }
       }
-      console.log(data);
       if (data.ResponseMessage === "User Already Exist!") {
         let response = {
           success: '',

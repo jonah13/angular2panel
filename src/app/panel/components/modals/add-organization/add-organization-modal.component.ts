@@ -45,7 +45,6 @@ export class AddOrganizationModalComponent implements OnInit {
       console.log(err);
     }
     this.organization['createdBy'] = this.user_ID;
-    console.log(this.user_ID);
   }
 
   /**
@@ -68,9 +67,6 @@ export class AddOrganizationModalComponent implements OnInit {
   }
 
   protected onSubmit():void {
-    console.log(this.organization);
-    //validation goes here
-
     if (this.validate()) {
       this.working = true;
       this.newOrganizationSubmitted.emit(this.organization);
